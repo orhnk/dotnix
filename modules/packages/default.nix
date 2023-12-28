@@ -57,7 +57,7 @@ with ulib;
       };
     }))
 
-    krita
+    libsForQt5.kolourpaint
     obs-studio
     # surf
     mpv # Media Player
@@ -71,4 +71,3 @@ with ulib;
     # services.gnome3.at-spi2-core.enable = true;
   })
 # [1]: Used with some nushell scripts (See modules/nushell/scripts/*)
-

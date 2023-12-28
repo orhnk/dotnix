@@ -18,8 +18,17 @@
   };
 
   inputs = {
+    # TODO
     vimacs = {
       url = "github:orhnk/vimacs-flake";
+    };
+
+    ghostty = {
+      url = "git+ssh://git@github.com/orhnk/ghostty";
+    };
+
+    ghosttyModule = {
+      url = "github:clo4/ghostty-hm-module";
     };
 
     nixSuper = {
@@ -65,6 +74,7 @@
     nixpkgs,
     homeManager,
     nuScripts,
+    ghosttyModule,
     fenix,
     tools,
     themes,
@@ -80,10 +90,10 @@
       upkgs =
         {inherit nuScripts;}
         // (lib.genAttrs
-          ["nixSuper" "zls" "vimacs" "iamb"]
+          ["nixSuper" "zls" "vimacs" "ghostty"]
           (name: inputs.${name}.packages.${system}.default));
 
-      theme = themes.custom (themes.raw.ayu-dark
+      theme = themes.custom (themes.raw.gruvbox-material-dark-medium
         // {
           corner-radius = 8;
           border-width = 2;
@@ -112,6 +122,7 @@
 
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
+        home-manager.sharedModules = [ghosttyModule.homeModules.default];
 
         networking.hostName = host;
         nixpkgs.hostPlatform = system;

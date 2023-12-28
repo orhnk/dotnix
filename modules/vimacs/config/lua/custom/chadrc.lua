@@ -329,7 +329,7 @@ M.ui = {
   },
 
   nvdash = {
-    load_on_startup = true,
+    -- load_on_startup = true, -- Smallest delay bugs me
     header = {
 
       -- Useful: https://emojicombos.com/

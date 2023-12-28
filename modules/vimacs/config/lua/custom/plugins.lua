@@ -237,13 +237,13 @@ local plugins = {
       }, -- Gigantic Search Base
     },
 
-  --   config = function(_, opts)
-  --     require("icon-picker").setup(opts)
-  --   end,
-  --
-  --   opts = {
-  --     disable_legacy_commands = false,
-  --   },
+    --   config = function(_, opts)
+    --     require("icon-picker").setup(opts)
+    --   end,
+    --
+    --   opts = {
+    --     disable_legacy_commands = false,
+    --   },
   },
 
   {
@@ -4245,108 +4245,6 @@ local plugins = {
     },
   },
 
-  -- {
-  --   "LudoPinelli/comment-box.nvim",
-  --   config = function(_, opts)
-  --     require("comment-box").setup(opts)
-  --   end,
-  --
-  --   keys = {
-  --     {
-  --       "<leader>bb",
-  --       function()
-  --         require("comment-box").ccbox()
-  --       end,
-  --       mode = { "n", "v" },
-  --       desc = "Comment Box",
-  --     },
-  --
-  --     {
-  --       "<leader>be",
-  --       function()
-  --         -- take an input:
-  --         local input = vim.fn.input "Catalog: "
-  --         require("comment-box").ccbox(input)
-  --       end,
-  --       mode = { "n", "v" },
-  --       desc = "Left Comment Box",
-  --     },
-  --
-  --     {
-  --       "<leader>bc",
-  --       function()
-  --         require("comment-box").lbox()
-  --       end,
-  --       mode = { "n", "v" },
-  --       desc = "Left Comment Box",
-  --     },
-  --
-  --     {
-  --       "<leader>bx",
-  --       function()
-  --         require("comment-box").catalog()
-  --       end,
-  --       mode = { "n", "v" },
-  --       desc = "Comment Catalog",
-  --     },
-  --   },
-  --
-  --   opts = {
-  --     doc_width = 80, -- width of the document
-  --     box_width = 60, -- width of the boxes
-  --     borders = { -- symbols used to draw a box
-  --       top = "─",
-  --       bottom = "─",
-  --       left = "│",
-  --       right = "│",
-  --       top_left = "╭",
-  --       top_right = "╮",
-  --       bottom_left = "╰",
-  --       bottom_right = "╯",
-  --     },
-  --     line_width = 70, -- width of the lines
-  --     line = { -- symbols used to draw a line
-  --       line = "─",
-  --       line_start = "─",
-  --       line_end = "─",
-  --     },
-  --     outer_blank_lines = false, -- insert a blank line above and below the box
-  --     inner_blank_lines = false, -- insert a blank line above and below the text
-  --     line_blank_line_above = false, -- insert a blank line above the line
-  --     line_blank_line_below = false, -- insert a blank line below the line
-  --   },
-  -- },
-
-  --  [markdown markmap]
-  --  https://github.com/Zeioth/markmap.nvim
-  -- {
-  --   "Zeioth/markmap.nvim",
-  --   build = "yarn global add markmap-cli", -- WARNING: yarn bin need to be in $PATH
-  --
-  --   keys = {
-  --     -- {"<leader>mm", "<cmd> MarkmapOpen<CR>", mode = "n", desc = "Open Markmap"},
-  --     -- {"<leader>mq", "<cmd> MarkmapWatchStop<CR>", mode = "n", desc = "Stop Markmap"},
-  --     { "<leader>cmk", "<cmd> MarkmapWatch<CR>", mode = "n", desc = "Watch Markmap" },
-  --     { "<leader>cms", "<cmd> MarkmapSave<CR>", mode = "n", desc = "Save Markmap" },
-  --   },
-  --
-  --   cmd = {
-  --     "MarkmapOpen",
-  --     "MarkmapSave",
-  --     "MarkmapWatch",
-  --     "MarkmapWatchStop",
-  --   },
-  --
-  --   opts = {
-  --     html_output = "/tmp/markmap.html", -- (default) Setting a empty string "" here means: [Current buffer path].html
-  --     hide_toolbar = false, -- (default)
-  --     grace_period = 3600000, -- (default) Stops markmap watch after 60 minutes. Set it to 0 to disable the grace_period.
-  --   },
-  --   config = function(_, opts)
-  --     require("markmap").setup(opts)
-  --   end,
-  -- },
-
   {
     "tommcdo/vim-exchange",
 
@@ -4396,20 +4294,6 @@ local plugins = {
     },
   },
 
-  -- { -- Lazy plugin installlation system
-  --   -- WARNING: Laggy, incomplete
-  --   "roobert/activate.nvim",
-  --   keys = {
-  --     {
-  --       "<leader>P",
-  --       function()
-  --         require("activate").list_plugins()
-  --       end,
-  --       desc = "Plugins",
-  --     },
-  --   },
-  -- },
-
   { -- FIXME: TODO: remove telescope override and write it as a dependency
     "nvim-telescope/telescope.nvim",
     keys = {
@@ -4445,86 +4329,6 @@ local plugins = {
       },
     },
   },
-
-  -- { -- Embed Neovim into browsers
-  --   -- Doesn't work. (Probably because the installation method I used to install my browser)
-  --   "glacambre/firenvim",
-  --
-  --   -- Lazy load firenvim
-  --   -- Explanation: https://github.com/folke/lazy.nvim/discussions/463#discussioncomment-4819297
-  --   -- lazy = not vim.g.started_by_firenvim,
-  --   lazy = false,
-  --   build = function()
-  --     vim.fn["firenvim#install"](0)
-  --   end,
-  -- },
-
-  -- {
-  --   "NStefan002/speedtyper.nvim",
-  --   cmd = "Speedtyper",
-  --
-  --   keys = {
-  --     {
-  --       "<leader>vf",
-  --       "<cmd> Speedtyper<CR>",
-  --       mode = "n",
-  --       desc = "Type Speed Game",
-  --     },
-  --   },
-  --
-  --   opts = {
-  --     -- your config
-  --   },
-  -- },
-
-  -- { -- Reminds you to drink water
-  --   "stefanlogue/hydrate.nvim",
-  --   -- This installs the latest stable release.
-  --   -- Set to false or omit to install the latest development version
-  --   version = "*",
-  --   opts = {
-  --     -- The interval between notifications in minutes
-  --     minute_interval = 20,
-  --
-  --     -- The render style for notifications
-  --     -- Accepted values are "default", "minimal", "simple" or "compact"
-  --     render_style = "compact",
-  --
-  --     -- Loads time of last drink on startup
-  --     -- Useful if you don't have long-running neovim instances
-  --     -- or if you tend to have multiple instances running at a time
-  --     persist_timer = false,
-  --   },
-  -- },
-
-  -- { -- Breaks vimacs
-  --   "Rawnly/gist.nvim",
-  --   cmd = { "GistCreate", "GistCreateFromFile", "GistsList" },
-  --   -- dependencies = {
-  --   --   -- `GistsList` opens the selected gif in a terminal buffer,
-  --   --   -- nvim-unception uses neovim remote rpc functionality to open the gist in an actual buffer
-  --   --   -- and prevents neovim buffer inception
-  --   --   "samjwill/nvim-unception",
-  --   --   -- lazy = false,
-  --   --   config = function()
-  --   --     vim.g.unception_block_while_host_edits = true
-  --   --   end,
-  --   -- },
-  --
-  --   config = true,
-  -- },
-  -- {
-  --   "m4xshen/smartcolumn.nvim",
-  --   keys = {
-  --     { "<leader>mj", mode = "n", desc = "Smart Column" },
-  --   },
-  --   opts = {
-  --     colorcolumn = "100",
-  --     disabled_filetypes = { "help", "text", "markdown" },
-  --     custom_colorcolumn = {},
-  --     scope = "file",
-  --   },
-  -- },
 
   { -- Glyph Picker
     "2kabhishek/nerdy.nvim",
@@ -4573,114 +4377,6 @@ local plugins = {
       -- Filenames above this limit will be truncated from the beginning with [...]
       max_filename_length = 0,
     },
-  },
-
-  {
-    "chentoast/marks.nvim",
-
-    keys = {
-      "m",
-      {
-        "<leader>bm",
-        "<cmd> MarksToggleSigns<CR>",
-        mode = "n",
-        desc = "Marks",
-      },
-    },
-
-    config = function(_, opts)
-      require("marks").setup(opts)
-      -- This plugin enables by default
-      -- So we toggle it to reanable it (because we only have a toggling function)
-      vim.cmd [[MarksToggleSigns]]
-    end,
-
-    opts = {
-      -- whether to map keybinds or not. default true
-      default_mappings = true,
-      -- which builtin marks to show. default {}
-      builtin_marks = { ".", "<", ">", "^" },
-      -- whether movements cycle back to the beginning/end of buffer. default true
-      cyclic = true,
-      -- whether the shada file is updated after modifying uppercase marks. default false
-      force_write_shada = false,
-      -- how often (in ms) to redraw signs/recompute mark positions.
-      -- higher values will have better performance but may cause visual lag,
-      -- while lower values may cause performance penalties. default 150.
-      refresh_interval = 250,
-      -- sign priorities for each type of mark - builtin marks, uppercase marks, lowercase
-      -- marks, and bookmarks.
-      -- can be either a table with all/none of the keys, or a single number, in which case
-      -- the priority applies to all marks.
-      -- default 10.
-      sign_priority = { lower = 10, upper = 15, builtin = 8, bookmark = 20 },
-      -- disables mark tracking for specific filetypes. default {}
-      excluded_filetypes = {},
-      -- marks.nvim allows you to configure up to 10 bookmark groups, each with its own
-      -- sign/virttext. Bookmarks can be used to group together positions and quickly move
-      -- across multiple buffers. default sign is '!@#$%^&*()' (from 0 to 9), and
-      -- default virt_text is "".
-      bookmark_0 = {
-        sign = "⚑",
-        virt_text = "hello world",
-        -- explicitly prompt for a virtual line annotation when setting a bookmark from this group.
-        -- defaults to false.
-        annotate = false,
-      },
-      mappings = {},
-    },
-  },
-
-  { -- Native Plugin (for of neoproj)
-    "UTFeight/neoproj",
-
-    dependencies = {
-      -- Just loading it after initialization
-      -- not a plugin dependency (just a config dependency)
-      "nvim-telescope/telescope-file-browser.nvim",
-      "nvim-lua/plenary.nvim",
-    },
-
-    cmd = {
-      "ProjectOpen",
-      "ProjectNew",
-    },
-
-    keys = {
-      -- { -- Using <leader>fp is suggested
-      --   "<leader>pf",
-      --   "<cmd> ProjectOpen<CR>",
-      --   mode = "n",
-      --   desc = "Project",
-      -- },
-      {
-        "<leader>nn",
-        "<cmd> ProjectNew<CR>",
-        mode = "n",
-        desc = "New Project",
-      },
-    },
-
-    config = function(_, opts)
-      require("neoproj").setup(opts.setup)
-      for _, template in ipairs(opts.templates) do
-        if template.repo then
-          require("neoproj").register_template {
-            name = template.name,
-
-            expand = function()
-              -- vim.cmd ":Telescope file_browser path=%:p:h select_buffer=true<CR>"
-              local cmd = require("neoproj").create_project(template.repo, template.opts)
-              os.execute(cmd)
-            end,
-          }
-        else
-          require("neoproj").register_template(template)
-        end
-      end
-    end,
-
-    opts = require("custom.configs.neoproj").opts,
   },
 
   -- {

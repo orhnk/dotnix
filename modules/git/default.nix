@@ -54,7 +54,7 @@ homeConfiguration {
   programs.git = enabled {
     package = pkgs.gitFull;
 
-    userName  = "ocaml-case";
+    userName  = "orhnk";
     userEmail = "utfeightt@gmail.com";
 
     extraConfig = {
