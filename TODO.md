@@ -43,9 +43,11 @@
   };
   ```
 
-- Vimacs doesn't work
-- DWM dynamic colorschemes doesn't work.
 - Need WeeChat
 - Need to make Firefox cozzier
 - GH-cli extensions. But declerative
-- Theme rofi
+- Nushell doesn't like dmenu
+- dyanmically change apps depending on `${host}/default.nix`
+
+  Beispiel:
+    commenting out rofi enabling dmenu will change the dwm keybinding `Mod+c` to execute dmenu (instead of rofi)

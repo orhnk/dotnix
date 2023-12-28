@@ -117,6 +117,8 @@
           icons.package = pkgs.callPackage (import ./derivations/gruvbox-icons.nix) {};
         });
 
+      config = {};
+
       defaultConfiguration = {
         environment.defaultPackages = [];
 

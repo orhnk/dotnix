@@ -42,7 +42,7 @@
   "matrix"
   "networkmanager"
   "nix"
-  # "nushell"
+  "nushell"
   "nvidia"
   "packages"
   "picom"

@@ -8,8 +8,8 @@
 with ulib;
   merge
   (homeConfiguration {
-    programs.nushell.environmentVariables.EDITOR = "hx";
-    programs.nushell.shellAliases.x = "hx";
+    # programs.nushell.environmentVariables.EDITOR = "hx";
+    programs.fish.shellAliases.x = "hx";
 
     programs.helix = enabled {
       languages.language = [

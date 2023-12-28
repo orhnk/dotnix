@@ -2,6 +2,7 @@
   ulib,
   pkgs,
   theme,
+  config,
   ...
 }:
 with theme.withHashtag;
@@ -14,10 +15,12 @@ let
 in
   (homeConfiguration {
     # TODO: Apply to all shells (add to $PATH)
-    programs.nushell.shellAliases = {
+    programs.fish.shellAliases = {
       dmenu_run = "dmenu_run ${dmenu-theme}";
       dmenu     = "dmenu     ${dmenu-theme}";
     };
+    config.dmenu_run = "dmenu_run ${dmenu-theme}";
+    config.dmenu     = "dmenu     ${dmenu-theme}";
   }))
 
   (homePackages (with pkgs; [
