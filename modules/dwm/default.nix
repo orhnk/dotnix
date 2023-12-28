@@ -10,7 +10,38 @@ with theme;
   merge3
   (
     let
-      # passed using echo "${theme}" > theme.h
+      dmenu-theme = theme.dmenuTheme + " -fn '${theme.font.sans.name}'";
+      terminal-emulator = "kitty";
+      selection-to-editor = "kitty sh -c 'xclip -o | nvim -'";
+      clipboard-dump = "greenclip print";
+      web-browser = "vieb";
+      clipboard_daemon = "greenclip daemon";
+      wallpaper = "~/Pictures/wallpapers/Nord/Megalophobia.jpg";
+      powermenu_script = ''
+        #!/bin/sh
+        action=$(echo -e "shutdown\nsleep\nlogout\nreboot" | dmenu -l 4 ${dmenu-theme})
+
+        if [ "$action" == "shutdown" ]; then
+          shutdown -h now
+        elif [ "$action" == "sleep" ]; then
+          systemctl hibernate
+        elif [ "$action" == "logout" ]; then
+          pkill dwm
+        elif [ "$action" == "reboot" ]; then
+          reboot
+        fi
+      '';
+
+      # TODO: auto-infer these from module representation
+      appinfo = ''
+                #define TERMINAL_EMULATOR   "${terminal-emulator}"
+                #define APP_LAUNCHER        "dmenu_run ${dmenu-theme}"
+                #define CLIPBOARD_MANAGER   "${clipboard-dump} | dmenu -l 5 ${dmenu-theme} | xclip -selection clipboard"
+                #define SELECTION_TO_EDITOR "${selection-to-editor}"
+                #define WEB_BROWSER         "${web-browser}"
+                #define POWERMENU           "${pkgs.writeScript "powermenu" powermenu_script}"
+        '';
+
       system-theme = ''
         static const char black[]         = "#${theme.base00}";
         static const char blue[]          = "#${theme.base0D}"; // focused window border
@@ -25,9 +56,6 @@ with theme;
         static const char yellow[]        = "#${theme.base0B}";
         static const char col_borderbar[] = "#${theme.base00}";
       '';
-      clipboard_daemon = "greenclip daemon";
-      startup_copyq = true;
-      wallpaper = "~/Pictures/wallpapers/stairs.jpg";
       xrandr = ''
         xrandr --output VGA-1     \
                --mode 1024x768    \
@@ -71,6 +99,7 @@ with theme;
           windowManager.dwm = enabled {
             package = pkgs.callPackage (import ./recompile.nix) {
               theme = system-theme;
+              inherit appinfo;
             };
           };
 
@@ -133,7 +162,7 @@ with theme;
   in (homeConfiguration {
     home.file.".Xresources".source = ./dotXresources; # NOTE
     xdg.configFile."chadwm".source = ./config;
-    xdg.configFile."nix/chadwm/bar/theme".text = bar-theme;
+    xdg.configFile."nix/chadwm/bar/theme".text = bar-theme; # TODO: symlinkJoin
   }))
   (homePackages
     (with pkgs; [

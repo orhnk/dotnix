@@ -14,8 +14,11 @@ with ulib; merge3
 
   (homeConfiguration {
     programs.starship = enabled {};
-
-    programs.fish = enabled {};
+    programs.fish = enabled {
+      interactiveShellInit = ''
+        set fish_greeting # Disable greeting
+      '';
+    };
   })
 
   (systemConfiguration {

@@ -6,7 +6,7 @@ homeConfiguration {
     PAGER    = ''"bat --plain"'';
   };
 
-  programs.nushell.shellAliases = {
+  programs.fish.shellAliases = {
     cat  = "bat";
     less = "bat --plain";
   };

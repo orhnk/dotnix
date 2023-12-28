@@ -8,6 +8,7 @@
   libX11,
   gnumake,
   theme ? null,
+  appinfo ? null,
   patches ? [],
   preInstall ? null,
   pkgs ? import <nixpkgs> {},
@@ -16,9 +17,10 @@ pkgs.stdenv.mkDerivation {
   name = "dwm";
 
   src = pkgs.symlinkJoin {
-    name = "vimacs";
+    name = "dwm";
     paths = [
       (pkgs.writeTextDir "chadwm/themes/dynamic.h" theme)
+      (pkgs.writeTextDir "chadwm/nixos/appinfo.h" appinfo)
       ./config
     ];
   };

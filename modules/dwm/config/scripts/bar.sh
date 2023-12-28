@@ -19,18 +19,6 @@ cpu() {
 	printf "^c$white^ ^b$grey^  $cpu_val"
 }
 
-# TODO: Nixify
-pkg_updates() {
-	#updates=$({ timeout 20 doas xbps-install -un 2>/dev/null || true; } | wc -l) # void
-	updates=$({ timeout 20 checkupdates 2>/dev/null || true; } | wc -l) # arch
-	# updates=$({ timeout 20 aptitude search '~U' 2>/dev/null || true; } | wc -l)  # apt (ubuntu, debian etc)
-	if [ -z "$updates" ]; then
-		printf "  ^c$green_dark^    Fully Updated"
-	else
-		printf "  ^c$green_dark^    $updates"" updates"
-	fi
-}
-
 # battery() {
 #   get_capacity="$(cat /sys/class/power_supply/BAT1/capacity)" # for laptops (computers which has batteries) uncomment these lines
 #   printf "^c$blue^   $get_capacity"
@@ -79,34 +67,12 @@ disk() {
 	printf "^c$white^ ^b$grey^  $disk_space"
 }
 
-vim() {
-	printf "^c$green^"
-}
-
-firefox() {
-	printf "^c$orange^"
-}
-
-emacs() {
-	printf "^c$magenta^"
-}
-
-arch() {
-	printf "^c$blue^"
-}
-
 # uptime | awk -F'[ ,:]+' '{printf "UP: %02d:%02d\n", $6, $7}'
-
-uptime_info() {
-	printf "^c$black^ ^b$red^ "
-	uptime_result=$(uptime | awk -F'[ ,:]+' '{printf "%02d:%02d\n", $6, $7}')
-	printf "^c$white^ ^b$grey^  $uptime_result"
-}
 
 while true; do
 	[ $interval = 0 ] || [ $(($interval % 3600)) = 0 ] && updates=$(pkg_updates)
 	interval=$((interval + 1))
 
 	# Add  $(battery),  $(brightness) below to see battery usage and brightness on the bar
-	sleep 1 && xsetroot -name "$updates    $(firefox) $(emacs) $(arch) $(vim)    $(disk) $(wlan) $(uptime_info) $(cpu) $(mem) $(dateinfo) $(timeinfo)"
+	sleep 1 && xsetroot -name "$(disk) $(wlan) $(cpu) $(mem) $(dateinfo) $(timeinfo)"
 done

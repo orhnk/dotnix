@@ -65,7 +65,7 @@
     };
 
     themes = {
-      url = "github:RGBCube/ThemeNix";
+      url = "github:orhnk/PhoeNix";
     };
   };
 
@@ -93,7 +93,7 @@
           ["nixSuper" "zls" "vimacs" "ghostty"]
           (name: inputs.${name}.packages.${system}.default));
 
-      theme = themes.custom (themes.raw.gruvbox-material-dark-medium
+      theme = themes.custom (themes.raw.nord
         // {
           corner-radius = 8;
           border-width = 2;
@@ -104,11 +104,11 @@
           font.size.normal = 12;
           font.size.big = 18;
 
-          font.sans.name = "Iosevka";
-          font.sans.package = pkgs.iosevka;
+          # font.sans.name = "Iosevka";
+          # font.sans.package = pkgs.iosevka;
 
-          # font.mono.name = "creep";
-          # font.mono.package = pkgs.creep;
+          font.sans.name = "tewi";
+          font.sans.package = pkgs.tewi-font;
 
           font.mono.name = "JetBrainsMono Nerd Font";
           font.mono.package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
@@ -116,8 +116,6 @@
           icons.name = "Gruvbox-Plus-Dark";
           icons.package = pkgs.callPackage (import ./derivations/gruvbox-icons.nix) {};
         });
-
-      config = {};
 
       defaultConfiguration = {
         environment.defaultPackages = [];

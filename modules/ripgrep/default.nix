@@ -1,7 +1,7 @@
 { ulib, ... }: with ulib;
 
 homeConfiguration {
-  programs.nushell.shellAliases = {
+  programs.fish.shellAliases = {
     rg   = "rg --line-number --smart-case";
     todo = ''rg "todo|fixme" --colors match:fg:yellow --colors match:style:bold'';
   };

@@ -551,16 +551,16 @@
     },
     "themes": {
       "locked": {
-        "lastModified": 1702496684,
-        "narHash": "sha256-fClxDgKdH62T3nbuq3HXMrgtzsEJbFyj3UCaQdgRuF8=",
-        "owner": "RGBCube",
-        "repo": "ThemeNix",
-        "rev": "9f6d2cda4ba1e1840d8f126086df9a801508de6a",
+        "lastModified": 1703793569,
+        "narHash": "sha256-UkPK3L3BnxEdL71Q1bcRWpEsQw10H36OachhhpBG55k=",
+        "owner": "orhnk",
+        "repo": "PhoeNix",
+        "rev": "45fa42327cf92d143d21d0b495e5a4601fb26bb8",
         "type": "github"
       },
       "original": {
-        "owner": "RGBCube",
-        "repo": "ThemeNix",
+        "owner": "orhnk",
+        "repo": "PhoeNix",
         "type": "github"
       }
     },
