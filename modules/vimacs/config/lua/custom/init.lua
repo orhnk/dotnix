@@ -54,10 +54,10 @@ vim.cmd [[
   augroup END
 ]]
 
--- Change Cwd to current file (AWESOME)
-vim.cmd [[
-set autochdir
-]]
+-- -- Change Cwd to current file (AWESOME)
+-- vim.cmd [[
+-- set autochdir
+-- ]]
 
 ---- For alacritty:
 -- local function sed(from, to)

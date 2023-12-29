@@ -93,7 +93,7 @@
           ["nixSuper" "zls" "vimacs" "ghostty"]
           (name: inputs.${name}.packages.${system}.default));
 
-      theme = themes.custom (themes.raw.nord
+      theme = themes.custom (themes.raw.ayu-dark
         // {
           corner-radius = 8;
           border-width = 2;

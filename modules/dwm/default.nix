@@ -160,7 +160,6 @@ with theme;
       white_dark=#${base0F}
     '';
   in (homeConfiguration {
-    home.file.".Xresources".source = ./dotXresources; # NOTE
     xdg.configFile."chadwm".source = ./config;
     xdg.configFile."nix/chadwm/bar/theme".text = bar-theme; # TODO: symlinkJoin
   }))
