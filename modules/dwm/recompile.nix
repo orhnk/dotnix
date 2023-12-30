@@ -25,6 +25,8 @@ pkgs.stdenv.mkDerivation {
     ];
   };
 
+  inherit patches;
+
   buildInputs = [imlib2 libX11 libXft libXinerama gnumake acpi];
 
   installPhase = ''

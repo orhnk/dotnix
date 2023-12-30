@@ -16,10 +16,10 @@ with theme;
       clipboard-dump = "greenclip print";
       web-browser = "vieb";
       clipboard_daemon = "greenclip daemon";
-      wallpaper = "~/Pictures/wallpapers/Nord/Megalophobia.jpg";
+      wallpaper = theme.wallpaper;
       powermenu_script = ''
         #!/bin/sh
-        action=$(echo -e "shutdown\nsleep\nlogout\nreboot" | dmenu -l 4 ${dmenu-theme})
+        action=$(echo -e "shutdown\nreboot\nsleep\nlogout" | dmenu -l 4 ${dmenu-theme})
 
         if [ "$action" == "shutdown" ]; then
           shutdown -h now
@@ -34,13 +34,19 @@ with theme;
 
       # TODO: auto-infer these from module representation
       appinfo = ''
-                #define TERMINAL_EMULATOR   "${terminal-emulator}"
-                #define APP_LAUNCHER        "dmenu_run ${dmenu-theme}"
-                #define CLIPBOARD_MANAGER   "${clipboard-dump} | dmenu -l 5 ${dmenu-theme} | xclip -selection clipboard"
-                #define SELECTION_TO_EDITOR "${selection-to-editor}"
-                #define WEB_BROWSER         "${web-browser}"
-                #define POWERMENU           "${pkgs.writeScript "powermenu" powermenu_script}"
-        '';
+        #define TERMINAL_EMULATOR   "${terminal-emulator}"
+        #define APP_LAUNCHER        "dmenu_run ${dmenu-theme}"
+        #define CLIPBOARD_MANAGER   "${clipboard-dump} | dmenu -l 5 ${dmenu-theme} | xclip -selection clipboard"
+        #define SELECTION_TO_EDITOR "${selection-to-editor}"
+        #define WEB_BROWSER         "${web-browser}"
+        #define POWERMENU           "${pkgs.writeScript "powermenu" powermenu_script}"
+
+        static const char *fonts[]          = {
+          "${theme.font.sans.name}",
+          "${theme.font.mono.name}",
+          // "Iosevka:style:medium:size=12",
+        }; //:size=10
+      '';
 
       system-theme = ''
         static const char black[]         = "#${theme.base00}";
@@ -100,6 +106,12 @@ with theme;
             package = pkgs.callPackage (import ./recompile.nix) {
               theme = system-theme;
               inherit appinfo;
+              patches = [
+                (pkgs.fetchpatch {
+                  url = "https://dwm.suckless.org/patches/barpadding/dwm-barpadding-20211020-a786211.diff";
+                  hash = "sha256-0kUD9+5E3h8B8V+emP/EuNKUNRujseL5dzjjZTN/NSU=";
+                })
+              ];
             };
           };
 

@@ -129,6 +129,10 @@ with ulib;
     # CMAKE
     cmake-language-server
 
+    # C/C++
+    cppcheck
+    # clangd
+
     # GO
     gopls
 

@@ -95,6 +95,7 @@
 
       theme = themes.custom (themes.raw.ayu-dark
         // {
+          wallpaper = "~/Pictures/wallpapers/Nord/city.jpg";
           corner-radius = 8;
           border-width = 2;
 

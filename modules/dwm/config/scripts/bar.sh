@@ -12,13 +12,6 @@ interval=0
 # . ~/.config/chadwm/scripts/bar_themes/gruvbox
 . ~/.config/nix/chadwm/bar/theme
 
-cpu() {
-	cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
-
-	printf "^c$black^ ^b$magenta^ 󰍛"
-	printf "^c$white^ ^b$grey^  $cpu_val"
-}
-
 # battery() {
 #   get_capacity="$(cat /sys/class/power_supply/BAT1/capacity)" # for laptops (computers which has batteries) uncomment these lines
 #   printf "^c$blue^   $get_capacity"
@@ -31,7 +24,7 @@ cpu() {
 
 mem() {
 	# 󱘗 -> saved for future use
-	printf "^c$grey^ ^b$blue^ 󱐖"
+	printf "^c$grey^ ^b$blue^ M"
 	printf "^c$white^ ^b$grey^  $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)"
 }
 
@@ -41,18 +34,18 @@ wlan() {
 	# ETH:
 	# cat /sys/class/net/enp4s0/operstate 2>/dev/null
 	case "$(cat /sys/class/net/enp4s0/operstate 2>/dev/null)" in
-	up) printf "^c$grey^ ^b$orange^ 󰤨 ^d^%s" "^b$grey^ ^c$orange^ Connected" ;;
-	down) printf "^c$grey^ ^b$orange^ 󰤭 ^d^%s" "^b$grey^ ^c$orange^ Disconnected" ;;
+	up) printf "^c$grey^ ^b$orange^ I ^d^%s" "^b$grey^ ^c$orange^ 1" ;;
+	down) printf "^c$grey^ ^b$orange^ I ^d^%s" "^b$grey^ ^c$orange^ 0" ;;
 	esac
 }
 
 dateinfo() {
-	printf "^c$black^ ^b$aqua^ 󰃵"
-	printf "^c$white^ ^b$grey^ $(date '+%d/%m/%y')"
+	# printf "^c$black^ ^b$aqua^ D"
+	printf " ^c$white^ ^b$grey^ $(date '+%d/%m/%y')"
 }
 
 timeinfo() {
-	printf "^c$grey^ ^b$green_dark^ 󱑆 "
+	# printf "^c$grey^ ^b$green_dark^ 󱑆 "
 	printf "^c$grey^^b$green^  $(date '+%R')  "
 }
 
@@ -74,5 +67,5 @@ while true; do
 	interval=$((interval + 1))
 
 	# Add  $(battery),  $(brightness) below to see battery usage and brightness on the bar
-	sleep 1 && xsetroot -name "$(disk) $(wlan) $(cpu) $(mem) $(dateinfo) $(timeinfo)"
+	sleep 1 && xsetroot -name "  $(dateinfo) $(timeinfo)"
 done

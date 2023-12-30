@@ -1,4 +1,4 @@
-let action =  "shutdown\nsleep\nlogout\nreboot" | dmenu -l 4 
+let action =  "shutdown\nreboot\nsleep\nlogout" | dmenu -l 4 
 
 if $action == "shutdown" {
   sudo shutdown -h now
