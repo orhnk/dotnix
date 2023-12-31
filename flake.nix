@@ -93,7 +93,7 @@
           ["nixSuper" "zls" "vimacs" "ghostty"]
           (name: inputs.${name}.packages.${system}.default));
 
-      colorscheme = "tokyo-night-light";
+      colorscheme = "solarized-dark";
 
       theme = themes.custom (themes.raw.${colorscheme}
         // {
