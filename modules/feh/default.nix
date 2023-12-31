@@ -6,7 +6,7 @@
 }: with ulib;
 
 systemConfiguration {
-  system.activationScripts.wallpaper = {
+  system.userActivationScripts.wallpaper = {
     text = ''
       ${pkgs.feh}/bin/feh --bg-fill ${theme.wallpaper}
     '';
