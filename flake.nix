@@ -95,14 +95,14 @@
 
       theme = themes.custom (themes.raw.ayu-dark
         // {
-          wallpaper = "~/Pictures/wallpapers/Nord/city.jpg";
+          wallpaper = "~/Pictures/Hintergrundbilder/Gruvbox/stairs.jpg";
           corner-radius = 8;
           border-width = 2;
 
           margin = 6;
           padding = 8;
 
-          font.size.normal = 12;
+          font.size.normal = 10;
           font.size.big = 18;
 
           # font.sans.name = "Iosevka";
@@ -111,8 +111,11 @@
           font.sans.name = "tewi";
           font.sans.package = pkgs.tewi-font;
 
-          font.mono.name = "JetBrainsMono Nerd Font";
-          font.mono.package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+          font.mono.name = "CozetteVector";
+          font.mono.package = pkgs.cozette;
+
+          # font.mono.name = "JetBrainsMono Nerd Font";
+          # font.mono.package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
 
           icons.name = "Gruvbox-Plus-Dark";
           icons.package = pkgs.callPackage (import ./derivations/gruvbox-icons.nix) {};

@@ -10,16 +10,18 @@ with theme;
   merge3
   (
     let
-      dmenu-theme = theme.dmenuTheme + " -fn '${theme.font.sans.name}'";
-      terminal-emulator = "kitty";
+      dmenu-theme       = theme.dmenuTheme + " -fn '${theme.font.sans.name}'";
+      rofi-dmenu          = "rofi -dmenu";
+      rofi-app-launcher   = "rofi -show drun";
+      terminal-emulator   = "ghostty";
       selection-to-editor = "kitty sh -c 'xclip -o | nvim -'";
-      clipboard-dump = "greenclip print";
-      web-browser = "vieb";
-      clipboard_daemon = "greenclip daemon";
-      wallpaper = theme.wallpaper;
+      clipboard-dump      = "greenclip print";
+      web-browser         = "vieb";
+      clipboard_daemon    = "greenclip daemon";
+      wallpaper           = theme.wallpaper;
       powermenu_script = ''
         #!/bin/sh
-        action=$(echo -e "shutdown\nreboot\nsleep\nlogout" | dmenu -l 4 ${dmenu-theme})
+        action=$(echo -e "shutdown\nreboot\nsleep\nlogout" | ${rofi-dmenu})
 
         if [ "$action" == "shutdown" ]; then
           shutdown -h now
@@ -35,8 +37,10 @@ with theme;
       # TODO: auto-infer these from module representation
       appinfo = ''
         #define TERMINAL_EMULATOR   "${terminal-emulator}"
-        #define APP_LAUNCHER        "dmenu_run ${dmenu-theme}"
-        #define CLIPBOARD_MANAGER   "${clipboard-dump} | dmenu -l 5 ${dmenu-theme} | xclip -selection clipboard"
+        // #define APP_LAUNCHER        "dmenu_run ${dmenu-theme}"
+        // #define CLIPBOARD_MANAGER   "${clipboard-dump} | dmenu -l 5 ${dmenu-theme} | xclip -selection clipboard"
+        #define APP_LAUNCHER        "${rofi-app-launcher}"
+        #define CLIPBOARD_MANAGER   "${clipboard-dump} | ${rofi-dmenu} | xclip -selection clipboard"
         #define SELECTION_TO_EDITOR "${selection-to-editor}"
         #define WEB_BROWSER         "${web-browser}"
         #define POWERMENU           "${pkgs.writeScript "powermenu" powermenu_script}"
@@ -74,11 +78,6 @@ with theme;
                --rotate normal    \
                --primary          \
       '';
-      # patch = pkgs.writeTextFile {
-      #   name = "dynamic-theming";
-      #   text = import ./patches/dynamic-theme.nix.diff {inherit theme;};
-      #   destination = "dynamic-theming.diff";
-      # };
     in
       systemConfiguration {
         hardware.opengl = enabled {
@@ -106,12 +105,6 @@ with theme;
             package = pkgs.callPackage (import ./recompile.nix) {
               theme = system-theme;
               inherit appinfo;
-              patches = [
-                (pkgs.fetchpatch {
-                  url = "https://dwm.suckless.org/patches/barpadding/dwm-barpadding-20211020-a786211.diff";
-                  hash = "sha256-0kUD9+5E3h8B8V+emP/EuNKUNRujseL5dzjjZTN/NSU=";
-                })
-              ];
             };
           };
 

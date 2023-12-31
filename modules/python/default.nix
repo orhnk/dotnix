@@ -11,7 +11,7 @@
 ]))
 
 (homeConfiguration {
-  programs.fish.shellAliases = {
+  programs.nushell.shellAliases = {
     venv = "virtualenv venv";
   };
 })

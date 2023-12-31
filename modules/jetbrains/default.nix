@@ -6,35 +6,21 @@
   fetchurl,
   ...
 }:
-with ulib; let
-  clion-package = pkgs.jetbrains.clion.overrideAttrs (old: rec {
-    src = pkgs.fetchurl {
-      url = "https://download.jetbrains.com/clion/CLion-233.11799.284.tar.gz";
-      sha256 = "sha256-B1JMBE3kVly/BS+ZgARKpsbigGTu+zAzWHr6Hgn/ab8=";
-    };
-  });
-in (let
-  rust-rover-package = pkgs.jetbrains.rust-rover.overrideAttrs (old: rec {
-    src = pkgs.fetchurl {
-      url = "https://download.jetbrains.com/rustrover/RustRover-233.11799.284.tar.gz";
-      sha256 = "sha256-B1JMBE3kVly/BS+ZgARKpsbigGTu+zAzWHr6Hgn/ab8=";
-    };
-  });
-in (
+with ulib;
+(
   graphicalPackages (
     with pkgs; [
-      jetbrains-toolbox # may crash due to outdated nixpkgs version
+      jetbrains-toolbox # crashes on monitor focus change (?)
       # linuxKernel.packages.linux_latest_libre.perf # perf tool
-      # (jetbrains.plugins.addPlugins
-      #   clion-package
-      #   [
-      #     "github-copilot"
-      #     "ideavim"
-      #     "rust"
-      #     "nixidea"
-      #   ])
+      (jetbrains.plugins.addPlugins pkgs.jetbrains.clion
+        [
+          "github-copilot"
+          "ideavim"
+          "rust"
+          "nixidea"
+        ])
 
-      (jetbrains.plugins.addPlugins rust-rover-package
+      (jetbrains.plugins.addPlugins pkgs.jetbrains.rust-rover
         [
           "github-copilot"
           "ideavim"
@@ -42,7 +28,7 @@ in (
         ])
     ]
   )
-))
+)
 # JetBrains products are not-compatiple smoothly with NixOS
 # You need to patch your build according to the plugins you use !!!
 # Some helpful links that will get you there:

@@ -9,7 +9,6 @@
   gnumake,
   theme ? null,
   appinfo ? null,
-  patches ? [],
   preInstall ? null,
   pkgs ? import <nixpkgs> {},
 }:
@@ -24,8 +23,6 @@ pkgs.stdenv.mkDerivation {
       ./config
     ];
   };
-
-  inherit patches;
 
   buildInputs = [imlib2 libX11 libXft libXinerama gnumake acpi];
 

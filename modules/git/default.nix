@@ -1,7 +1,7 @@
 { ulib, pkgs, ... }: with ulib;
 
 homeConfiguration {
-  programs.fish.shellAliases = {
+  programs.nushell.shellAliases = {
     g = "git";
 
     gi = "git init";

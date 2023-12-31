@@ -13,10 +13,10 @@ let
 in
   (homeConfiguration {
     # TODO: Apply to all shells (add to $PATH)
-    programs.fish.shellAliases = {
+    programs.nushell.shellAliases = {
       dmenu_run = "dmenu_run ${dmenu-theme}";
       dmenu     = "dmenu     ${dmenu-theme}";
-      embedmenu = "dmenu -w $(xdo id)      ";
+      # embedmenu = "dmenu -w $(xdo id)      ";
     };
   }))
 

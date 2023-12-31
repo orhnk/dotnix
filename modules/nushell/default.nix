@@ -1,7 +1,7 @@
 { config, ulib, pkgs, upkgs, theme, ... }: with ulib; merge3
 
 (systemConfiguration {
-  # users.defaultUserShell = pkgs.nushell;
+  users.defaultUserShell = pkgs.nushell;
 })
 
 (homeConfiguration {

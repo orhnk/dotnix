@@ -23,8 +23,7 @@ with ulib;
     timer #
     notify-desktop # cli desktop nofifier [1]
     translate-shell # cli translator
-    gh
-    # github-copilot-cli # using `gh copilot`
+    ps_mem          # memusage
 
     wine
 
@@ -43,7 +42,7 @@ with ulib;
     # thunderbird
     # whatsapp-for-linux
     xfce.thunar # File Manager
-    vieb # Vim Browser
+    # vieb # Vim Browser
     # nvi              # Text Editor
     ranger
     kazam
@@ -58,9 +57,10 @@ with ulib;
     }))
 
     libsForQt5.kolourpaint
-    obs-studio
+    # obs-studio
     # surf
-    mpv # Media Player
+    lynx # Web Browser
+    mpv  # Media Player
 
     libreoffice
     hunspellDicts.en_US

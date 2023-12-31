@@ -22,7 +22,7 @@
   "boot"
   "btop"
   "discord"
-  "dmenu"
+  # "dmenu" # nushell issue #9497
   "dunst"
   "dwm"
   # "emacs" # BROKEN
@@ -31,6 +31,7 @@
   "fish"
   "fonts"
   "ghostty"
+  "github"
   "git"
   "gtk"
   "helix"
@@ -46,7 +47,7 @@
   "nvidia"
   "packages"
   "picom"
-  # "pipewire"
+  "pulseaudio"
   "pueue"
   "python"
   "qt"
