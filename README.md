@@ -1,6 +1,10 @@
-# My NixOS Configurations
+# `.NIX` > `*NIX`
 
-This repository contains my NixOS configurations for all my machines.
+![ayu-dark-dwm](https://github.com/orhnk/dotnix/assets/101834410/889701e1-c979-40dd-a536-6f41fc88e492)
+![gruvbox-dwm-|M|](https://github.com/orhnk/dotnix/assets/101834410/1df53386-aad4-40b0-8f62-f866573ed8c3)
+![gruvbox-light-dwm](https://github.com/orhnk/dotnix/assets/101834410/dec5344d-da32-4fff-b46c-096133a032e3)
+![solarized-dark-dwm](https://github.com/orhnk/dotnix/assets/101834410/6b1b325b-3325-4c95-86a2-bdd01cd4be7a)
+
 
 ## Bootstrapping
 
