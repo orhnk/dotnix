@@ -93,13 +93,14 @@
           ["nixSuper" "zls" "vimacs" "ghostty"]
           (name: inputs.${name}.packages.${system}.default));
 
-      colorscheme = "ayu-light";
+      colorscheme = "tokyo-night-dark";
 
-      theme = themes.custom ( themes.raw.${colorscheme} // {
-          wallpaper = if lib.pathExists ./wallpapers/${colorscheme} then
-                        ./wallpapers/${colorscheme}
+      theme = themes.custom (themes.raw.${colorscheme}
+        // {
+          wallpaper = if builtins.pathExists ./wallpapers/${colorscheme}/wallpaper then
+                        ./wallpapers/${colorscheme}/wallpaper
                       else
-                        ./wallpapers/Gruvbox/stairs.jpg
+                        ./wallpapers/default/wallpaper
                       ;
           corner-radius = 8;
           border-width = 2;

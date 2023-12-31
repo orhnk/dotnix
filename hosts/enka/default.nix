@@ -27,6 +27,7 @@
   "dwm"
   # "emacs" # BROKEN
   "eww"
+  "feh"
   "firefox"
   "fish"
   "fonts"
