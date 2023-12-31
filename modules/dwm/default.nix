@@ -122,13 +122,14 @@ with theme;
                   # xbacklight -set 10 & # TODO: not working (idk if essential)
                   xset r rate 200 50 &
                   dash ~/.config/chadwm/scripts/bar.sh &
+                  # eww daemon & # start eww daemon for faster widget startup
+                  ${clipboard_daemon} &
+                  ${xrandr}
+
                   # draw our wallpaper only if xinit is not set
                   if [ ! -f $XDG_CONFIG_HOME/sxmo/xinit ]; then
-                    ${pkgs.feh}/bin/feh --bg-fill -z ${wallpaper} &
+                    DISPLAY=:0 ${pkgs.feh}/bin/feh --bg-fill -z ${wallpaper}
                   fi
-                  eww daemon & # start eww daemon for faster widget startup
-                  ${clipboard_daemon} &
-                  ${xrandr} &
 
                   # NOTE: picom autostarts in the way It's declared in `default.nix`
 

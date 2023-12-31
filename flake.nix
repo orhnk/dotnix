@@ -93,14 +93,15 @@
           ["nixSuper" "zls" "vimacs" "ghostty"]
           (name: inputs.${name}.packages.${system}.default));
 
-      colorscheme = "solarized-dark";
+      colorscheme = "ayu-dark";
 
       theme = themes.custom (themes.raw.${colorscheme}
         // {
+          # wallpaper is either a path to get random wallpapers or an image
           wallpaper = if builtins.pathExists ./wallpapers/${colorscheme}/wallpaper then
-                        ./wallpapers/${colorscheme}/wallpaper
+                        ./wallpapers/${colorscheme}
                       else
-                        ./wallpapers/default/wallpaper
+                        ./wallpapers/default
                       ;
           corner-radius = 8;
           border-width = 2;
