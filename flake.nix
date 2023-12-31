@@ -93,9 +93,14 @@
           ["nixSuper" "zls" "vimacs" "ghostty"]
           (name: inputs.${name}.packages.${system}.default));
 
-      theme = themes.custom (themes.raw.ayu-dark
-        // {
-          wallpaper = "~/Pictures/Hintergrundbilder/Gruvbox/stairs.jpg";
+      colorscheme = "ayu-light";
+
+      theme = themes.custom ( themes.raw.${colorscheme} // {
+          wallpaper = if lib.pathExists ./wallpapers/${colorscheme} then
+                        ./wallpapers/${colorscheme}
+                      else
+                        ./wallpapers/Gruvbox/stairs.jpg
+                      ;
           corner-radius = 8;
           border-width = 2;
 
