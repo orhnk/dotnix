@@ -6,6 +6,7 @@
 with ulib;
   merge
   (graphicalPackages (with pkgs; [
+    element-desktop
     # fluffychat
     # matrixcli
     # cinny-desktop

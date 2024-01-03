@@ -10,7 +10,7 @@ graphicalConfiguration {
       layer     = "overlay";
       prompt    = ''"❯ "'';
 
-      terminal = "kitty";
+      terminal = "ghostty";
 
       tabs = 4;
 

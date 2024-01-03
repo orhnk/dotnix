@@ -10,7 +10,8 @@ with theme;
   merge3
   (
     let
-      dmenu-theme       = theme.dmenuTheme + " -fn '${theme.font.sans.name}'";
+      logfile             = "~/dwm.log";
+      dmenu-theme         = theme.dmenuTheme + " -fn '${theme.font.sans.name}'";
       rofi-dmenu          = "rofi -dmenu";
       rofi-app-launcher   = "rofi -show drun";
       terminal-emulator   = "ghostty";
@@ -36,26 +37,32 @@ with theme;
 
       # TODO: auto-infer these from module representation
       appinfo = ''
-        #define TERMINAL_EMULATOR   "${terminal-emulator}"
-        // #define APP_LAUNCHER        "dmenu_run ${dmenu-theme}"
-        // #define CLIPBOARD_MANAGER   "${clipboard-dump} | dmenu -l 5 ${dmenu-theme} | xclip -selection clipboard"
-        #define APP_LAUNCHER        "${rofi-app-launcher}"
-        #define CLIPBOARD_MANAGER   "${clipboard-dump} | ${rofi-dmenu} | xclip -selection clipboard"
-        #define SELECTION_TO_EDITOR "${selection-to-editor}"
-        #define WEB_BROWSER         "${web-browser}"
-        #define POWERMENU           "${pkgs.writeScript "powermenu" powermenu_script}"
+        #define TERMINAL_EMULATOR       "${terminal-emulator}"
+        // #define APP_LAUNCHER         "dmenu_run ${dmenu-theme}"
+        // #define CLIPBOARD_MANAGER    "${clipboard-dump} | dmenu -l 5 ${dmenu-theme} | xclip -selection clipboard"
+        #define APP_LAUNCHER            "${rofi-app-launcher}"
+        #define CLIPBOARD_MANAGER       "${clipboard-dump} | ${rofi-dmenu} | xclip -selection clipboard"
+        #define SELECTION_TO_EDITOR     "${selection-to-editor}"
+        #define WEB_BROWSER             "${web-browser}"
+        #define POWERMENU               "${pkgs.writeScript "powermenu" powermenu_script}"
 
         static const char *fonts[]          = {
           "${theme.font.sans.name}",
           "${theme.font.mono.name}",
           // "Iosevka:style:medium:size=12",
         }; //:size=10
+
+        static const unsigned int borderpx  = ${toString theme.border-width}; /* border pixel of windows                         */
+        static const unsigned int gappih    = ${toString theme.margin};       /* horiz inner gap between windows                 */
+        static const unsigned int gappiv    = ${toString theme.margin};       /* vert inner gap between windows                  */
+        static const unsigned int gappoh    = ${toString theme.margin};       /* horiz outer gap between windows and screen edge */
+        static const unsigned int gappov    = ${toString theme.margin};       /* vert outer gap between windows and screen edge  */
       '';
 
       system-theme = ''
         static const char black[]         = "#${theme.base00}";
-        static const char blue[]          = "#${theme.base0D}"; // focused window border
-        static const char gray2[]         = "#${theme.base00}"; // unfocused window border
+        static const char blue[]          = "#${theme.base07}"; // focused window border
+        static const char gray2[]         = "#${theme.base07}"; // unfocused window border
         static const char gray3[]         = "#${theme.base01}";
         static const char gray4[]         = "#${theme.base00}";
         static const char green[]         = "#${theme.base0C}";
@@ -76,7 +83,7 @@ with theme;
                --output HDMI-1    \
                --mode 1920x1080   \
                --rotate normal    \
-               --primary          \
+               --primary
       '';
     in
       systemConfiguration {
@@ -137,9 +144,8 @@ with theme;
                 '';
               }
             ];
-            autoLogin = enabled {
-              user = "nixos";
-            };
+            # autoLogin = enabled { user = "nixos"; }; # Resulting a halt after boot on my machine
+            # Either need to enable kmscon or disable autologin
           };
         };
       }

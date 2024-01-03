@@ -44,6 +44,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
+
+    hyprpicker = {
+      url = "github:hyprwm/hyprpicker";
+    };
+
     nuScripts = {
       url = "github:nushell/nu_scripts";
       flake = false;
@@ -90,39 +98,42 @@
       upkgs =
         {inherit nuScripts;}
         // (lib.genAttrs
-          ["nixSuper" "zls" "vimacs" "ghostty"]
+          [ "nixSuper" "hyprland" "hyprpicker" "ghostty" "vimacs" "zls" ]
           (name: inputs.${name}.packages.${system}.default));
 
-      colorscheme = "ayu-dark";
+      colorscheme = "ayu-mirage";
 
       theme = themes.custom (themes.raw.${colorscheme}
         // {
           # wallpaper is either a path to get random wallpapers or an image
-          wallpaper = if builtins.pathExists ./wallpapers/${colorscheme}/wallpaper then
+          wallpaper = if builtins.pathExists ./wallpapers/${colorscheme} then
                         ./wallpapers/${colorscheme}
                       else
                         ./wallpapers/default
                       ;
-          corner-radius = 8;
-          border-width = 2;
+          corner-radius = 0;
+          border-width = 0;
 
-          margin = 6;
+          margin = 10;
           padding = 8;
 
           font.size.normal = 10;
           font.size.big = 18;
 
+          # font.mono.name = "Fira Code";
+          # font.mono.package = pkgs.fira-code;
+          # font.sans.name = "Fira Code";
+          # font.sans.package =  pkgs.fira-code;
+          
           # font.sans.name = "Iosevka";
           # font.sans.package = pkgs.iosevka;
+          # font.mono.name = "JetBrainsMono Nerd Font";
+          # font.mono.package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
 
           font.sans.name = "tewi";
           font.sans.package = pkgs.tewi-font;
-
           font.mono.name = "CozetteVector";
           font.mono.package = pkgs.cozette;
-
-          # font.mono.name = "JetBrainsMono Nerd Font";
-          # font.mono.package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
 
           icons.name = "Gruvbox-Plus-Dark";
           icons.package = pkgs.callPackage (import ./derivations/gruvbox-icons.nix) {};

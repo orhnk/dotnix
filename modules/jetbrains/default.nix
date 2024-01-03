@@ -5,30 +5,30 @@
   lib,
   fetchurl,
   ...
-}:
-with ulib;
-(
-  graphicalPackages (
-    with pkgs; [
-      jetbrains-toolbox # crashes on monitor focus change (?)
-      # linuxKernel.packages.linux_latest_libre.perf # perf tool
-      (jetbrains.plugins.addPlugins pkgs.jetbrains.clion
-        [
-          "github-copilot"
-          "ideavim"
-          "rust"
-          "nixidea"
-        ])
+}: with ulib; merge
 
-      (jetbrains.plugins.addPlugins pkgs.jetbrains.rust-rover
-        [
-          "github-copilot"
-          "ideavim"
-          "rust"
-        ])
-    ]
-  )
-)
+(graphicalPackages ( with pkgs; [
+  jetbrains-toolbox # crashes on monitor focus change (?)
+  # linuxKernel.packages.linux_latest_libre.perf # perf tool
+  (jetbrains.plugins.addPlugins pkgs.jetbrains.clion [
+      "github-copilot"
+      "ideavim"
+      "rust"
+      "nixidea"
+  ])
+
+  (jetbrains.plugins.addPlugins pkgs.jetbrains.rust-rover [
+      "github-copilot"
+      "ideavim"
+      "rust"
+  ])
+]))
+
+(graphicalConfiguration {
+  home.file.".ideavimrc".source = ./dotideavimrc;
+})
+
+
 # JetBrains products are not-compatiple smoothly with NixOS
 # You need to patch your build according to the plugins you use !!!
 # Some helpful links that will get you there:

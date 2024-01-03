@@ -4,7 +4,8 @@
   (python311.withPackages (pkgs: with pkgs; [
     pip
     requests
-    # howdoi # stackoverflow search --bad--
+    # howdoi # stackoverflow search ~ bad ~
+    prayer-times-calculator
   ]))
   virtualenv
   poetry

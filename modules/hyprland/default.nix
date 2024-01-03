@@ -35,7 +35,7 @@ with ulib;
         wayland.windowManager.hyprland = with theme;
           enabled {
             package = upkgs.hyprland;
-            # enableNvidiaPatches = true; # MAYCHANGE
+            # enableNvidiaPatches = true; # REMOVED
 
             extraConfig =
               ''
@@ -114,12 +114,13 @@ with ulib;
                 bind = SUPER    , F, fullscreen
                 bind = SUPER    , I, togglefloating
 
-                bind = SUPER    , RETURN, exec, kitty
-                bind = SUPER+ALT, RETURN, exec, ghostty
-                bind = SUPER    , W     , exec, firefox
-                bind = SUPER    , M     , exec, thunderbird
-                bind = SUPER    , T     , exec, thunar
-                bind = SUPER    , R     , exec, hyprpicker --autocopy
+                bind = SUPER       , RETURN, exec, ghostty
+                bind = SUPER+SHIFT , RETURN, exec, kitty
+                bind = SUPER+CTRL  , RETURN, exec, st
+                bind = SUPER       , W     , exec, firefox
+                bind = SUPER       , M     , exec, thunderbird
+                bind = SUPER       , T     , exec, thunar
+                bind = SUPER       , R     , exec, hyprpicker --autocopy
 
                 bind = SUPER, B, exec, pkill --signal SIGUSR1 waybar
 
@@ -150,18 +151,14 @@ with ulib;
                 # bezier = liner, 1, 1, 1, 1
                 # bezier = linear, 0.0, 0.0, 1.0, 1.0
 
-                animations {
-                  enabled = true
+              animations {
+                bezier = material_decelerate, 0.05, 0.7, 0.1,  1
 
-                  # animation = windowsIn, 1, 6, winIn, slide
-                  # animation = windowsOut, 1, 5, winOut, slide
-                  # animation = windowsMove, 1, 5, wind, slide
-                  # animation = border, 1, 10, default
-                  # animation = borderangle, 1, 100, linear, loop
-                  # animation = fade, 1, 10, default
-                  # animation = workspaces, 1, 5, wind
-                  # animation = windows, 1, 6, wind, slide
-                }
+                animation =    windows,   1,  2, material_decelerate, popin 80%
+                animation =     border,   1, 10, default
+                animation =       fade,   1,  2, default
+                animation = workspaces,   1,  3, material_decelerate
+              }
               ''
               + ''
                 decoration {

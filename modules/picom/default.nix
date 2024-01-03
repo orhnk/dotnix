@@ -2,6 +2,7 @@
   pkgs,
   lib,
   ulib,
+  theme,
   ...
 }:
 with ulib;
@@ -33,7 +34,7 @@ with ulib;
       "vsync" = true;
       "backend" = "glx";
       # "animation-mass" = 0.7;
-      # "corner-radius" = 10; # rounded corners
+      "corner-radius" = theme.corner-radius; # rounded corners
       "inactive-dim" = 5.0e-2;
     };
 

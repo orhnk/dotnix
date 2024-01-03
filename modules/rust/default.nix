@@ -12,4 +12,7 @@
     "rustc"
     "rustfmt"
   ])
+
+  cargo-watch
+  cargo-expand
 ]))

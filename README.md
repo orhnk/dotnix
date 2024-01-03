@@ -66,6 +66,12 @@ Parameters:
 
 - Minimal rice: https://codeberg.org/rs221122/dotfiles/
 
+## BUGS
+
+- dwm hangs after a boot because of some bug. There are two ways that I've came up with to solve this problem:
+  1. Enable kmscon
+  2. Disable Auto-booting (into the "nixos" user)
+
 ## License
 
 ```

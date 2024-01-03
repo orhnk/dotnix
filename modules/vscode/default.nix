@@ -102,6 +102,8 @@ graphicalConfiguration {
     ++ plugin "sidp.strict-whitespace"            "0.1.0"  "sha256-Os5JWt1WrqYIKrpGUYHEPFTpm9pbO4jZshrp0JvyrDs="
     ++ plugin "hbenl.vscode-test-explorer"        "2.21.1" "sha256-fHyePd8fYPt7zPHBGiVmd8fRx+IM3/cSBCyiI/C0VAg=" # required by rust-test-lens
     ++ plugin "ms-vscode.test-adapter-converter"  "0.1.8"  "sha256-ybb3Wud6MSVWEup9yNN4Y4f5lJRCL3kyrGbxB8SphDs="
+    ++ plugin "fathulfahmy.lunarkeymap"           "1.0.12" "sha256-R0lFpH4sLIbV9CChbRM1St69WJ1MISaFCBcwBvCi5WA="
+    # ++ plugin "garlandcrow.vscode-helix"          "0.1.3"  "sha256-MJt/8Kg8UVgj0D+r8ibc7K7dGxHQH8X3z7rZlxD8Icc=" # helix-mode doesn't work
     ;
   };
 }
