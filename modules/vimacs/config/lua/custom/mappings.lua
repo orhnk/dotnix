@@ -414,6 +414,17 @@ M.whatsapp = {
   },
 }
 
+-- M.status_line = {
+--   n = {
+--     ["<leader>ss"] = {
+--       function()
+--         extern("statusline", "vertical")
+--       end,
+--       "Status Line",
+--     },
+--   },
+-- }
+
 -- M. = {
 --   n = {
 --  [""] = { "", "" },

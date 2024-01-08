@@ -98,19 +98,18 @@
       upkgs =
         {inherit nuScripts;}
         // (lib.genAttrs
-          [ "nixSuper" "hyprland" "hyprpicker" "ghostty" "vimacs" "zls" ]
+          ["nixSuper" "hyprland" "hyprpicker" "ghostty" "vimacs" "zls"]
           (name: inputs.${name}.packages.${system}.default));
 
-      colorscheme = "ayu-mirage";
+      colorscheme = "gruvbox-dark-medium";
 
       theme = themes.custom (themes.raw.${colorscheme}
         // {
           # wallpaper is either a path to get random wallpapers or an image
-          wallpaper = if builtins.pathExists ./wallpapers/${colorscheme} then
-                        ./wallpapers/${colorscheme}
-                      else
-                        ./wallpapers/default
-                      ;
+          wallpaper =
+            if builtins.pathExists ./wallpapers/${colorscheme}
+            then ./wallpapers/${colorscheme}
+            else ./wallpapers/default;
           corner-radius = 0;
           border-width = 0;
 
@@ -124,7 +123,7 @@
           # font.mono.package = pkgs.fira-code;
           # font.sans.name = "Fira Code";
           # font.sans.package =  pkgs.fira-code;
-          
+
           # font.sans.name = "Iosevka";
           # font.sans.package = pkgs.iosevka;
           # font.mono.name = "JetBrainsMono Nerd Font";

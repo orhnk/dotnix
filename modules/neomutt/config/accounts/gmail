@@ -1,0 +1,22 @@
+set from = "atomoyuncu.yt@gmail.com"
+set realname = "Orhan KARAMAN"
+
+# Gmail
+set imap_user           = "atomoyuncu.yt@gmail.com"
+set smtp_url            = "smtps://atomoyuncu.yt@smtp.gmail.com:465/"
+set smtp_authenticators = 'gssapi:login'
+set imap_pass           = "yhutkstmswlmmfet"
+set smtp_pass           = "yhutkstmswlmmfet"
+
+# Ensure TLS is enforced
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+# My mailboxes
+set folder = "imaps://imap.gmail.com:993/[Gmail]"
+# set spoolfile = "+All Mail"
+# set postponed = "+Drafts"
+set record = "+Sent Mail"
+set trash = "+Trash"
+
+mailboxes =Important =Starred =Drafts ="Sent Mail" =Spam =Trash

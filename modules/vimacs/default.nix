@@ -81,6 +81,7 @@ with ulib;
         ''
       );
     in (graphicalConfiguration {
+      programs.nushell.environmentVariables.EDITOR = "nvim";
       programs.neovim = enabled {
         package = pkgs.neovim-unwrapped;
         vimAlias = true;
@@ -88,9 +89,11 @@ with ulib;
       };
       # xdg.configFile."nvim".source = ./config; # FIXME: conflicting with flake
       # home.file."nvim/lua".source = (pkgs.callPackage ./vimacs.nix { custom = ./config/lua/custom;}).nvchad; # FIXME: conflicting with flake
-      # home.file."nvim/init.lua".source = ./config/init.lua;
+      # # Workaround for mutablility
+      xdg.configFile."nvim/lua".source = ./config/lua;
+      xdg.configFile."nvim/init.lua".source = ./config/init.lua;
 
-      # Workaround for mutibility
+      # # Workaround for mutibility
       # xdg.configFile."nvim/lua/custom/".source = "${vimacs}/lua/custom/";
       # xdg.configFile."nvim/lua/custom/utils.lua".source = "${vimacs}/lua/custom/utils.lua";
       # xdg.configFile."nvim/lua/custom/plugins.lua".source = "${vimacs}/lua/custom/plugins.lua";
@@ -108,13 +111,14 @@ with ulib;
       # xdg.configFile."nvim/lua".source = "${vimacs}/lua";
       # xdg.configFile."nvim/init.lua".source = "${vimacs}/init.lua";
       # xdg.configFile."nvim/lua/custom/themes/dynamic.lua".text = vimacs-theme;
-      xdg.configFile."nvim".source = pkgs.symlinkJoin {
-        name = "vimacs";
-        paths = [
-          (pkgs.writeTextDir "lua/custom/themes/dynamic.lua" vimacs-theme)
-          vimacs
-        ];
-      };
+
+      # xdg.configFile."nvim".source = pkgs.symlinkJoin {
+      #   name = "vimacs";
+      #   paths = [
+      #     (pkgs.writeTextDir "lua/custom/themes/dynamic.lua" vimacs-theme)
+      #     vimacs
+      #   ];
+      # };
     })
   )
   (homePackages (with pkgs; [
@@ -164,5 +168,10 @@ with ulib;
     rust-analyzer
 
     # ZIG
+
+    # [T]
+    taplo
+
+    # Zig
     upkgs.zls
   ]))

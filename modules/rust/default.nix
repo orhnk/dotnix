@@ -15,4 +15,5 @@
 
   cargo-watch
   cargo-expand
+  evcxr # Rust REPL
 ]))

@@ -1,0 +1,11 @@
+{
+	"name": "nix",
+	"mir_pm_pairs": {
+		"install <package_list>": "shell <package_list>",
+		"update <package_list>": "flake update <package_list>",
+		"search <package_list>": "search <package_list>",
+		"remove <package_list>": "<!>",
+		"--upgrade-packages": "flake update",
+		"install <package_list> --upgrade-packages": "<!>"
+	}
+}

@@ -21,7 +21,7 @@
   "blueman"      # Bluetooth thing
   "boot"         # systemd-boot
   "btop"         # System Monitor
-  # "discord"      # Let me sell my personal data
+  "discord"      # Let me sell my personal data
   # "dmenu"      # nushell issue #9497
   "dunst"        # Notification Daemon
   "dwm"          # wm that sucks less
@@ -36,18 +36,21 @@
   "github"       # Microsoft...
   "git"          # Version Control System
   "gtk"          # GNU ToolKit
-  "helix"        # NeoVi
+  # "helix"        # NeoVi
   # "hyprland"     # Some animations... NOTE: enable with waybar + uncomment (Hyprland) in nushell/environment.nix.nu
   "jetbrains"    # Heavy but featureful IDE
-  "kitty"        # Aggresively maintained terminal emulator
+  "kitty"        # Aggressively maintained terminal emulator
   # "kmscon"       # TTY but GTK: WARNING: breaks hyprland
   "localisation" # Where are you living sir?
-  "logind"    
+  "logind"
   "matrix"       # Imitation. but good.
+  "merge"        # Package Manager Emulator
+  "neomutt"      # Email Client
   "networkmanager"
   "nix"          # The only package manager
-  "nushell"      # Data. Structured.
+  # "nushell"      # Data. Structured.
   "nvidia"       # Fuck...
+  # "orhanwm"      # Custom WM
   "packages"     # Random cli utilities
   # "picom"        # X Copmpositor
   "pulseaudio"   # Works Better

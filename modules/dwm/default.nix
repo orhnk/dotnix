@@ -203,4 +203,10 @@ with theme;
       gnumake
 
       simplescreenrecorder
+
+      # TODO: move to orhanwm
+      xorg.xmodmap # needed for orhanwm
+      sx           #
+      pkg-config # TODO: Move to cargo
+      fontconfig
     ]))

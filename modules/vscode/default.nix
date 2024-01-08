@@ -17,6 +17,15 @@ in
 graphicalConfiguration {
   programs.vscode = enabled {
     package = pkgs.vscode.fhs;
+
+    userSettings = {
+      "files.autoSave" = "afterDelay";
+      "files.autoSaveDelay" = 1000;
+      # "workbench.colorTheme" = "Correqia Gruvbox Theme";
+      "workbench.colorTheme"= "Celestial";
+      "editor.cursorSmoothCaretAnimation" = "on";
+    };
+
     extensions = with pkgs.vscode-extensions; [
       # THEMES
       dracula-theme.theme-dracula
@@ -43,7 +52,7 @@ graphicalConfiguration {
 
       # VIM
       vscodevim.vim
-      
+
       # LANGUAGES
       ## NIX
       bbenoist.nix
@@ -79,10 +88,11 @@ graphicalConfiguration {
       # panicbit.cargo
       # vadimcn.vscode-lldb
       # dustypomerleau.rust-syntax
-    ] 
+    ]
     # Themes
     ++ plugin "jonathanharty.gruvbox-material-icon-theme" "1.1.5" "sha256-86UWUuWKT6adx4hw4OJw3cSZxWZKLH4uLTO+Ssg75gY="
-    
+    ++ plugin "apvarun.celestial"                         "0.3.0" "sha256-yZUQdvswI+LlL+e7ORundAZoPEnJd9AveQeMgfwQLTo="
+
     # Programming Languages
     ## Rust
     ++ plugin "dustypomerleau.rust-syntax"        "0.6.1"  "sha256-o9iXPhwkimxoJc1dLdaJ8nByLIaJSpGX/nKELC26jGU="

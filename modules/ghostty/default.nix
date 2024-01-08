@@ -1,4 +1,10 @@
-{ lib, ulib, pkgs, upkgs, theme, ... }: with ulib;
+{ lib, ulib, pkgs, upkgs, theme, ... }: with ulib; merge
+
+(let
+  ghostty-config = ''
+  # custom-shader = ${./shaders/crt.glsl}
+  '';
+in
 
 graphicalConfiguration {
   programs.nushell.environmentVariables.TERMINAL = "ghostty";
@@ -6,7 +12,7 @@ graphicalConfiguration {
   programs.ghostty = enabled {
     package = upkgs.ghostty;
 
-    clearDefaultKeybindings = true;
+    # clearDefaultKeybindings = true;
 
     keybindings = (lib.mapAttrs' (name: value: lib.nameValuePair "ctrl+shift+${name}" value) {
       c = "copy_to_clipboard";
@@ -51,7 +57,8 @@ graphicalConfiguration {
       "shift+physical:tab" = "previous_tab";
     });
 
-    shellIntegration.enable = false;
+    # shellIntegration.enable = false;
+    shellIntegration.enable = true;
 
     settings = with theme; {
       font-size   = font.size.normal;
@@ -66,7 +73,12 @@ graphicalConfiguration {
 
       config-file = [
         (toString (pkgs.writeText "base16-config" ghosttyConfig))
+        (toString (pkgs.writeText "shader-config" ghostty-config))
       ];
     };
   };
-}
+})
+
+(homeConfiguration {
+  xdg.configFile."ghostty/shaders".source = ./shaders;
+ })

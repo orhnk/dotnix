@@ -51,3 +51,7 @@ export def pray [] {
 
   echo $date | append $time | append $current_time
 }
+
+export def wttr [] {
+  http get https://wttr.in
+}

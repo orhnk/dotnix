@@ -1,0 +1,31 @@
+[workspace]
+
+members = [
+  "merge",
+  "proc",
+]
+
+default-members = [
+  "merge",
+  "proc",
+]
+
+resolver = "2"
+
+[workspace.package]
+license    = "MIT"
+edition    = "2021"
+version    = "0.1.0"
+authors    = ["Orhan KARAMAN"]
+keywords   = ["package-manager"]
+homepage   = "https://github.com/orhnk/merge"
+repository = "https://github.com/orhnk/merge"
+
+[profile.release]
+lto           = true
+panic         = "abort"
+debug         = false
+strip         = true
+opt-level     = 3
+codegen-units = 1
+

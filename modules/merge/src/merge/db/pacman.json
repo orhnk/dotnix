@@ -1,0 +1,13 @@
+{
+	"name": "pacman",
+	"mir_pm_pairs": {
+		"install <package_list>": "-S <package_list>",
+		"update <package_list>": "-U <package_list>",
+		"search <package_list>": "-Q <package_list>",
+		"remove <package_list>": "-R <package_list>",
+
+		"--upgrade-packages": "-Syu",
+
+		"install <package_list> --upgrade-packages": "-Syu <package_list>"
+	}
+}

@@ -1,0 +1,14 @@
+# My mailboxes
+set folder = "imaps://imap.gmail.com:993/[Gmail]"
+set spoolfile = "+All Mail"
+set postponed = "+Drafts"
+set record = "+Sent Mail"
+set trash = "+Trash"
+
+mailboxes =Important =Starred =Drafts ="Sent Mail" =Spam =Trash
+
+# Where to put the stuff
+set header_cache = "$XDG_CACHE_HOME/neomutt/headers"
+set message_cachedir = "$XDG_CACHE_HOME/neomutt/bodies"
+set certificate_file = "$XDG_CACHE_HOME/neomutt/certificates"
+unset record

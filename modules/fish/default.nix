@@ -1,21 +1,18 @@
 {
-  config,
   ulib,
   pkgs,
-  upkgs,
-  theme,
   ...
 }:
-with ulib; # merge3
+with ulib;  merge3
 
-  # (systemConfiguration {
-  #   users.defaultUserShell = pkgs.fish;
-  # })
+  (systemConfiguration {
+    users.defaultUserShell = pkgs.fish;
+  })
 
-  # (systemConfiguration {
-  #   users.users.nixos.ignoreShellProgramCheck = true;
-  #   users.users.root.ignoreShellProgramCheck = true;
-  # })
+  (systemConfiguration {
+    users.users.nixos.ignoreShellProgramCheck = true;
+    users.users.root.ignoreShellProgramCheck = true;
+  })
 
   (homeConfiguration {
     programs.starship = enabled {};
@@ -30,7 +27,6 @@ with ulib; # merge3
   # (homePackages (with pkgs; [
   #   fzf
   #   grc
-
   #   (with fishPlugins; [
   #     done
   #     fzf-fish

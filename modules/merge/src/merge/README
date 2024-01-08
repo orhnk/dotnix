@@ -1,0 +1,15 @@
+
+Terminology
+===========
+
+Package Manager Emulation
+-------------------------
+
+Emulate a package manager that you know, using system resources you have.
+
+Ghost Software
+--------------
+
+Software that pretends like X but actually a fully abstracted version of Y
+e.g you don't have `pacman` installed on your system, but you're able to use it.
+How? Merge.

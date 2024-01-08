@@ -1,6 +1,4 @@
 {
-  lib,
-  writeText,
   acpi,
   imlib2,
   libXinerama,
@@ -9,7 +7,6 @@
   gnumake,
   theme ? null,
   appinfo ? null,
-  preInstall ? null,
   pkgs ? import <nixpkgs> {},
 }:
 pkgs.stdenv.mkDerivation {

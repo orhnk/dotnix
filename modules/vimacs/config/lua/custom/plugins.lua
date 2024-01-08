@@ -31,8 +31,8 @@ local plugins = {
         "rust",
         "zig",
 
-        -- Note
-        "org",
+        -- -- Note
+        -- "org",
 
         -- Script
         "bash",
@@ -224,27 +224,27 @@ local plugins = {
     },
   },
 
-  { -- Emoji Picker
-    -- MOVED: to nerdy.nvim
-    "ziontee113/icon-picker.nvim",
-
-    keys = {
-      {
-        "<leader>fe",
-        ":PickEverything<CR>",
-        mode = "n",
-        desc = "Glyph Picker",
-      }, -- Gigantic Search Base
-    },
-
-    --   config = function(_, opts)
-    --     require("icon-picker").setup(opts)
-    --   end,
-    --
-    --   opts = {
-    --     disable_legacy_commands = false,
-    --   },
-  },
+  -- { -- Emoji Picker
+  --   -- MOVED: to nerdy.nvim
+  --   "ziontee113/icon-picker.nvim",
+  --
+  --   keys = {
+  --     {
+  --       "<leader>fe",
+  --       ":PickEverything<CR>",
+  --       mode = "n",
+  --       desc = "Glyph Picker",
+  --     }, -- Gigantic Search Base
+  --   },
+  --
+  --   --   config = function(_, opts)
+  --   --     require("icon-picker").setup(opts)
+  --   --   end,
+  --   --
+  --   --   opts = {
+  --   --     disable_legacy_commands = false,
+  --   --   },
+  -- },
 
   {
     "hrsh7th/nvim-cmp",
@@ -252,128 +252,128 @@ local plugins = {
     opts = require("custom.configs.cmp").opts,
   },
 
-  { -- Code runner
-    "Zeioth/compiler.nvim",
-    keys = {
-      {
-        "<leader>rr",
-        ":CompilerOpen<CR>",
-        mode = "n",
-        desc = "Run Project",
-      },
-      {
-        "<leader>rt",
-        ":CompilerToggleResults<CR>",
-        mode = "n",
-        desc = "Toggle Results",
-      },
-    },
+  -- { -- Code runner
+  --   "Zeioth/compiler.nvim",
+  --   keys = {
+  --     {
+  --       "<leader>rr",
+  --       ":CompilerOpen<CR>",
+  --       mode = "n",
+  --       desc = "Run Project",
+  --     },
+  --     {
+  --       "<leader>rt",
+  --       ":CompilerToggleResults<CR>",
+  --       mode = "n",
+  --       desc = "Toggle Results",
+  --     },
+  --   },
+  --
+  --   cmd = {
+  --     "CompilerOpen",
+  --     "CompilerToggleResults",
+  --     "CompilerRedo",
+  --   },
+  --
+  --   dependencies = {
+  --     "stevearc/overseer.nvim",
+  --   },
+  --
+  --   opts = {},
+  -- },
 
-    cmd = {
-      "CompilerOpen",
-      "CompilerToggleResults",
-      "CompilerRedo",
-    },
+  -- { -- The task runner for compiler.nvim + daily tasks
+  --   "stevearc/overseer.nvim",
+  --   -- commit = "19aac0426710c8fc0510e54b7a6466a03a1a7377",
+  --
+  --   keys = {
+  --     {
+  --       "<leader>ra",
+  --       function()
+  --         vim.cmd [[OverseerRun]]
+  --         vim.cmd [[OverseerOpen]]
+  --       end,
+  --       mode = "n",
+  --       desc = "Run Task",
+  --     },
+  --   },
+  --
+  --   cmd = {
+  --     "CompilerOpen",
+  --     "CompilerToggleResults",
+  --     "CompilerRedo",
+  --   },
+  --
+  --   opts = {
+  --     task_list = {
+  --       direction = "bottom",
+  --       min_height = 25,
+  --       max_height = 25,
+  --       default_detail = 1,
+  --       bindings = {
+  --         ["q"] = function()
+  --           vim.cmd "OverseerClose"
+  --         end,
+  --       },
+  --     },
+  --   },
+  -- },
 
-    dependencies = {
-      "stevearc/overseer.nvim",
-    },
-
-    opts = {},
-  },
-
-  { -- The task runner for compiler.nvim + daily tasks
-    "stevearc/overseer.nvim",
-    -- commit = "19aac0426710c8fc0510e54b7a6466a03a1a7377",
-
-    keys = {
-      {
-        "<leader>ra",
-        function()
-          vim.cmd [[OverseerRun]]
-          vim.cmd [[OverseerOpen]]
-        end,
-        mode = "n",
-        desc = "Run Task",
-      },
-    },
-
-    cmd = {
-      "CompilerOpen",
-      "CompilerToggleResults",
-      "CompilerRedo",
-    },
-
-    opts = {
-      task_list = {
-        direction = "bottom",
-        min_height = 25,
-        max_height = 25,
-        default_detail = 1,
-        bindings = {
-          ["q"] = function()
-            vim.cmd "OverseerClose"
-          end,
-        },
-      },
-    },
-  },
-
-  { -- Integrated Tests -- CONFIG
-    "nvim-neotest/neotest",
-
-    keys = {
-      {
-        "<leader>to",
-        ":Neotest summary<CR>",
-        mode = "n",
-        desc = "Open interactive test session",
-      },
-      {
-        "<leader>te",
-        ":Neotest run<CR>",
-        mode = "n",
-        desc = "Run tests for the session",
-      },
-      {
-        "<leader>tf",
-        function()
-          require("neotest").output_panel.toggle()
-        end,
-        mode = "n",
-        desc = "Toggle test panel",
-      },
-      {
-        "<leader>tq",
-        function()
-          require("neotest").output.open { enter = true }
-        end,
-        mode = "n",
-        desc = "Open test results",
-      },
-    },
-
-    dependencies = {
-      -- Required
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim",
-
-      -- Dev
-      "rouge8/neotest-rust", -- Rust development
-    },
-
-    config = function(_, opts)
-      require("neotest").setup {
-        adapters = {
-          require "neotest-rust",
-          -- require "neotest-vim-test" {
-          --   ignore_file_types = { "python", "vim", "lua" },
-          -- },
-        },
-      }
-    end,
-  },
+  -- { -- Integrated Tests -- CONFIG
+  --   "nvim-neotest/neotest",
+  --
+  --   keys = {
+  --     {
+  --       "<leader>to",
+  --       ":Neotest summary<CR>",
+  --       mode = "n",
+  --       desc = "Open interactive test session",
+  --     },
+  --     {
+  --       "<leader>te",
+  --       ":Neotest run<CR>",
+  --       mode = "n",
+  --       desc = "Run tests for the session",
+  --     },
+  --     {
+  --       "<leader>tf",
+  --       function()
+  --         require("neotest").output_panel.toggle()
+  --       end,
+  --       mode = "n",
+  --       desc = "Toggle test panel",
+  --     },
+  --     {
+  --       "<leader>tq",
+  --       function()
+  --         require("neotest").output.open { enter = true }
+  --       end,
+  --       mode = "n",
+  --       desc = "Open test results",
+  --     },
+  --   },
+  --
+  --   dependencies = {
+  --     -- Required
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "antoinemadec/FixCursorHold.nvim",
+  --
+  --     -- Dev
+  --     "rouge8/neotest-rust", -- Rust development
+  --   },
+  --
+  --   config = function(_, opts)
+  --     require("neotest").setup {
+  --       adapters = {
+  --         require "neotest-rust",
+  --         -- require "neotest-vim-test" {
+  --         --   ignore_file_types = { "python", "vim", "lua" },
+  --         -- },
+  --       },
+  --     }
+  --   end,
+  -- },
 
   -- { -- Diagnostics as a scrollbar (JetBrains feature)
   --   -- NOTE: I deprecate this plugin from CamelVim. This is optional because of the bad performance satellite.nvim has.
@@ -434,36 +434,36 @@ local plugins = {
   --   lazy = false, -- leap takes care of lazy loading by itself
   -- },
 
-  { -- Minimap
-    "gorbit99/codewindow.nvim",
-
-    keys = {
-      {
-        "<leader>mo",
-        "codewindow.toggle_minimap()",
-        mode = "n",
-        desc = "Toggle Minimap",
-      },
-      {
-        "<leader>mm",
-        "codewindow.toggle_focus()",
-        mode = "n",
-        desc = "Focus Minimap",
-      },
-    },
-
-    config = function(_, opts)
-      local codewindow = require "codewindow"
-      codewindow.setup(opts)
-      codewindow.apply_default_keybinds()
-    end,
-
-    opts = {
-      show_cursor = false,
-      screen_bounds = "lines",
-      window_border = "none",
-    },
-  },
+  -- { -- Minimap
+  --   "gorbit99/codewindow.nvim",
+  --
+  --   keys = {
+  --     {
+  --       "<leader>mo",
+  --       "codewindow.toggle_minimap()",
+  --       mode = "n",
+  --       desc = "Toggle Minimap",
+  --     },
+  --     {
+  --       "<leader>mm",
+  --       "codewindow.toggle_focus()",
+  --       mode = "n",
+  --       desc = "Focus Minimap",
+  --     },
+  --   },
+  --
+  --   config = function(_, opts)
+  --     local codewindow = require "codewindow"
+  --     codewindow.setup(opts)
+  --     codewindow.apply_default_keybinds()
+  --   end,
+  --
+  --   opts = {
+  --     show_cursor = false,
+  --     screen_bounds = "lines",
+  --     window_border = "none",
+  --   },
+  -- },
 
   -- {
   --   "topaxi/gh-actions.nvim",
@@ -680,16 +680,16 @@ local plugins = {
   --   config = function() end,
   -- },
 
-  {
-    "ThePrimeagen/refactoring.nvim",
-
-    config = function()
-      require("refactoring").setup()
-      -- require("telescope").load_extension "refactoring" -- Unnede When dressing.nvim is a thing
-    end,
-
-    keys = require("custom.configs.refactoring").keys,
-  },
+  -- {
+  --   "ThePrimeagen/refactoring.nvim",
+  --
+  --   config = function()
+  --     require("refactoring").setup()
+  --     -- require("telescope").load_extension "refactoring" -- Unnede When dressing.nvim is a thing
+  --   end,
+  --
+  --   keys = require("custom.configs.refactoring").keys,
+  -- },
 
   {
     "sourcegraph/sg.nvim",
@@ -708,338 +708,338 @@ local plugins = {
     -- build = "nvim -l build/init.lua",
   },
 
-  { -- TODO: Fix
-    "iamcco/markdown-preview.nvim",
-
-    ft = {
-      "markdown",
-    },
-    build = ":call mkdp#util#install()",
-
-    keys = {
-      {
-        "<leader>mp",
-        "<cmd>MarkdownPreviewToggle<cr>",
-        mode = "n",
-        desc = "Markdown Preview",
-      },
-    },
-
-    config = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
-  },
+  -- { -- TODO: Fix
+  --   "iamcco/markdown-preview.nvim",
+  --
+  --   ft = {
+  --     "markdown",
+  --   },
+  --   build = ":call mkdp#util#install()",
+  --
+  --   keys = {
+  --     {
+  --       "<leader>mp",
+  --       "<cmd>MarkdownPreviewToggle<cr>",
+  --       mode = "n",
+  --       desc = "Markdown Preview",
+  --     },
+  --   },
+  --
+  --   config = function()
+  --     vim.g.mkdp_filetypes = { "markdown" }
+  --   end,
+  -- },
 
   -- { -- Allows to use vim command "w" inside CamelCase snake_case etc
   --   "chaoren/vim-wordmotion",
   --   lazy = false,
   -- },
 
-  { -- nvim-dap UI
-    "rcarriga/nvim-dap-ui",
-    keys = {
-      {
-        "<leader>dq",
-        function()
-          require("dapui").eval()
-        end,
-        mode = { "n", "v" },
-        desc = "Hover",
-      },
-      {
-        "<leader>df",
-        function()
-          require("dapui").float_element()
-        end,
-        mode = "n",
-        desc = "Lookup Options",
-      },
-    },
+  -- { -- nvim-dap UI
+  --   "rcarriga/nvim-dap-ui",
+  --   keys = {
+  --     {
+  --       "<leader>dq",
+  --       function()
+  --         require("dapui").eval()
+  --       end,
+  --       mode = { "n", "v" },
+  --       desc = "Hover",
+  --     },
+  --     {
+  --       "<leader>df",
+  --       function()
+  --         require("dapui").float_element()
+  --       end,
+  --       mode = "n",
+  --       desc = "Lookup Options",
+  --     },
+  --   },
+  --
+  --   config = function(_, opts)
+  --     require("dapui").setup(opts)
+  --     status.debug = true
+  --   end,
+  -- },
 
-    config = function(_, opts)
-      require("dapui").setup(opts)
-      status.debug = true
-    end,
-  },
+  -- { -- nvim-dap virtual text
+  --   "theHamsta/nvim-dap-virtual-text",
+  --   config = function(_, opts)
+  --     require("nvim-dap-virtual-text").setup(opts)
+  --   end,
+  --   opts = {},
+  -- },
 
-  { -- nvim-dap virtual text
-    "theHamsta/nvim-dap-virtual-text",
-    config = function(_, opts)
-      require("nvim-dap-virtual-text").setup(opts)
-    end,
-    opts = {},
-  },
+  -- { -- DAP REPL Autocompletion
+  --   "rcarriga/cmp-dap",
+  --   config = function(_, opts)
+  --     require("cmp").setup {
+  --       enabled = function()
+  --         return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
+  --       end,
+  --     }
+  --     require("cmp").setup.filetype({
+  --       "dap-repl",
+  --       "dapui_watches",
+  --       "dapui_hover",
+  --     }, {
+  --       sources = {
+  --         { name = "dap" },
+  --       },
+  --     })
+  --   end,
+  -- },
 
-  { -- DAP REPL Autocompletion
-    "rcarriga/cmp-dap",
-    config = function(_, opts)
-      require("cmp").setup {
-        enabled = function()
-          return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
-        end,
-      }
-      require("cmp").setup.filetype({
-        "dap-repl",
-        "dapui_watches",
-        "dapui_hover",
-      }, {
-        sources = {
-          { name = "dap" },
-        },
-      })
-    end,
-  },
+  -- {
+  --   "LiadOz/nvim-dap-repl-highlights",
+  --   dependencies = "nvim-treesitter/nvim-treesitter",
+  --
+  --   keys = {
+  --     {
+  --       "<leader>dp",
+  --       function()
+  --         require("nvim-dap-repl-highlights").setup_highlights()
+  --       end,
+  --       mode = "n",
+  --       desc = "Set REPL Highlight",
+  --     },
+  --   },
+  --
+  --   config = function()
+  --     require("nvim-dap-repl-highlights").setup()
+  --     require("nvim-treesitter.configs").setup {
+  --       highlight = {
+  --         enable = true,
+  --       },
+  --       ensure_installed = {
+  --         "dap_repl",
+  --       },
+  --     }
+  --   end,
+  -- },
 
-  {
-    "LiadOz/nvim-dap-repl-highlights",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-
-    keys = {
-      {
-        "<leader>dp",
-        function()
-          require("nvim-dap-repl-highlights").setup_highlights()
-        end,
-        mode = "n",
-        desc = "Set REPL Highlight",
-      },
-    },
-
-    config = function()
-      require("nvim-dap-repl-highlights").setup()
-      require("nvim-treesitter.configs").setup {
-        highlight = {
-          enable = true,
-        },
-        ensure_installed = {
-          "dap_repl",
-        },
-      }
-    end,
-  },
-
-  { -- Debug Adapter Protocol
-    "mfussenegger/nvim-dap",
-
-    dependencies = {
-      "rcarriga/nvim-dap-ui",
-      "theHamsta/nvim-dap-virtual-text",
-      "rcarriga/cmp-dap",
-      "LiadOz/nvim-dap-repl-highlights",
-    },
-    -- TODO: Move these to configs/nvim-dap.lua
-    config = function()
-      require("custom.utils").load_breakpoints()
-      local dap = require "dap"
-      -- dap.set_log_level "TRACE"
-
-      ----------------------------------------------------
-      --                    ADAPTERS                    --
-      ----------------------------------------------------
-      dap.adapters.codelldb = {
-        type = "server",
-        port = "${port}",
-        executable = {
-          -- CHANGE THIS to your path!
-          command = "codelldb",
-          args = { "--port", "${port}" },
-
-          -- On windows you may have to uncomment this:
-          -- detached = false,
-        },
-      }
-
-      dap.adapters.debugpy = {
-        -- Requires:
-        --  python -m pip install debugpy # --break-system-packages # <- if the first command doesn't work
-        type = "executable",
-        command = "python",
-        -- function()
-        --    local venv = os.getenv "VIRTUAL_ENV"
-        --    if venv then
-        --      return venv .. "/bin/python"
-        --    else
-        --      return "python" -- From $PATH
-        --    end
-        -- end,
-        args = {
-          "-m",
-          "debugpy.adapter",
-        },
-      }
-
-      -------------------------------------------------------
-      --                    DAP CONFIGS                    --
-      -------------------------------------------------------
-
-      dap.configurations.python = {
-        {
-          -- The first three options are required by nvim-dap
-          type = "debugpy", -- the type here established the link to the adapter definition: `dap.adapters.debugpy`
-          request = "launch",
-          name = "Launch file",
-          cwd = "${workspaceFolder}",
-
-          program = "${file}", -- This configuration will launch the current file if used.
-          pythonPath = function()
-            -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
-            -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
-            -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
-            local cwd = vim.fn.getcwd()
-            if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
-              return cwd .. "/venv/bin/python"
-            elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
-              return cwd .. "/.venv/bin/python"
-            else
-              return "/usr/bin/python"
-            end
-          end,
-        },
-      }
-
-      dap.configurations.cpp = {
-        {
-          name = "Launch file",
-          type = "codelldb",
-          request = "launch",
-          program = function()
-            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-          end,
-          cwd = "${workspaceFolder}",
-          stopOnEntry = false,
-          args = function()
-            -- First split it by spaces
-            local raw = vim.fn.input "Args: "
-            local home = os.getenv "HOME"
-            local args_filtered = raw.gsub(raw, "~", home)
-            local args = vim.split(args_filtered, " ")
-
-            print "HERE:"
-            vim.print(args)
-            for i, arg in ipairs(args) do
-              -- Replace ~ with $HOME
-              print(arg)
-            end
-            vim.print(args)
-
-            return args
-          end,
-        },
-      }
-
-      -- Reuse configurations for other languages
-      dap.configurations.c = dap.configurations.cpp
-      dap.configurations.rust = {
-        {
-          name = "Launch file",
-          type = "codelldb",
-          request = "launch",
-          program = function()
-            print "Building Project..."
-            vim.cmd "!cargo build"
-            print "Done!"
-
-            -- local release_dir = vim.fn.finddir("target/release", vim.fn.getcwd() .. ";")
-            local debug_dir = vim.fn.finddir("target/debug", vim.fn.getcwd() .. ";")
-
-            -- If both are nil then run cargo build
-            -- WARNING:
-            -- if release_dir == "" and debug_dir == "" then
-            --   print "Building Project..."
-            --   vim.cmd "silent !cargo build"
-            --   print "Built With Cargo"
-            -- end
-
-            -- Select binary by the (only) file that has no extension
-            -- Get the directory path where your files are located
-            --[[ release_dir or ]]
-            local directory = debug_dir
-
-            -- Get a list of files in the directory
-            local files = vim.fn.readdir(directory)
-
-            -- Iterate through the files
-            for _, file in ipairs(files) do
-              local filepath = directory .. "/" .. file
-
-              -- Check if the file is executable
-              local is_executable = vim.fn.executable(filepath) == 1
-
-              if is_executable then
-                print("Found Executable on: ", filepath)
-                return filepath
-                -- You can perform further actions on the executable here
-              end
-            end
-
-            -- If none of the above don't work
-            -- then ask the user to input the path to the executable
-            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-          end,
-          cwd = "${workspaceFolder}",
-          stopOnEntry = false,
-
-          args = function()
-            -- First split it by spaces
-            local raw = vim.fn.input "Args: "
-            local home = os.getenv "HOME"
-            local args_filtered = raw.gsub(raw, "~", home)
-            local args = vim.split(args_filtered, " ")
-
-            print "HERE:"
-            vim.print(args)
-            for i, arg in ipairs(args) do
-              -- Replace ~ with $HOME
-              print(arg)
-            end
-            vim.print(args)
-
-            return args
-          end,
-        },
-      }
-
-      -------------------------------------------------
-      --                    SIGNS                    --
-      -------------------------------------------------
-      vim.fn.sign_define("DapBreakpoint", {
-        text = " ",
-        texthl = "DapBreakpoint",
-        linehl = "DapBreakpointLine",
-        numhl = "DapBreakpointNum",
-      })
-
-      vim.fn.sign_define("DapLogPoint", {
-        text = " ",
-        texthl = "DapLogPoint",
-        linehl = "DapLogPointLine",
-        numhl = "DapLogPointNum",
-      })
-
-      vim.fn.sign_define("DapStopped", {
-        text = " ",
-        texthl = "DapStopped",
-        linehl = "DapStoppedLine",
-        numhl = "DapStoppedNum",
-      })
-
-      vim.fn.sign_define("DapBreakpointCondition", {
-        text = " ",
-        texthl = "DapBreakpointCondition",
-        linehl = "DapBreakpointConditionLine",
-        numhl = "DapBreakpointConditionNum",
-      })
-
-      vim.fn.sign_define("DapBreakpointRejected", {
-        text = " ",
-        texthl = "DapBreakpointRejected",
-        linehl = "DapBreakpointRejectedLine",
-        numhl = "DapBreakpointRejectedNum",
-      })
-    end,
-
-    keys = require("custom.configs.nvim-dap").keys,
-  },
+  -- { -- Debug Adapter Protocol
+  --   "mfussenegger/nvim-dap",
+  --
+  --   dependencies = {
+  --     "rcarriga/nvim-dap-ui",
+  --     "theHamsta/nvim-dap-virtual-text",
+  --     "rcarriga/cmp-dap",
+  --     "LiadOz/nvim-dap-repl-highlights",
+  --   },
+  --   -- TODO: Move these to configs/nvim-dap.lua
+  --   config = function()
+  --     require("custom.utils").load_breakpoints()
+  --     local dap = require "dap"
+  --     -- dap.set_log_level "TRACE"
+  --
+  --     ----------------------------------------------------
+  --     --                    ADAPTERS                    --
+  --     ----------------------------------------------------
+  --     dap.adapters.codelldb = {
+  --       type = "server",
+  --       port = "${port}",
+  --       executable = {
+  --         -- CHANGE THIS to your path!
+  --         command = "codelldb",
+  --         args = { "--port", "${port}" },
+  --
+  --         -- On windows you may have to uncomment this:
+  --         -- detached = false,
+  --       },
+  --     }
+  --
+  --     dap.adapters.debugpy = {
+  --       -- Requires:
+  --       --  python -m pip install debugpy # --break-system-packages # <- if the first command doesn't work
+  --       type = "executable",
+  --       command = "python",
+  --       -- function()
+  --       --    local venv = os.getenv "VIRTUAL_ENV"
+  --       --    if venv then
+  --       --      return venv .. "/bin/python"
+  --       --    else
+  --       --      return "python" -- From $PATH
+  --       --    end
+  --       -- end,
+  --       args = {
+  --         "-m",
+  --         "debugpy.adapter",
+  --       },
+  --     }
+  --
+  --     -------------------------------------------------------
+  --     --                    DAP CONFIGS                    --
+  --     -------------------------------------------------------
+  --
+  --     dap.configurations.python = {
+  --       {
+  --         -- The first three options are required by nvim-dap
+  --         type = "debugpy", -- the type here established the link to the adapter definition: `dap.adapters.debugpy`
+  --         request = "launch",
+  --         name = "Launch file",
+  --         cwd = "${workspaceFolder}",
+  --
+  --         program = "${file}", -- This configuration will launch the current file if used.
+  --         pythonPath = function()
+  --           -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
+  --           -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
+  --           -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
+  --           local cwd = vim.fn.getcwd()
+  --           if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
+  --             return cwd .. "/venv/bin/python"
+  --           elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
+  --             return cwd .. "/.venv/bin/python"
+  --           else
+  --             return "/usr/bin/python"
+  --           end
+  --         end,
+  --       },
+  --     }
+  --
+  --     dap.configurations.cpp = {
+  --       {
+  --         name = "Launch file",
+  --         type = "codelldb",
+  --         request = "launch",
+  --         program = function()
+  --           return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+  --         end,
+  --         cwd = "${workspaceFolder}",
+  --         stopOnEntry = false,
+  --         args = function()
+  --           -- First split it by spaces
+  --           local raw = vim.fn.input "Args: "
+  --           local home = os.getenv "HOME"
+  --           local args_filtered = raw.gsub(raw, "~", home)
+  --           local args = vim.split(args_filtered, " ")
+  --
+  --           print "HERE:"
+  --           vim.print(args)
+  --           for i, arg in ipairs(args) do
+  --             -- Replace ~ with $HOME
+  --             print(arg)
+  --           end
+  --           vim.print(args)
+  --
+  --           return args
+  --         end,
+  --       },
+  --     }
+  --
+  --     -- Reuse configurations for other languages
+  --     dap.configurations.c = dap.configurations.cpp
+  --     dap.configurations.rust = {
+  --       {
+  --         name = "Launch file",
+  --         type = "codelldb",
+  --         request = "launch",
+  --         program = function()
+  --           print "Building Project..."
+  --           vim.cmd "!cargo build"
+  --           print "Done!"
+  --
+  --           -- local release_dir = vim.fn.finddir("target/release", vim.fn.getcwd() .. ";")
+  --           local debug_dir = vim.fn.finddir("target/debug", vim.fn.getcwd() .. ";")
+  --
+  --           -- If both are nil then run cargo build
+  --           -- WARNING:
+  --           -- if release_dir == "" and debug_dir == "" then
+  --           --   print "Building Project..."
+  --           --   vim.cmd "silent !cargo build"
+  --           --   print "Built With Cargo"
+  --           -- end
+  --
+  --           -- Select binary by the (only) file that has no extension
+  --           -- Get the directory path where your files are located
+  --           --[[ release_dir or ]]
+  --           local directory = debug_dir
+  --
+  --           -- Get a list of files in the directory
+  --           local files = vim.fn.readdir(directory)
+  --
+  --           -- Iterate through the files
+  --           for _, file in ipairs(files) do
+  --             local filepath = directory .. "/" .. file
+  --
+  --             -- Check if the file is executable
+  --             local is_executable = vim.fn.executable(filepath) == 1
+  --
+  --             if is_executable then
+  --               print("Found Executable on: ", filepath)
+  --               return filepath
+  --               -- You can perform further actions on the executable here
+  --             end
+  --           end
+  --
+  --           -- If none of the above don't work
+  --           -- then ask the user to input the path to the executable
+  --           return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+  --         end,
+  --         cwd = "${workspaceFolder}",
+  --         stopOnEntry = false,
+  --
+  --         args = function()
+  --           -- First split it by spaces
+  --           local raw = vim.fn.input "Args: "
+  --           local home = os.getenv "HOME"
+  --           local args_filtered = raw.gsub(raw, "~", home)
+  --           local args = vim.split(args_filtered, " ")
+  --
+  --           print "HERE:"
+  --           vim.print(args)
+  --           for i, arg in ipairs(args) do
+  --             -- Replace ~ with $HOME
+  --             print(arg)
+  --           end
+  --           vim.print(args)
+  --
+  --           return args
+  --         end,
+  --       },
+  --     }
+  --
+  --     -------------------------------------------------
+  --     --                    SIGNS                    --
+  --     -------------------------------------------------
+  --     vim.fn.sign_define("DapBreakpoint", {
+  --       text = " ",
+  --       texthl = "DapBreakpoint",
+  --       linehl = "DapBreakpointLine",
+  --       numhl = "DapBreakpointNum",
+  --     })
+  --
+  --     vim.fn.sign_define("DapLogPoint", {
+  --       text = " ",
+  --       texthl = "DapLogPoint",
+  --       linehl = "DapLogPointLine",
+  --       numhl = "DapLogPointNum",
+  --     })
+  --
+  --     vim.fn.sign_define("DapStopped", {
+  --       text = " ",
+  --       texthl = "DapStopped",
+  --       linehl = "DapStoppedLine",
+  --       numhl = "DapStoppedNum",
+  --     })
+  --
+  --     vim.fn.sign_define("DapBreakpointCondition", {
+  --       text = " ",
+  --       texthl = "DapBreakpointCondition",
+  --       linehl = "DapBreakpointConditionLine",
+  --       numhl = "DapBreakpointConditionNum",
+  --     })
+  --
+  --     vim.fn.sign_define("DapBreakpointRejected", {
+  --       text = " ",
+  --       texthl = "DapBreakpointRejected",
+  --       linehl = "DapBreakpointRejectedLine",
+  --       numhl = "DapBreakpointRejectedNum",
+  --     })
+  --   end,
+  --
+  --   keys = require("custom.configs.nvim-dap").keys,
+  -- },
 
   {
     "danymat/neogen",
@@ -1147,58 +1147,58 @@ local plugins = {
     end,
   },
 
-  { -- Telescope projects
-    -- Migrated to project.nvim
-    "nvim-telescope/telescope-project.nvim",
-
-    -- if you want to enable custom hook
-    dependencies = {
-      -- {
-      -- "ThePrimeagen/harpoon",
-      -- }
-      {
-        "nvim-telescope/telescope.nvim",
-        opts = {
-          extensions = {
-            project = {
-              base_dirs = {
-                "~/Github",
-                "~/",
-                -- { "~/dev/src2" },
-                -- { "~/dev/src3", max_depth = 4 },
-                -- { path = "~/dev/src4" },
-                -- { path = "~/dev/src5", max_depth = 2 },
-              },
-              -- hidden_files = true, -- default: false --- .git files go brrr
-              -- theme = "dropdown",
-              order_by = "recent",
-              search_by = "title",
-              sync_with_nvim_tree = true, -- default false
-              -- default for on_project_selected = find project files
-              -- on_project_selected = function(prompt_bufnr)
-              --   -- Do anything you want in here. For example:
-              --   project_actions.change_working_directory(prompt_bufnr, false)
-              --   require("harpoon.ui").nav_file(1)
-              -- end,
-            },
-          },
-        },
-      },
-    },
-
-    keys = {
-      {
-        "<leader>fp",
-        "<cmd>lua require'telescope'.extensions.project.project{ display_type = 'full' }<CR>",
-        desc = "Find Project",
-      },
-    },
-
-    config = function()
-      -- local project_actions = require "telescope._extensions.project.actions"
-      require("telescope").load_extension "project"
-    end,
-  },
+  -- { -- Telescope projects
+  --   -- Migrated to project.nvim
+  --   "nvim-telescope/telescope-project.nvim",
+  --
+  --   -- if you want to enable custom hook
+  --   dependencies = {
+  --     -- {
+  --     -- "ThePrimeagen/harpoon",
+  --     -- }
+  --     {
+  --       "nvim-telescope/telescope.nvim",
+  --       opts = {
+  --         extensions = {
+  --           project = {
+  --             base_dirs = {
+  --               "~/Github",
+  --               "~/",
+  --               -- { "~/dev/src2" },
+  --               -- { "~/dev/src3", max_depth = 4 },
+  --               -- { path = "~/dev/src4" },
+  --               -- { path = "~/dev/src5", max_depth = 2 },
+  --             },
+  --             -- hidden_files = true, -- default: false --- .git files go brrr
+  --             -- theme = "dropdown",
+  --             order_by = "recent",
+  --             search_by = "title",
+  --             sync_with_nvim_tree = true, -- default false
+  --             -- default for on_project_selected = find project files
+  --             -- on_project_selected = function(prompt_bufnr)
+  --             --   -- Do anything you want in here. For example:
+  --             --   project_actions.change_working_directory(prompt_bufnr, false)
+  --             --   require("harpoon.ui").nav_file(1)
+  --             -- end,
+  --           },
+  --         },
+  --       },
+  --     },
+  --   },
+  --
+  --   keys = {
+  --     {
+  --       "<leader>fp",
+  --       "<cmd>lua require'telescope'.extensions.project.project{ display_type = 'full' }<CR>",
+  --       desc = "Find Project",
+  --     },
+  --   },
+  --
+  --   config = function()
+  --     -- local project_actions = require "telescope._extensions.project.actions"
+  --     require("telescope").load_extension "project"
+  --   end,
+  -- },
 
   -- { -- Toggle case (CamelCase, snake_case, kebab-case, PascalCase, Title Case, UPPER CASE, lower case)
   --   "UTFeight/vim-case-change", -- FIXME
@@ -1333,26 +1333,26 @@ local plugins = {
   --   opts = require("custom.configs.ts").opts,
   -- },
 
-  { -- Color Picker (Probably the best one)
-    "uga-rosa/ccc.nvim",
-
-    keys = {
-      {
-        "<leader>kp",
-        "<cmd> CccPick<CR>",
-        mode = "n",
-        desc = "Color Picker",
-      },
-    },
-
-    config = function(_, opts)
-      require("ccc").setup(opts)
-    end,
-
-    opts = {
-      -- Config
-    },
-  },
+  -- { -- Color Picker (Probably the best one)
+  --   "uga-rosa/ccc.nvim",
+  --
+  --   keys = {
+  --     {
+  --       "<leader>kp",
+  --       "<cmd> CccPick<CR>",
+  --       mode = "n",
+  --       desc = "Color Picker",
+  --     },
+  --   },
+  --
+  --   config = function(_, opts)
+  --     require("ccc").setup(opts)
+  --   end,
+  --
+  --   opts = {
+  --     -- Config
+  --   },
+  -- },
 
   { -- Show lsp signature help when in a function (param info)
     "ray-x/lsp_signature.nvim",
@@ -1581,52 +1581,52 @@ local plugins = {
   --   },
   -- },
 
-  { -- Rust Cargo.toml integration
-    -- https://github.com/Saecki/crates.nvim#functions
-    "Saecki/crates.nvim",
+  -- { -- Rust Cargo.toml integration
+  --   -- https://github.com/Saecki/crates.nvim#functions
+  --   "Saecki/crates.nvim",
+  --
+  --   keys = require("custom.configs.rust").keys,
+  --
+  --   tag = "v0.3.0", -- Adventurous but Featureful
+  --   event = "BufEnter Cargo.toml",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   opts = require("custom.configs.rust").opts,
+  --
+  --   config = function(_, opts)
+  --     require("crates").setup(opts)
+  --   end,
+  -- },
 
-    keys = require("custom.configs.rust").keys,
-
-    tag = "v0.3.0", -- Adventurous but Featureful
-    event = "BufEnter Cargo.toml",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = require("custom.configs.rust").opts,
-
-    config = function(_, opts)
-      require("crates").setup(opts)
-    end,
-  },
-
-  { -- Better quickfix window including telescope integration, code view etc.
-    -- TODO: improve this
-    "kevinhwang91/nvim-bqf",
-    dependencies = {
-      {
-        "nvim-treesitter/nvim-treesitter",
-      },
-
-      { -- OPTIONAL for fuzzy searching TODO: Replace MAYBE
-        "junegunn/fzf",
-        build = function()
-          vim.fn["fzf#install"]()
-        end,
-      },
-
-      {
-        "yorickpeterse/nvim-pqf",
-      },
-    },
-
-    keys = require("custom.configs.nvim-bqf").keys,
-    opts = require("custom.configs.nvim-bqf").opts,
-
-    config = function(_, opts) -- TODO: add hlgroups
-      require("bqf").setup(opts)
-      -- Better UI in quickfix window:
-      -- https://github.com/kevinhwang91/nvim-bqf/tree/c920a55c6153766bd909e474b7feffa9739f07e8#format-new-quickfix
-      -- https://github.com/kevinhwang91/nvim-bqf/tree/c920a55c6153766bd909e474b7feffa9739f07e8#rebuild-syntax-for-quickfix
-    end,
-  },
+  -- { -- Better quickfix window including telescope integration, code view etc.
+  --   -- TODO: improve this
+  --   "kevinhwang91/nvim-bqf",
+  --   dependencies = {
+  --     {
+  --       "nvim-treesitter/nvim-treesitter",
+  --     },
+  --
+  --     { -- OPTIONAL for fuzzy searching TODO: Replace MAYBE
+  --       "junegunn/fzf",
+  --       build = function()
+  --         vim.fn["fzf#install"]()
+  --       end,
+  --     },
+  --
+  --     {
+  --       "yorickpeterse/nvim-pqf",
+  --     },
+  --   },
+  --
+  --   keys = require("custom.configs.nvim-bqf").keys,
+  --   opts = require("custom.configs.nvim-bqf").opts,
+  --
+  --   config = function(_, opts) -- TODO: add hlgroups
+  --     require("bqf").setup(opts)
+  --     -- Better UI in quickfix window:
+  --     -- https://github.com/kevinhwang91/nvim-bqf/tree/c920a55c6153766bd909e474b7feffa9739f07e8#format-new-quickfix
+  --     -- https://github.com/kevinhwang91/nvim-bqf/tree/c920a55c6153766bd909e474b7feffa9739f07e8#rebuild-syntax-for-quickfix
+  --   end,
+  -- },
 
   { -- Jump Jump Jump
     "folke/flash.nvim",
@@ -1911,78 +1911,78 @@ local plugins = {
   --   },
   -- },
 
-  { -- TODO add hlgroups according to repo
-    "ThePrimeagen/harpoon",
-
-    config = function(_, opts)
-      require("harpoon").setup(opts)
-      require("telescope").load_extension "harpoon"
-    end,
-
-    opts = {
-      global_settings = {
-        -- sets the marks upon calling `toggle` on the ui, instead of require `:w`.
-        save_on_toggle = false,
-
-        -- saves the harpoon file upon every change. disabling is unrecommended.
-        save_on_change = true,
-
-        -- sets harpoon to run the command immediately as it's passed to the terminal when calling `sendCommand`.
-        enter_on_sendcmd = false,
-
-        -- closes any tmux windows harpoon that harpoon creates when you close Neovim.
-        tmux_autoclose_windows = false,
-
-        -- filetypes that you want to prevent from adding to the harpoon list menu.
-        excluded_filetypes = { "harpoon" },
-
-        -- set marks specific to each git branch inside git repository
-        mark_branch = true,
-
-        -- enable tabline with harpoon marks
-        tabline = true,
-        tabline_prefix = "H",
-        tabline_suffix = "N",
-      },
-    },
-
-    keys = {
-      {
-        "<leader>hm",
-        "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
-        mode = "n",
-        desc = "Toggle Harpoon Menu",
-      },
-
-      {
-        "<leader>ha",
-        "<cmd>lua require('harpoon.mark').add_file()<cr>",
-        mode = "n",
-        desc = "Add File",
-      },
-
-      {
-        "<leader>hn",
-        "<cmd>lua require('harpoon.ui').nav_next()<cr>",
-        mode = "n",
-        desc = "Jump to next file",
-      },
-
-      {
-        "<leader>hp",
-        "<cmd>lua require('harpoon.ui').nav_prev()<cr>",
-        mode = "n",
-        desc = "Jump to previous file",
-      },
-
-      { -- FIXME: doesn't work (after loading with :Telescope harpoon)
-        "<leader>hs",
-        "<cmd> Telescope harpoon marks<cr>", -- TODO: Lazy load them on this specific keystroke
-        mode = "n",
-        desc = "Telescope Harpoon",
-      },
-    },
-  },
+  -- { -- TODO add hlgroups according to repo
+  --   "ThePrimeagen/harpoon",
+  --
+  --   config = function(_, opts)
+  --     require("harpoon").setup(opts)
+  --     require("telescope").load_extension "harpoon"
+  --   end,
+  --
+  --   opts = {
+  --     global_settings = {
+  --       -- sets the marks upon calling `toggle` on the ui, instead of require `:w`.
+  --       save_on_toggle = false,
+  --
+  --       -- saves the harpoon file upon every change. disabling is unrecommended.
+  --       save_on_change = true,
+  --
+  --       -- sets harpoon to run the command immediately as it's passed to the terminal when calling `sendCommand`.
+  --       enter_on_sendcmd = false,
+  --
+  --       -- closes any tmux windows harpoon that harpoon creates when you close Neovim.
+  --       tmux_autoclose_windows = false,
+  --
+  --       -- filetypes that you want to prevent from adding to the harpoon list menu.
+  --       excluded_filetypes = { "harpoon" },
+  --
+  --       -- set marks specific to each git branch inside git repository
+  --       mark_branch = true,
+  --
+  --       -- enable tabline with harpoon marks
+  --       tabline = true,
+  --       tabline_prefix = "H",
+  --       tabline_suffix = "N",
+  --     },
+  --   },
+  --
+  --   keys = {
+  --     {
+  --       "<leader>hm",
+  --       "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
+  --       mode = "n",
+  --       desc = "Toggle Harpoon Menu",
+  --     },
+  --
+  --     {
+  --       "<leader>ha",
+  --       "<cmd>lua require('harpoon.mark').add_file()<cr>",
+  --       mode = "n",
+  --       desc = "Add File",
+  --     },
+  --
+  --     {
+  --       "<leader>hn",
+  --       "<cmd>lua require('harpoon.ui').nav_next()<cr>",
+  --       mode = "n",
+  --       desc = "Jump to next file",
+  --     },
+  --
+  --     {
+  --       "<leader>hp",
+  --       "<cmd>lua require('harpoon.ui').nav_prev()<cr>",
+  --       mode = "n",
+  --       desc = "Jump to previous file",
+  --     },
+  --
+  --     { -- FIXME: doesn't work (after loading with :Telescope harpoon)
+  --       "<leader>hs",
+  --       "<cmd> Telescope harpoon marks<cr>", -- TODO: Lazy load them on this specific keystroke
+  --       mode = "n",
+  --       desc = "Telescope Harpoon",
+  --     },
+  --   },
+  -- },
 
   -- { -- NOTE: Breaks syntax highlighting + slow
   --   "simrat39/rust-tools.nvim",
@@ -3048,12 +3048,12 @@ local plugins = {
   --   dependencies = "nvim-treesitter/nvim-treesitter",
   -- },
 
-  {
-    "mbbill/undotree",
-    keys = {
-      { "<leader>fg", "<cmd> UndotreeToggle<CR>", mode = "n", desc = "View Undo Tree" },
-    },
-  },
+  -- {
+  --   "mbbill/undotree",
+  --   keys = {
+  --     { "<leader>fg", "<cmd> UndotreeToggle<CR>", mode = "n", desc = "View Undo Tree" },
+  --   },
+  -- },
 
   {
     "XXiaoA/ns-textobject.nvim",
@@ -3317,28 +3317,28 @@ local plugins = {
   --   },
   -- },
 
-  {
-    "nfrid/markdown-togglecheck",
-
-    keys = {
-      {
-        "<leader>cml",
-        function()
-          require("markdown-togglecheck").toggle()
-        end,
-        mode = "n",
-        desc = "Toggle Markdown Checkbox",
-      },
-    },
-
-    dependencies = {
-      "nfrid/treesitter-utils",
-    },
-
-    ft = {
-      "markdown",
-    },
-  },
+  -- {
+  --   "nfrid/markdown-togglecheck",
+  --
+  --   keys = {
+  --     {
+  --       "<leader>cml",
+  --       function()
+  --         require("markdown-togglecheck").toggle()
+  --       end,
+  --       mode = "n",
+  --       desc = "Toggle Markdown Checkbox",
+  --     },
+  --   },
+  --
+  --   dependencies = {
+  --     "nfrid/treesitter-utils",
+  --   },
+  --
+  --   ft = {
+  --     "markdown",
+  --   },
+  -- },
 
   -- {
   --   "potamides/pantran.nvim",
@@ -3926,96 +3926,96 @@ local plugins = {
   --   end,
   -- },
 
-  { -- Same with nvim-biscuits
-    -- TODO: migrate to this
-    "andersevenrud/nvim_context_vt",
-    dependencies = "nvim-treesitter",
-    config = function(_, opts)
-      require("nvim_context_vt").setup(opts)
-      vim.cmd [[NvimContextVtToggle]]
-    end,
-
-    keys = {
-      {
-        "<leader>me",
-        "<cmd> NvimContextVtToggle<CR>",
-        mode = "n",
-        desc = "Toggle Context Visualizer",
-      },
-    },
-
-    -- opts = function()
-    --   return {
-    --     -- Enable by default. You can disable and use :NvimContextVtToggle to maually enable.
-    --     -- Default: true
-    --     enabled = true,
-    --
-    --     -- Override default virtual text prefix
-    --     -- Default: '-->'
-    --     prefix = "",
-    --
-    --     -- Override the internal highlight group name
-    --     -- Default: 'ContextVt'
-    --     highlight = "CustomContextVt",
-    --
-    --     -- Disable virtual text for given filetypes
-    --     -- Default: { 'markdown' }
-    --     disable_ft = { "markdown" },
-    --
-    --     -- Disable display of virtual text below blocks for indentation based languages like Python
-    --     -- Default: false
-    --     disable_virtual_lines = false,
-    --
-    --     -- Same as above but only for spesific filetypes
-    --     -- Default: {}
-    --     disable_virtual_lines_ft = { "yaml" },
-    --
-    --     -- How many lines required after starting position to show virtual text
-    --     -- Default: 1 (equals two lines total)
-    --     min_rows = 1,
-    --
-    --     -- Same as above but only for spesific filetypes
-    --     -- Default: {}
-    --     min_rows_ft = {},
-    --
-    --     -- Custom virtual text node parser callback
-    --     -- Default: nil
-    --     custom_parser = function(node, ft, opts)
-    --       local utils = require "nvim_context_vt.utils"
-    --
-    --       -- If you return `nil`, no virtual text will be displayed.
-    --       if node:type() == "function" then
-    --         return nil
-    --       end
-    --
-    --       -- This is the standard text
-    --       return opts.prefix .. " " .. utils.get_node_text(node)[1]
-    --     end,
-    --
-    --     -- Custom node validator callback
-    --     -- Default: nil
-    --     custom_validator = function(node, ft, opts)
-    --       -- Internally a node is matched against min_rows and configured targets
-    --       local default_validator = require("nvim_context_vt.utils").default_validator
-    --       if default_validator(node, ft) then
-    --         -- Custom behaviour after using the internal validator
-    --         if node:type() == "function" then
-    --           return false
-    --         end
-    --       end
-    --
-    --       return true
-    --     end,
-    --
-    --     -- Custom node virtual text resolver callback
-    --     -- Default: nil
-    --     custom_resolver = function(nodes, ft, opts)
-    --       -- By default the last node is used
-    --       return nodes[#nodes]
-    --     end,
-    --   }
-    -- end,
-  },
+  -- { -- Same with nvim-biscuits
+  --   -- TODO: migrate to this
+  --   "andersevenrud/nvim_context_vt",
+  --   dependencies = "nvim-treesitter",
+  --   config = function(_, opts)
+  --     require("nvim_context_vt").setup(opts)
+  --     vim.cmd [[NvimContextVtToggle]]
+  --   end,
+  --
+  --   keys = {
+  --     {
+  --       "<leader>me",
+  --       "<cmd> NvimContextVtToggle<CR>",
+  --       mode = "n",
+  --       desc = "Toggle Context Visualizer",
+  --     },
+  --   },
+  --
+  --   -- opts = function()
+  --   --   return {
+  --   --     -- Enable by default. You can disable and use :NvimContextVtToggle to maually enable.
+  --   --     -- Default: true
+  --   --     enabled = true,
+  --   --
+  --   --     -- Override default virtual text prefix
+  --   --     -- Default: '-->'
+  --   --     prefix = "",
+  --   --
+  --   --     -- Override the internal highlight group name
+  --   --     -- Default: 'ContextVt'
+  --   --     highlight = "CustomContextVt",
+  --   --
+  --   --     -- Disable virtual text for given filetypes
+  --   --     -- Default: { 'markdown' }
+  --   --     disable_ft = { "markdown" },
+  --   --
+  --   --     -- Disable display of virtual text below blocks for indentation based languages like Python
+  --   --     -- Default: false
+  --   --     disable_virtual_lines = false,
+  --   --
+  --   --     -- Same as above but only for spesific filetypes
+  --   --     -- Default: {}
+  --   --     disable_virtual_lines_ft = { "yaml" },
+  --   --
+  --   --     -- How many lines required after starting position to show virtual text
+  --   --     -- Default: 1 (equals two lines total)
+  --   --     min_rows = 1,
+  --   --
+  --   --     -- Same as above but only for spesific filetypes
+  --   --     -- Default: {}
+  --   --     min_rows_ft = {},
+  --   --
+  --   --     -- Custom virtual text node parser callback
+  --   --     -- Default: nil
+  --   --     custom_parser = function(node, ft, opts)
+  --   --       local utils = require "nvim_context_vt.utils"
+  --   --
+  --   --       -- If you return `nil`, no virtual text will be displayed.
+  --   --       if node:type() == "function" then
+  --   --         return nil
+  --   --       end
+  --   --
+  --   --       -- This is the standard text
+  --   --       return opts.prefix .. " " .. utils.get_node_text(node)[1]
+  --   --     end,
+  --   --
+  --   --     -- Custom node validator callback
+  --   --     -- Default: nil
+  --   --     custom_validator = function(node, ft, opts)
+  --   --       -- Internally a node is matched against min_rows and configured targets
+  --   --       local default_validator = require("nvim_context_vt.utils").default_validator
+  --   --       if default_validator(node, ft) then
+  --   --         -- Custom behaviour after using the internal validator
+  --   --         if node:type() == "function" then
+  --   --           return false
+  --   --         end
+  --   --       end
+  --   --
+  --   --       return true
+  --   --     end,
+  --   --
+  --   --     -- Custom node virtual text resolver callback
+  --   --     -- Default: nil
+  --   --     custom_resolver = function(nodes, ft, opts)
+  --   --       -- By default the last node is used
+  --   --       return nodes[#nodes]
+  --   --     end,
+  --   --   }
+  --   -- end,
+  -- },
 
   -- { -- Center a window
   --   FIXME: TODO
@@ -4294,41 +4294,41 @@ local plugins = {
     },
   },
 
-  { -- FIXME: TODO: remove telescope override and write it as a dependency
-    "nvim-telescope/telescope.nvim",
-    keys = {
-      {
-        "<leader>P",
-        "<cmd> Telescope lazy<CR>",
-        desc = "Surf Plugins",
-      },
-    },
-
-    dependencies = {
-      "tsakirist/telescope-lazy.nvim",
-      opts = {
-        extensions = {
-          lazy = {
-            -- Optional theme (the extension doesn't set a default theme)
-            theme = "ivy",
-            -- Whether or not to show the icon in the first column
-            show_icon = true,
-            -- Mappings for the actions
-            mappings = {
-              open_in_browser = "<C-o>",
-              open_in_file_browser = "<M-b>",
-              open_in_find_files = "<C-f>",
-              open_in_live_grep = "<C-g>",
-              open_plugins_picker = "<C-b>", -- Works only after having called first another action
-              open_lazy_root_find_files = "<C-r>f",
-              open_lazy_root_live_grep = "<C-r>g",
-            },
-            -- Other telescope configuration options
-          },
-        },
-      },
-    },
-  },
+  -- { -- FIXME: TODO: remove telescope override and write it as a dependency
+  --   "nvim-telescope/telescope.nvim",
+  --   keys = {
+  --     {
+  --       "<leader>P",
+  --       "<cmd> Telescope lazy<CR>",
+  --       desc = "Surf Plugins",
+  --     },
+  --   },
+  --
+  --   dependencies = {
+  --     "tsakirist/telescope-lazy.nvim",
+  --     opts = {
+  --       extensions = {
+  --         lazy = {
+  --           -- Optional theme (the extension doesn't set a default theme)
+  --           theme = "ivy",
+  --           -- Whether or not to show the icon in the first column
+  --           show_icon = true,
+  --           -- Mappings for the actions
+  --           mappings = {
+  --             open_in_browser = "<C-o>",
+  --             open_in_file_browser = "<M-b>",
+  --             open_in_find_files = "<C-f>",
+  --             open_in_live_grep = "<C-g>",
+  --             open_plugins_picker = "<C-b>", -- Works only after having called first another action
+  --             open_lazy_root_find_files = "<C-r>f",
+  --             open_lazy_root_live_grep = "<C-r>g",
+  --           },
+  --           -- Other telescope configuration options
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
 
   { -- Glyph Picker
     "2kabhishek/nerdy.nvim",
@@ -4349,35 +4349,35 @@ local plugins = {
     cmd = "Nerdy",
   },
 
-  { -- Note this plugin is written as dependency of quickfix plugins
-    -- Prettier quickfix window
-    "yorickpeterse/nvim-pqf",
-
-    dependencies = {
-      "kevinhwang91/nvim-bqf",
-    },
-
-    config = function(_, opts)
-      require("pqf").setup(opts)
-    end,
-
-    opts = {
-      signs = {
-        error = "E",
-        warning = "W",
-        info = "I",
-        hint = "H",
-      },
-
-      -- By default, only the first line of a multi line message will be shown.
-      -- When this is true, multiple lines will be shown for an entry, separated by a space
-      show_multiple_lines = false,
-
-      -- How long filenames in the quickfix are allowed to be. 0 means no limit.
-      -- Filenames above this limit will be truncated from the beginning with [...]
-      max_filename_length = 0,
-    },
-  },
+  -- { -- Note this plugin is written as dependency of quickfix plugins
+  --   -- Prettier quickfix window
+  --   "yorickpeterse/nvim-pqf",
+  --
+  --   dependencies = {
+  --     "kevinhwang91/nvim-bqf",
+  --   },
+  --
+  --   config = function(_, opts)
+  --     require("pqf").setup(opts)
+  --   end,
+  --
+  --   opts = {
+  --     signs = {
+  --       error = "E",
+  --       warning = "W",
+  --       info = "I",
+  --       hint = "H",
+  --     },
+  --
+  --     -- By default, only the first line of a multi line message will be shown.
+  --     -- When this is true, multiple lines will be shown for an entry, separated by a space
+  --     show_multiple_lines = false,
+  --
+  --     -- How long filenames in the quickfix are allowed to be. 0 means no limit.
+  --     -- Filenames above this limit will be truncated from the beginning with [...]
+  --     max_filename_length = 0,
+  --   },
+  -- },
 
   -- {
   --   "mrjones2014/smart-splits.nvim",

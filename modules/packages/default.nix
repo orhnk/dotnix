@@ -44,17 +44,17 @@ with ulib;
     xfce.thunar # File Manager
     # vieb # Vim Browser
     # nvi              # Text Editor
-    ranger
+    yazi               # File Manager
     kazam
 
-    (surf.overrideAttrs (oldAttrs: {
-      src = pkgs.fetchFromGitHub {
-        owner = "mrdotx";
-        repo = "surf";
-        rev = "5901e424a2af56acd1755c45105a1360e92c8d48";
-        sha256 = "sha256-uj+eWD7GVYiwA/RQU5nzushT/VlFwNNJ6mk1kHlzaZo=";
-      };
-    }))
+    # (surf.overrideAttrs (oldAttrs: {
+    #   src = pkgs.fetchFromGitHub {
+    #     owner = "mrdotx";
+    #     repo = "surf";
+    #     rev = "5901e424a2af56acd1755c45105a1360e92c8d48";
+    #     sha256 = "sha256-uj+eWD7GVYiwA/RQU5nzushT/VlFwNNJ6mk1kHlzaZo=";
+    #   };
+    # }))
 
     libsForQt5.kolourpaint
     # obs-studio
@@ -73,6 +73,7 @@ with ulib;
       lynx  = "lynx duckduckgo.com";
       links = "links duckduckgo.com";
       cast  = "ffmpeg -video_size 1920x1080 -framerate 60 -f x11grab -i :0.0 -f pulse -ac 2 -i default screencast.mp4";
+      fm    = "yazi";
     };
   })
 # [1]: Used with some nushell scripts (See modules/nushell/scripts/*)

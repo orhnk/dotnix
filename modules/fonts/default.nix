@@ -1,26 +1,27 @@
-{ ulib, pkgs, theme, ... }:
-with ulib; merge
+{ ulib, pkgs, theme, ... }: with ulib; merge
 
 (systemConfiguration {
   # fonts.fontconfig.antialias = false; # please don't
 
   # Disable antialiasing for specific fonts (CozetteVector in this case)
-  fonts.fontconfig.localConf = ''
-    <match target="font">
-      <test name="family" qual="any">
-          <string>CozetteVector</string>
-      </test>
-      <edit name="hinting" mode="assign">
-          <bool>false</bool>
-      </edit>
-      <edit name="antialias" mode="assign">
-          <bool>false</bool>
-      </edit>
-      <edit name="lcdfilter" mode="assign">
-          <const>lcddefault</const>
-      </edit>
-    </match>
-  '';
+  fonts.fontconfig = enabled {
+      localConf = ''
+      <match target="font">
+        <test name="family" qual="any">
+            <string>CozetteVector</string>
+        </test>
+        <edit name="hinting" mode="assign">
+            <bool>false</bool>
+        </edit>
+        <edit name="antialias" mode="assign">
+            <bool>false</bool>
+        </edit>
+        <edit name="lcdfilter" mode="assign">
+            <const>lcddefault</const>
+        </edit>
+      </match>
+    '';
+  };
 
   console = {
     earlySetup = true;
