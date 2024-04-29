@@ -5,7 +5,8 @@
     pip
     requests
     # howdoi # stackoverflow search ~ bad ~
-    prayer-times-calculator
+    # prayer-times-calculator
+    pyserial # for arduino
   ]))
   virtualenv
   poetry

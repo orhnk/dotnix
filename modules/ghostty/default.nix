@@ -10,7 +10,7 @@ graphicalConfiguration {
   programs.nushell.environmentVariables.TERMINAL = "ghostty";
 
   programs.ghostty = enabled {
-    package = upkgs.ghostty;
+    # package = upkgs.ghostty;
 
     # clearDefaultKeybindings = true;
 
@@ -70,6 +70,8 @@ graphicalConfiguration {
       confirm-close-surface = false;
 
       window-decoration = false;
+
+      gtk-single-instance = true;
 
       config-file = [
         (toString (pkgs.writeText "base16-config" ghosttyConfig))

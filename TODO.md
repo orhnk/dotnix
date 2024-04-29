@@ -43,11 +43,15 @@
   };
   ```
 
-- Need WeeChat
 - Need to make Firefox cozzier
-- GH-cli extensions. But declerative
-- Nushell doesn't like dmenu
 - dyanmically change apps depending on `${host}/default.nix`
 
   Beispiel:
     commenting out rofi enabling dmenu will change the dwm keybinding `Mod+c` to execute dmenu (instead of rofi)
+
+- Find a way something like https://color.firefox.com/ to generate a theme for firefox
+- Use hugo
+    https://themes.gohugo.io/themes/hugo-texify3/
+    https://themes.gohugo.io/themes/hugo.386/
+    https://themes.gohugo.io/themes/risotto/
+

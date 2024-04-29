@@ -47,8 +47,8 @@ with ulib;
     fade = true;
     fadeDelta = 7;
 
-    # shadow = true;
-    # shadowOpacity = 0.8;
+    shadow = true;
+    shadowOpacity = 0.8;
 
     vSync = true;
   };

@@ -1,18 +1,12 @@
 # NOTE found from reddit:
 # You can pass the path to lib.mkOutOfStoreSymlink. If you're using flakes, make sure to pass an absolute path string.
 {
-  config,
-  home,
-  lib,
   pkgs,
-  homeConfiguration,
-  homePackages,
-  systemPackages,
-  enabled,
+  ulib,
   ...
-}:
-lib.recursiveUpdate
-(homeConfiguration "nixos" {
+}: with ulib; merge
+
+(homeConfiguration {
   xdg.configFile."doom".source = ./config;
   home.file.".doom.d" = {
     source = ./config;
@@ -31,8 +25,8 @@ lib.recursiveUpdate
     # package = pkgs.emacs29-pgtk;
   };
 })
-(with pkgs;
-  homePackages "nixos" [
+
+(homePackages (with pkgs; [
     # org-mode export to pdf
     (texlive.combine {
       inherit
@@ -55,7 +49,7 @@ lib.recursiveUpdate
     ispell # for flycheck
     aspellDicts.tr # for ispell emacs
     # graphviz
-  ])
+  ]))
 # (
 #   with pkgs;
 #     systemPackages [

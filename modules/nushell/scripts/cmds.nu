@@ -53,5 +53,5 @@ export def pray [] {
 }
 
 export def wttr [] {
-  http get https://wttr.in
+  http get https://wttr.in/istanbul
 }

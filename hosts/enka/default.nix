@@ -1,12 +1,11 @@
 { ulib, ... }: with ulib; merge3
-
 (systemConfiguration {
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "23.05";
 
   users.users.nixos = graphicalUser {
     description = "orhnk";
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "wireshark" ];
   };
 })
 
@@ -25,11 +24,12 @@
   # "dmenu"      # nushell issue #9497
   "dunst"        # Notification Daemon
   "dwm"          # wm that sucks less
-  # "emacs"        # BROKEN
+  "emacs"        # BROKEN
+  "embedded"     # Embedded Dev Tools
   "eww"          # Widgetzzz
   "feh"          # Image Viewer & Wallpaper Manager
   "firefox"      # Mozilla - pretends safe.
-  "fish"         # source of `fish-like` zsh extensions
+  # "fish"         # source of `fish-like` zsh extensions
   "fonts"        # System Fonts
   # "fuzzel"       # Wayland App Launcher
   "ghostty"      # New Zig terminal emulator
@@ -48,7 +48,7 @@
   "neomutt"      # Email Client
   "networkmanager"
   "nix"          # The only package manager
-  # "nushell"      # Data. Structured.
+  "nushell"      # Data. Structured.
   "nvidia"       # Fuck...
   # "orhanwm"      # Custom WM
   "packages"     # Random cli utilities
@@ -66,6 +66,8 @@
   "st"           # SUCKless Terminal (no one knows the real name)
   "steck"        # pastedump
   "sudo"         # Just suDO It!
+  "tor"
+  "ved"          # Text Editor written in V Programming Language
   "vimacs"       # feature-FULL NeoVim inspired by JetBrains ~ github: orhnk/vimacs
   "vscode"       # Microsoft. Again...
   "weechat"      # Weeee...

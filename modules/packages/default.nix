@@ -23,9 +23,10 @@ with ulib;
     timer #
     notify-desktop # cli desktop nofifier [1]
     translate-shell # cli translator
-    ps_mem          # memusage - erroneous
+    ps_mem # memusage - erroneous
 
     wine
+    wpsoffice
 
     clang_16
     clang-tools_16
@@ -33,9 +34,16 @@ with ulib;
     jdk
     lld
     maven
-    vlang
     zig
     nodejs
+    (vlang.overrideAttrs (oldAttrs: {
+      src = pkgs.fetchFromGitHub {
+        owner = "vlang";
+        repo = "v";
+        rev = "89f06d35fd341a391eda4a98ccdaf42b8513bb40";
+        sha256 = "sha256-hAPySZprwRnfznUdF4WpJb3JfhuRLn47FY9DJkfypYk=";
+      };
+    }))
   ]))
   (graphicalPackages (with pkgs; [
     # qbittorrent
@@ -44,8 +52,10 @@ with ulib;
     xfce.thunar # File Manager
     # vieb # Vim Browser
     # nvi              # Text Editor
-    yazi               # File Manager
+    yazi # File Manager
     kazam
+    rustdesk
+    burpsuite
 
     # (surf.overrideAttrs (oldAttrs: {
     #   src = pkgs.fetchFromGitHub {
@@ -61,7 +71,7 @@ with ulib;
     # surf
     # lynx # Web Browser
     links2 # better lynx - but not colored :(
-    mpv  # Media Player
+    mpv # Media Player
 
     libreoffice
     hunspellDicts.en_US
@@ -69,11 +79,11 @@ with ulib;
   ]))
   (homeConfiguration {
     programs.nushell.shellAliases = {
-      ttr   = "trans -t tr";
-      lynx  = "lynx duckduckgo.com";
+      ttr = "trans -t tr";
+      lynx = "lynx duckduckgo.com";
       links = "links duckduckgo.com";
-      cast  = "ffmpeg -video_size 1920x1080 -framerate 60 -f x11grab -i :0.0 -f pulse -ac 2 -i default screencast.mp4";
-      fm    = "yazi";
+      cast = "ffmpeg -video_size 1920x1080 -framerate 60 -f x11grab -i :0.0 -f pulse -ac 2 -i default screencast.mp4";
+      fm = "yazi";
     };
   })
 # [1]: Used with some nushell scripts (See modules/nushell/scripts/*)
