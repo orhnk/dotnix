@@ -5,7 +5,19 @@
 })
 
 (homeConfiguration {
-  programs.starship = enabled {};
+  programs.starship = enabled {
+    settings = {
+      command_timeout = 100;
+      scan_timeout    = 20;
+
+      cmd_duration.show_notifications = true; # should be in a GUI env
+
+      # package.disabled = ulib.isServer;
+
+      character.error_symbol   = "";
+      character.success_symbol = "";
+    };
+  };
 
   programs.nushell = enabled {
     configFile.text = import ./configuration.nix.nu;

@@ -56,6 +56,7 @@ with ulib;
     kazam
     rustdesk
     burpsuite
+    brave
 
     # (surf.overrideAttrs (oldAttrs: {
     #   src = pkgs.fetchFromGitHub {

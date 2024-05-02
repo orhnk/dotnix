@@ -26,7 +26,7 @@ systemConfiguration {
       "fetch-tree"
       "flakes"
       "nix-command"
-      "repl-flake"
+      # "repl-flake" # unknown experimental feature
     ];
 
     settings.trusted-users = [ "root" "@wheel" ];

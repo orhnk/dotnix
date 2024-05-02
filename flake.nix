@@ -89,8 +89,16 @@
     ...
   } @ inputs: let
     lib = nixpkgs.lib;
-
     ulib = import ./lib lib;
+
+    apps.repl = tools.lib.mkApp {
+      drv = nixpkgs.pkgs.writeShellScriptBin "repl" ''
+        confnix=$(mktemp)
+        echo "builtins.getFlake (toString $(git rev-parse --show-toplevel))" >$confnix
+        trap "rm $confnix" EXIT
+        nix repl $confnix
+      '';
+    };
 
     configuration = host: system: let
       pkgs = import nixpkgs {inherit system;};
@@ -113,8 +121,10 @@
           corner-radius = 0;
           border-width = 0;
 
-          margin = 10;
-          padding = 8;
+          # margin = 10;
+          # padding = 8;
+          margin  = 0;
+          padding = 0;
 
           font.size.normal = 10;
           font.size.big = 18;

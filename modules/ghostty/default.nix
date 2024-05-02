@@ -10,7 +10,7 @@ graphicalConfiguration {
   programs.nushell.environmentVariables.TERMINAL = "ghostty";
 
   programs.ghostty = enabled {
-    # package = upkgs.ghostty;
+    package = upkgs.ghostty;
 
     # clearDefaultKeybindings = true;
 

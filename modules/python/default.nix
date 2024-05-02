@@ -9,7 +9,7 @@
     pyserial # for arduino
   ]))
   virtualenv
-  poetry
+  # poetry # TODO fix the error
 ]))
 
 (homeConfiguration {
