@@ -6,6 +6,19 @@
 with ulib;
   merge3
   (systemPackages (with pkgs; [
+    # Rust Crates
+    ## dioxus
+    pkg-config
+    gtk3
+    gtkmm3
+    atkmm_2_36
+    gtk3-x11
+    gdk-pixbuf-xlib
+    cairo
+    pango
+    dioxus-cli
+
+
     asciinema
     fastfetch
     hyperfine
@@ -40,7 +53,7 @@ with ulib;
       src = pkgs.fetchFromGitHub {
         owner = "vlang";
         repo = "v";
-        rev = "89f06d35fd341a391eda4a98ccdaf42b8513bb40";
+        rev = "045951924faa8dd4838251306cf13b980de18bff";
         sha256 = "sha256-hAPySZprwRnfznUdF4WpJb3JfhuRLn47FY9DJkfypYk=";
       };
     }))

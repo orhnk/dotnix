@@ -25,11 +25,11 @@ in
 
       userSettings = {
         "[markdown]" = {
-        "editor.defaultFormatter" = "DavidAnson.vscode-markdownlint";
+          "editor.defaultFormatter" = "DavidAnson.vscode-markdownlint";
         };
         "files.autoSave" = "afterDelay";
         "files.autoSaveDelay" = 1000;
-        "workbench.colorTheme" = "Ayu Dark"; # Celestial | Correia Gruvbox Theme
+        "workbench.colorTheme" = "GitHub Dark Dimmed"; # Celestial | Ayu Dark | Correia Gruvbox Theme
         "workbench.tree.indent" = 20;
         "editor.cursorSmoothCaretAnimation" = "on";
         "editor.inlineSuggest.suppressSuggestions" = false;
@@ -126,8 +126,16 @@ in
           ++ plugin "fathulfahmy.lunarkeymap" "1.0.12" "sha256-R0lFpH4sLIbV9CChbRM1St69WJ1MISaFCBcwBvCi5WA="
           # ++ plugin "garlandcrow.vscode-helix"          "0.1.3"  "sha256-MJt/8Kg8UVgj0D+r8ibc7K7dGxHQH8X3z7rZlxD8Icc=" # helix-mode doesn't work
           ++ plugin "yzane.markdown-pdf" "1.5.0" "sha256-aiifZgHXC4GUEbkKAbLc0p/jUZxp1jF/J1Y/KIyvLIE="
-        # # Embedded Development
-        # ++ plugin "platformio.platformio-ide" "3.3.2" "sha256-r+ekcYFAbM8tWTUpIH1/ns2i6QC/RK6MWsjA8Xll+80="
+          # HTML
+          ++ plugin "bianxianyang.htmlplay" "0.0.10" "sha256-kT7W7KEfjX5nmcT5ubtbKY1MxHlM18w3yjQ8N7FE5bs="
+          # # Embedded Development
+          # ++ plugin "platformio.platformio-ide" "3.3.2" "sha256-r+ekcYFAbM8tWTUpIH1/ns2i6QC/RK6MWsjA8Xll+80="
+          # xabikos.javascriptsnippets
+          # pmneo.tsimporter
+
+          # MISC
+          # funkyremi.vscode-google-translate
+
         ;
     };
   }

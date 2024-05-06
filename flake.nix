@@ -18,6 +18,10 @@
   };
 
   inputs = {
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+    };
+
     # TODO
     vimacs = {
       url = "github:orhnk/vimacs-flake";
@@ -78,6 +82,8 @@
   };
 
   outputs = {
+    self,
+    flake-utils,
     nixSuper,
     nixpkgs,
     homeManager,
@@ -123,7 +129,7 @@
 
           # margin = 10;
           # padding = 8;
-          margin  = 0;
+          margin = 0;
           padding = 0;
 
           font.size.normal = 10;

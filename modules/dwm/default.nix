@@ -80,10 +80,10 @@ with theme;
                --rotate normal    \
                --right-of HDMI-1  \
                                   \
-               # --output HDMI-1    \
-               # --mode 1920x1080   \
-               # --rotate normal    \
-               # --primary
+               --output HDMI-1    \
+               --mode 1920x1080   \
+               --rotate normal    \
+               --primary
       '';
     in
       systemConfiguration {
