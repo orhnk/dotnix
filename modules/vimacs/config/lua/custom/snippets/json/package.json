@@ -1,0 +1,56 @@
+{
+  "name": "example-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "all"
+        ],
+        "path": "./all.json"
+      },
+      {
+        "language": [
+          "python"
+        ],
+        "path": "./python.json"
+      },
+      {
+        "language": [
+          "lua"
+        ],
+        "path": "./lua.json"
+      },
+      {
+        "language": [
+          "cpp"
+        ],
+        "path": "./cpp.json"
+      },
+      {
+        "language": [
+          "org"
+        ],
+        "path": "./org.json"
+      },
+      {
+        "language": [
+          "json"
+        ],
+        "path": "./json.json"
+      },
+      {
+        "language": [
+          "rust"
+        ],
+        "path": "./rust.json"
+      },
+      {
+        "language": [
+          "gitcommit",
+          "NeogitCommitMessage"
+        ],
+        "path": "./gitcommit.json"
+      }
+    ]
+  }
+}

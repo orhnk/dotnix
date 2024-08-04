@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "matrix.org": {
+      "url": "https://matrix.org",
+      "user_id": "@orhnk:matrix.org"
+    }
+  }
+}

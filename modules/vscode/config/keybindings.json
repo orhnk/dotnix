@@ -1,0 +1,11 @@
+[
+  {
+    "key": "alt+q",
+    "command": "workbench.action.openQuickChat.copilot"
+  },
+
+  {
+    "command": "-whichkey.show",
+    "key": "ctrl+space"
+  }
+]

@@ -1,0 +1,33 @@
+{ theme , ...}: with theme;
+''
+diff --git a/themes/dynamic.h b/themes/dynamic.h
+index a5bc3c6..3df8ec0 100644
+--- a/chadwm/themes/dynamic.h
++++ b/chadwm/themes/dynamic.h
+@@ -1,12 +1,12 @@
+-static const char black[]         = "";
+-static const char blue[]          = ""; // focused window border
+-static const char gray2[]         = ""; // unfocused window border
+-static const char gray3[]         = "";
+-static const char gray4[]         = "";
+-static const char green[]         = "";
+-static const char orange[]        = "";
+-static const char pink[]          = "";
+-static const char red[]           = "";
+-static const char white[]         = "";
+-static const char yellow[]        = "";
+-static const char col_borderbar[] = "";
++static const char black[]         = "#${theme.base00}";
++static const char blue[]          = "#${theme.base0D}"; // focused window border
++static const char gray2[]         = "#${theme.base00}"; // unfocused window border
++static const char gray3[]         = "#${theme.base01}";
++static const char gray4[]         = "#${theme.base00}";
++static const char green[]         = "#${theme.base0C}";
++static const char orange[]        = "#${theme.base09}";
++static const char pink[]          = "#${theme.base0E}";
++static const char red[]           = "#${theme.base08}";
++static const char white[]         = "#${theme.base06}";
++static const char yellow[]        = "#${theme.base0B}";
++static const char col_borderbar[] = "#${theme.base00}";
+''
+

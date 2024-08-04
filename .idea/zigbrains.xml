@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ZLSSettings">
+    <option name="zlsPath" value="/etc/profiles/per-user/nixos/bin/zls" />
+    <option name="initialAutodetectHasBeenDone" value="true" />
+  </component>
+</project>

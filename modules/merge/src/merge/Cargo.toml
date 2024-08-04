@@ -1,0 +1,21 @@
+[package]
+name = "merge"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.79"
+serde = {version = "1.0.194", features = ["derive"]}
+serde_json = "1.0.110"
+strcursor = "0.2.5"
+thiserror = "1.0.56"
+proc = {version = "*", path = "../proc"}
+clap = { version = "4.4.13", features = ["derive"] }
+derive_more = "0.99.17"
+strum_macros = "0.25.3"
+strum = "0.25.0"
+run_script = "0.10.1"
+nix = { version = "0.27.1", features = ["process"] }
+log = "0.4.20"
+lazy_static = "1.4.0"
+dirs = "5.0.1"

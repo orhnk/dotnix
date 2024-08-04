@@ -1,0 +1,61 @@
+Ved - a fast Vim-like editor written in V.
+
+Ved works best with workspaces (directories with code).
+You can have multiple workspaces and quickly switch between them with `C [` and `C ]`.
+
+To open multiple workspaces, run
+
+ved path/to/project1 path/to/project2
+
+If you never used vim before press `j` to move down
+
+Key bindings:
+
+"C" means the Apple key on macOS, control key on all other systems.
+
+C o    open a file
+C s    save
+C r    reload current file
+C p    open ctrlp (fuzzy search)
+/      search in current file
+C g    copy current file's path to clipboard
+C q    exit the editor (type it twice in a row)
+t      go to the previous file
+gd     go to definition
+
+C c    git commit -am
+C -    git diff
+?      git grep (search across all files in current workspace)
+
+C u    build current project (build instructions must be located in "build")
+C y    alternative build of the current project (build instructions must be located in "build2")
+C 1    switch to Ved from any other application (only on macOS for now)
+
+C d    go to the previous split
+C e    go to the next split
+C [    go to the previous workspace
+C ]    go to the next workspace
+
+C a    start a new task
+C t    show the Timer/Pomodoro window
+
+
+Supported Vim bindings:
+
+j k h l         down, up, left, right (moves cursor)
+C-F C-B         page down, page up
+L H             go to top/bottom of the page
+w b             next/previous word
+dw de cw ce     delete word
+di ci           smart delete
+A I             go to start/end of line, insert mode
+o O             new line below/above, insert mode
+v               selection mode
+zz              center current line
+y d p J         yank, delete, paste, join lines
+.               repeat last action
+< >             indent right/left
+/ * n           search, search for word under cursor, next occurence
+gg G            go to the beginning/end of the file
+x r             delete/replace character under cursor
+C-n             autocomplete

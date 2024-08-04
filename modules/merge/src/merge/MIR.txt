@@ -1,0 +1,47 @@
+= MERGE MIR (MgMIR) =
+
+Merge uses a Middle Intermediate Representation to make it easier to maintain package manager specific features.
+
+1. Syntax
+
+Some examples of merge command MIR:
+
+	merge  install <package_list>
+	merge --upgrade-packages
+	merge  upgrade <package_list>
+	merge   search <package_list>
+	merge   remove <package_list>
+
+2. Philosophy
+
+MgMIR tries to be unambigious as possible. This way It's all declarative and 100% reproducible.
+
+Initial try for Merge was to use a parser to parse the shell cmd into It's components. Next construct a MIR,
+Then translate the MIR into the package manager representation.
+
+3. Components of MgMIR
+
+3.1 Keywords
+
+<package_list>   substituted with the package name(s) used for the action
+
+3.2 Opts
+
+install <package_list>
+update <package_list>
+search <package_list>
+remove <package_list>
+
+3.3 Args
+
+--upgrade-packages
+
+3.4 Mixed
+
+install <package_list> --upgrade-packages
+
+3.5 Rules
+
+Every component has optional raw_arguments that doesn't require a keyword to get substituted (unline a `<package_list>`)
+
+- TODO: some components should be ovewritable

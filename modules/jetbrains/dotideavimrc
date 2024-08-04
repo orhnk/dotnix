@@ -1,0 +1,246 @@
+" --- Prerequisites ---
+" - `:actionlist` to see all actions
+" - `:action ProductivityFeatures` to see more features
+" - Plugins to install
+"   - IdeaVim
+"   - AceJump
+"   - Surround
+"   - Multiple Cursors
+"   - String Manipulation
+"   - AI Code Assistant
+"   - Github Copilot
+"   - Translation Plugin (the popular one dk the name)
+"   - performancePlugin
+
+" vim settings
+set scrolloff=5
+set history=1000
+
+" which-key settings
+set notimeout
+
+let mapleader=" "
+
+"" --- Plugins ---
+set surround
+set multiple-cursors
+set which-key
+set NERDTree
+set easymotion
+set exchange
+set highlightedyank
+set vim-paragraph-motion
+set textobj-indent
+set textobj-entire
+set commentary
+set argtextobj
+
+" ideavim settings
+set ideajoin
+set ideamarks
+set idearefactormode=normal
+set ideastatusicon=gray
+set clipboard+=unnamed
+
+" find and replace
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set gdefault
+map <ESC> :noh<CR>
+
+" status bar
+set showmode
+
+"" --- IDEA-Vim ---
+set ideastatusicon=gray
+map <Leader>ww :w<CR>
+map <Leader>qq :q<CR>
+
+" better escape
+inoremap jk <Esc>
+inoremap jj <Esc>j
+
+"" --- Actions ---
+" NOTE: <Action> is a placeholder for the action name
+
+" Tab Navigation "
+map <Tab> <Action>(NextTab)
+map <S-Tab> <Action>(PreviousTab)
+
+" Hover Actions "
+map K <Action>(ShowHoverInfo)
+
+" Code Style "
+" Formatting code "
+map <leader>fm <Action>(ReformatCode)
+map <Leader>ca <Action>(ShowIntentionActions)
+
+" GoTo "
+map <leader>a <Action>(GotoAction)
+map ga <Action>(GotoAction)
+map gx <Action>(GotoClass)
+map gf <Action>(GotoFile)
+map gs <Action>(GotoSymbol)
+map gt <Action>(GoToTest)
+map gT <Action>(TextSearchAction)
+map go <Action>(GotoSuperMethod)
+map gd <Action>(GotoDeclaration)
+map gD <Action>(GotoTypeDeclaration)
+map gi <Action>(GotoImplementation)
+map gI <Action>(QuickImplementations)
+map gn <Action>(ShowNavBar)
+
+"" map <Leader>cd <Action>(ShowDoc) "" Future use (maybe)
+"" map <Leader>cf <Action>(FindUsages)
+"" map <Leader>ch <Action>(GotoSuper)
+
+" CodeGen "
+map <Leader>gg <Action>(Generate)
+map <Leader>ii <Action>(Inline)
+" map <Leader>gp <Action>(GenerateCopyright)
+
+" Whisper AI my credit card number "
+" NOTE: Nicest "
+map <Leader>ai <Action>(ActivateAIAssistToolWindow)
+
+" Focus file tree (project)
+map <Leader>e <Action>(ActivateProjectToolWindow)
+map <Leader>n <Action>(CloseProjectToolWindow)
+map <Leader>of <Action>(OpenFile)
+map <Leader>nf <Action>(NewScratchFile)
+
+" Book marks "
+map <Leader>bc <Action>(Bookmarks)
+map <Leader>bm <Action>(ActivateBookmarksToolWindow)
+map <Leader>bk <Action>(Bookmarks.Toggle)
+map <Leader>ba <Action>(ShowBookmarks)
+
+" REPL "
+map <Leader>rr <Action>(Run)
+map <Leader>rm <Action>(RunMenu)
+map <Leader>rt <Action>(Debug)
+map <Leader>br <Action>(ToggleLineBreakpoint)
+map <Leader>su <Action>(ShowUsages)
+map <Leader>se <Action>(ShowErrorDescription)
+
+" Find "
+" ALSO: Ctrl + Shift + F "
+map <Leader>fa <Action>(ActivateFindToolWindow)
+map <Leader>ff <Action>(Find)
+map <Leader>ft <Action>(TextSearchAction)
+map <Leader>fo <Action>(GotoFile)
+map <Leader>fc <Action>(GotoClass)
+map <Leader>go <Action>(EditorPopupMenu.GoTo)
+map <Leader>f <Action>(FindInPath)
+map s <Action>(AceAction)
+
+" String Manupilation "
+" - All Options: "
+"           StringManipulation.Group.Align
+"           StringManipulation.Group.EncodeDecode
+"           StringManipulation.Group.EscapeC" Code Menu "
+"           StringManipulation.Group.EscapeUnescapemap <Leader>co <Action>(CodeMenu)
+"           StringManipulation.Group.Filter
+"           StringManipulation.Group.IncrementDecrement" Git "
+"           StringManipulation.Group.Mainmap <Leader>gt <Action>(Git.GitToolWindow)
+"           StringManipulation.Group.Misc
+"           StringManipulation.Group.Sort" focus github copilot panel
+"           StringManipulation.Group.SwitchCasemap <Leader>gh <Action>(Activategithub.copilotToolWindowToolWindow) " NOTE This conflicts with git menu"
+"           StringManipulation.Group.UnescapeC
+map <Leader>sp <Action>(StringManipulation.Group.Main)
+map <Leader>sa <Action>(StringManipulation.Group.Align)
+map <Leader>sr <Action>(StringManipulation.Group.Misc)
+map <Leader>so <Action>(StringManipulation.Group.Sort)
+map <Leader>sm <Action>(StringManipulation.Group.SwitchCase)
+
+" Power Users "
+" Performance Testing Tools "
+map <Leader>pt <Action>(Performance.ActivityMonitor)
+" Scripting the IDE "
+map <Leader>sc <Action>(performancePlugin.OpenIndexingDiagnosticsAction)
+
+" Code Jumps "
+map <Leader>ne <Action>(GotoNextError)
+map <Leader>gd <Action>(GotoDeclaration)
+map <Leader>hh <Action>(HierarchyGroup)
+
+" Parameter info"
+map <Leader>pi <Action>(ParameterInfo)
+
+" Inspect Code "
+" NOTE: Very nice feature to have
+map <Leader>ic <Action>(InspectCode)
+
+" map <Leader>gs <Action>(Floating.CodeToolbar) " Above solutions are more concise
+map <Leader>fg <Action>(FoldingGroup)
+map <Leader>fs <Action>(MainToolbarPopupActions)
+
+" Rename "
+map <Leader>rn <Action>(RenameFile)
+
+map <Leader>mn <Action>(MainToolBar)
+
+" Vim "
+map <Leader>va <Action>(VimActions)
+
+" GUI "
+" toggle bottom bar
+map <Leader>tb <Action>(ViewStatusBar)
+map <Leader>td <Action>(ToggleDistractionFreeMode)
+map <Leader>tc <Action>(ToggleCompactMode)
+
+" Translate "
+map <Leader>tt <Action>(TranslationGroup)
+
+" Refactor "
+
+map <Leader>ra <Action>(RenameElement)
+map <Leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+" Analyzer panel "
+" NOTE: Noice feature"
+map <Leader>aa <Action>(AnalyzeActions)
+
+
+" General "
+" - General purpose popups"
+map <Leader>pp <Action>(ToolWindowsGroup)
+map <Leader>ge <Action>(EditorPopupMenu)
+" map <Leader>g2 <Action>(EditorPopupMenu.Run)
+" map <Leader>g3 <Action>(EditorPopupMenu1.FindRefactor)
+
+" Git "
+" - Git menu "
+map <Leader>gh <Action>(Git.Menu)
+map <Leader>gm <Action>(Git.MainMenu)
+map <Leader>cg <Action>(Github.Create.Gist)
+
+" - TODO panel "
+map <Leader>to <Action>(ActivateTODOToolWindow)
+
+" - Task Manager "
+" NOTE: Super useful"
+map <Leader>ts <Action>(tasks.goto)
+
+" Other "
+" Color Picker "
+map <Leader>cp <Action>(ShowColorPicker)
+
+" Emoji Picker "
+map <Leader>ew <Action>(EmojiPicker.Open)
+
+" Terminal "
+map <Leader>v <Action>(ActivateTerminalToolWindow)
+
+" Package Manager "
+map <Leader>pkg <Action>(ActivateVcpkgToolWindow)
+
+" Theme Manager "
+map <Leader>ht <Action>(ChangeColorScheme)
+" map <Leader>cd <Action>(ChangeCodeStyleScheme)
+
+" Markdown Tools "
+
+map <Leader>md <Action>(Markdown.Tools)

@@ -1,0 +1,33 @@
+{
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.inlineSuggest.suppressSuggestions": false,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "vim.insertModeKeyBindings": [
+    {
+      "after": [
+        "<Esc>"
+      ],
+      "before": [
+        "j",
+        "k"
+      ]
+    },
+    {
+      "after": [
+        "<Esc>"
+      ],
+      "before": [
+        "j",
+        "j"
+      ]
+    }
+  ],
+  "workbench.colorTheme": "Ayu Light",
+  "workbench.iconTheme": "gruvbox-material-icon-theme",
+  "workbench.tree.indent": 20
+}

@@ -1,0 +1,37 @@
+{
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.inlineSuggest.suppressSuggestions": false,
+  "editor.fontFamily": "JetBrains Mono",
+
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+
+  "workbench.colorTheme": "Gruvbox Material Dark",
+  "workbench.tree.indent": 20,
+  "workbench.iconTheme": "gruvbox-material-icon-theme",
+
+  "[markdown]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    },
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ]
+}
