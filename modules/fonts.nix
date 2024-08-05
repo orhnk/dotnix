@@ -42,7 +42,7 @@
   # noto-fonts-lgc-plus
   noto-fonts-emoji
   jetbrains-mono
-  # iosevka
+  iosevka
 
   # # Bitmap Fonts
   cozette

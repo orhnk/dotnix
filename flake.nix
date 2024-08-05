@@ -119,7 +119,7 @@
         ["nixSuper" "ghostty" "zls"]
         (name: inputs.${name}.packages.${system}.default);
 
-      colorscheme = "gruvbox-material-dark-medium";
+      colorscheme = "doom";
 
       theme = themes.custom (themes.raw.${colorscheme}
         // rec {
@@ -128,6 +128,7 @@
             then "light"
             else "dark";
 
+          # wallpaperPath = "${wallpapers}/${colorscheme}/favorites/MacroTrees.jpg";
           wallpaperPath = "${wallpapers}/${colorscheme}";
           wallpaper =
             if builtins.pathExists wallpaperPath
@@ -146,26 +147,30 @@
           # margin = 0; # peak screen usage
           # padding = 0;
 
-          font.size.normal = 10;
-          font.size.big = 18;
+          font.size.normal = 13;
+          font.size.big = 13;
+
+          # # COZETTE
+          # font.size.normal = 10;
+          # font.size.big = 18;
 
           # font.mono.name = "Fira Code";
           # font.mono.package = pkgs.fira-code;
           # font.sans.name = "Fira Code";
           # font.sans.package =  pkgs.fira-code;
 
-          # font.sans.name = "Iosevka";
-          # font.sans.package = pkgs.iosevka;
-          # font.mono.name = "JetBrainsMono Nerd Font";
-          # font.mono.package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
+          font.sans.name = "Iosevka";
+          font.sans.package = pkgs.nerdfonts.override {fonts = ["Iosevka"];};
+          font.mono.name = "JetBrainsMono";
+          font.mono.package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
 
           # font.sans.name = "tewi";
           # font.sans.package = pkgs.tewi-font;
 
-          font.mono.name = "CozetteVector";
-          font.mono.package = pkgs.cozette;
-          font.sans.name = "CozetteVector";
-          font.sans.package = pkgs.cozette;
+          # font.mono.name = "CozetteVector";
+          # font.mono.package = pkgs.cozette;
+          # font.sans.name = "CozetteVector";
+          # font.sans.package = pkgs.cozette;
 
           icons.name = "Gruvbox-Plus-Dark";
           icons.package = pkgs.callPackage (import ./derivations/gruvbox-icons.nix) {};

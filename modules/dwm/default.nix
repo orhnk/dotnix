@@ -100,7 +100,7 @@ with theme;
       }
   )
   (let
-    bar-theme = import ./config/scripts/bar.sh.nix {inherit theme;};
+    bar-theme = import ./config/scripts/icon-bar.sh.nix {inherit theme;};
   in (homeConfiguration {
     xdg.configFile."chadwm".source = pkgs.symlinkJoin {
       name = "chadwm";

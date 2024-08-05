@@ -482,21 +482,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1721982702,
-        "narHash": "sha256-vDagIjBVc2+X0VRK+T9QQrh8uKNjV9ZprQAeqKQbdZY=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "da8fd5be9f9ae454e56fe8ef69931cff19f30920",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": [
@@ -622,15 +607,12 @@
       }
     },
     "themes": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_3"
-      },
       "locked": {
-        "lastModified": 1721985235,
-        "narHash": "sha256-uUqT8ZRUvM3/er/HYASF48aF6v8GKE2MG0xYalsky8A=",
+        "lastModified": 1722801124,
+        "narHash": "sha256-iFlL3CYByvVtV7kLr8X/IdVJauTka1r1joqFLN9nMz0=",
         "owner": "orhnk",
         "repo": "PhoeNix",
-        "rev": "0e4e338a9888762da6b6e8843c70fe3e036774d8",
+        "rev": "f35ede5772605e41288776fbbbf652c3074fbc77",
         "type": "github"
       },
       "original": {

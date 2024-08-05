@@ -9,7 +9,7 @@
 with ulib;
   merge
   (homeConfiguration {
-    # xdg.configFile."doom".source = pkgs.callPackage (import ./config.nix) {};
+    xdg.configFile."doom".source = pkgs.callPackage (import ./config.nix) {};
     # xdg.configFile."emacs".source = pkgs.callPackage (import ./doom.nix) {};
 
     services.emacs = enabled {};
