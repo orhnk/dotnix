@@ -79,8 +79,8 @@ static const Launcher launchers[] = {
     // {emacs,                ""},
     // {vim,                  ""},
     // {firefox,              ""},
-    {eww,                  "A"},
-    {simplescreenrecorder, "O"},
+    /*{eww,                  "A"},*/
+    {simplescreenrecorder, "󰑋"},
     // { screen_save,   "" },
 };
 

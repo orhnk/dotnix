@@ -57,11 +57,17 @@ with ulib;
             # }
 
             {
-              # FIXME
-              on = ["C"];
-              run = ["plugin chmod"];
-              # run = ["yank" "shell --confirm 'echo \"$@\" | xclip -i -selection clipboard'"];
+              on = ["f"];
+              run = "plugin jump-to-char";
+              desc = "Jump to char";
             }
+
+            # {
+            #   # FIXME
+            #   on = ["C"];
+            #   run = ["plugin chmod"];
+            #   # run = ["yank" "shell --confirm 'echo \"$@\" | xclip -i -selection clipboard'"];
+            # }
 
             {
               on = ["<C-x>"];
@@ -70,15 +76,15 @@ with ulib;
               '';
             }
 
-            {
-              on = ["y"];
-              run = [
-                "yank"
-                ''
-                  shell 'echo "$@" | xclip -i -selection clipboard -t text/uri-list' --confirm
-                ''
-              ];
-            }
+            # {
+            #   on = ["y"];
+            #   run = [
+            #     "yank"
+            #     ''
+            #       shell 'echo "$@" | xclip -i -selection clipboard -t text/uri-list' --confirm
+            #     ''
+            #   ];
+            # }
 
             {
               on = ["T"];
@@ -105,8 +111,9 @@ with ulib;
           }) [
             "smart-enter"
             "max-preview"
-            "copy-file" # FIXME
-            "chmod" # FIXME
+            "jump-to-char"
+            # "copy-file" # FIXME
+            # "chmod" # FIXME
           ]
         );
 
@@ -115,7 +122,7 @@ with ulib;
           #   enabled = false;
           # };
           manager = {
-            #   show_hidden = false;
+            #   show_hidden = true;
             sort_by = "modified";
             sort_reverse = true;
             sort_dir_first = false;
@@ -123,8 +130,8 @@ with ulib;
           };
 
           preview = {
-            max_width = 700;
-            max_height = 700;
+            max_width = 2000;
+            max_height = 2000;
           };
 
           opener = {

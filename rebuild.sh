@@ -14,7 +14,7 @@ if [[ $machine == "" ]]; then
 	read -p "What machine would you like to build? (Possible options: $available_machines): " machine
 fi
 
-sudo echo "starting"
+sudo true
 nix-shell --packages git --command "sudo nixos-rebuild switch $options --flake .#$machine |& nom --json"
 
 # sudo sh -c $"nixos-rebuild switch ($flags | str join ' ') |& nom --json"

@@ -38,7 +38,7 @@ local nvmappings_ns = {
   ["<leader>ht"] = { "<cmd> Telescope themes <cr>", "Themes" },
   ["<leader>nn"] = { "<cmd> set nu! <cr>", "Toggle LNum"     },
   ["<leader>nr"] = { "<cmd> set rnu! <cr>", "Toggle RNum"    },
-  ["<leader>sq"] = { "<cmd> '<,'> sort <cr>", "Sort"         },
+  ["<leader>sq"] = { "<cmd> '<,'> sort <cr><esc>", "Sort"    },
 }
 
 -- Disable NvChad's mappings (btw you can remap them above)

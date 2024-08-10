@@ -11,13 +11,13 @@ with theme.withHashtag; ''
   # Append a space after the icon within the quotes, then you'll see what icon is it.
     weather_icon=' '
     time_icon=' '
-    disk_icon=' '
-    cpu_icon=' '
-    mem_icon=' '
+    disk_icon=' '
+    cpu_icon=' '
+    mem_icon=' '
     date_icon=' '
     wlan_icon_succes='󰤨 '
     wlan_icon_fail='󰤭 '
-    uptime_icon='󰸮 '
+    uptime_icon='󱇻 '
 
     interval=0
 

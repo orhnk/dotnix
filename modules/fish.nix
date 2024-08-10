@@ -1,6 +1,7 @@
 {
-  ulib,
+  lib,
   pkgs,
+  ulib,
   ...
 }:
 with ulib;
@@ -51,10 +52,10 @@ with ulib;
           name = "plugin-git";
           src = plugin-git.src;
         }
-        {
-          name = "grc";
-          src = grc.src;
-        }
+        # {
+        #   name = "grc";
+        #   src = grc.src;
+        # }
         # {
         #   name = "humantime-fish";
         #   src = humantime-fish.src;
@@ -70,5 +71,5 @@ with ulib;
   (homePackages (with pkgs; [
     carapace
     fzf
-    grc
+    # grc
   ]))

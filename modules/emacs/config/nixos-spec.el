@@ -20,9 +20,6 @@
 ;;; Code:
 
 
-;; TexLive
-(setq org-latex-compiler "lualatex")
-(setq org-preview-latex-default-process 'dvisvgm)
 
 (provide 'nixos-spec)
 ;;; nixos-spec.el ends here

@@ -9,7 +9,7 @@ with ulib;
       description = "orhnk";
       useDefaultShell = true;
       ignoreShellProgramCheck = true;
-      extraGroups = ["wheel" "wireshark"];
+      extraGroups = ["wheel" "wireshark" "storage"];
     };
   })
   (homeConfiguration {
@@ -30,6 +30,7 @@ with ulib;
     "emacs" # BROKEN # So many features... IDK whether It's good or not.
     # "embedded"     # Embedded Dev Tools
     # "eww"          # Widgetzzz. Just distracting you and the configuration is just taking forever. I use dmenu instead.
+    "eza" # Colorful ls command
     "feh" # Image Viewer & Wallpaper Manager
     "firefox" # Mozilla - pretends safe.
     "fish" # source of `fish-like` zsh extensions
@@ -74,9 +75,9 @@ with ulib;
     # "ved"          # Text Editor written in V Programming Language
     # "vimacs"       # feature-FULL NeoVim inspired by JetBrains ~ github: orhnk/vimacs
     "minivim" # Minimalistic NeoVim
-    # "vscode" # Microsoft. Again...
+    "vscode" # Microsoft. Again...
     # "weechat"      # Weeee... # Just using GUI. Currently.
     # "waybar"       # wayland bar
-    "udisks" # Mounting Devices
+    "mount" # Mounting Devices Automatically
     "yazi" # The supperior file manager
   ])

@@ -27,7 +27,7 @@ return plugins {
     "copilot-chat",
     "dressing",
     "easy-align",
-    "file-browser",
+    -- "file-browser",
     "flash",
     "lazy",
     "lsp-signature",
@@ -39,7 +39,7 @@ return plugins {
     "treesj",
     "wakatime",
     "which-key",
-    -- "yazi",
+    "yazi",
   },
 
   ignore = { -- Force Stop Plugins (NvChad Defaults)

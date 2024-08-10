@@ -2,7 +2,6 @@
   inputs,
   ulib,
   pkgs,
-  flake-utils,
   ...
 }:
 with ulib;
@@ -10,26 +9,33 @@ with ulib;
   (systemConfiguration {
     nixpkgs.overlays = [inputs.fenix.overlays.default];
   })
-  (systemPackages (with pkgs; [
-    # (fenix.complete.withComponents [
-    #   "cargo"
-    #   "clippy"
-    #   "rust-src"
-    #   "rust-std"
-    #   "rust-docs"
-    #   "rustc"
-    #   "rustfmt"
-    # ])
+  (let
+    flatList = list:
+      builtins.concatLists (map (x:
+        if builtins.isList x
+        then x
+        else [x])
+      list);
+  in
+    systemPackages (with pkgs;
+      flatList [
+        (fenix.complete.withComponents [
+          "cargo"
+          "clippy"
+          "rust-src"
+          "rust-std"
+          "rust-docs"
+          "rustc"
+          "rustfmt"
+        ])
 
-    trunk
-    # cargo-tauri
-    # # (pkgs.callPackage (import ./tauri-deps.nix) {}) # TODO
+        # trunk
 
-    rustc
-    cargo
+        rustc
+        cargo
 
-    rustup
-    cargo-watch
-    cargo-expand
-    evcxr # Rust REPL
-  ]))
+        rustup
+        cargo-watch
+        cargo-expand
+        evcxr # Rust REPL
+      ]))

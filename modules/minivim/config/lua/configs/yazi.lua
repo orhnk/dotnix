@@ -13,7 +13,7 @@ return {
   },
 
   opts = {
-    use_ya_for_events_reading = true,
-    use_yazi_client_id_flag = true,
+    -- use_ya_for_events_reading = true,
+    -- use_yazi_client_id_flag = true,
   },
 }

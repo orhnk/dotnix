@@ -44,6 +44,7 @@ with theme;
         static const char *fonts[]          = {
           "${theme.font.sans.name}:size=${builtins.toString theme.font.size.normal}",
           "${theme.font.mono.name}:size=${builtins.toString theme.font.size.normal}",
+          "Siji:size=20", // Bitmap gyliphs
           // "Iosevka:style:medium:size=12",
         }; //:size=10
 

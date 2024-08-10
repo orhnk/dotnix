@@ -33,7 +33,7 @@ with ulib;
 
           min_icon_size = 100;
 
-          offset = "50x50";
+          offset = "10x50";
           origin = "top-right";
         };
 
