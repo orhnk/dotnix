@@ -40,7 +40,15 @@
 ;; Use `:pin' to specify a particular commit to install.
 ;; (package! builtin-package :pin "1a2b3c4d5e")
 
-(package! org-modern)
+;; (package! org-modern)
+
+(package! copilot-chat
+  :recipe (:host github :repo "chep/copilot-chat.el" :files ("*.el")))
+
+(after! copilot-chat
+  (setq copilot-chat-frontend 'shell-maker)
+  (require 'copilot-chat-shell-maker)
+  (push '(shell-maker . copilot-chat-shell-maker-init) copilot-chat-frontend-list))
 
 ;; Doom's packages are pinned to a specific commit and updated from release to
 ;; release. The `unpin!' macro allows you to unpin single packages...

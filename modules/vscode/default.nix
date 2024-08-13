@@ -27,7 +27,7 @@ with ulib;
         package = pkgs.vscode.fhs;
         userSettings = builtins.fromJSON (builtins.readFile ./config/settings.json);
         keybindings = builtins.fromJSON (builtins.readFile ./config/keybindings.json);
-        # mutableExtensionsDir = true; # [I]
+        # mutableExtensionsDir = false; # [I]
 
         extensions =
           with pkgs.vscode-extensions;
@@ -62,6 +62,12 @@ with ulib;
               rust-lang.rust-analyzer
               # serayuzgur.crates
               tamasfe.even-better-toml
+
+              ## DART
+              ### FLUTTER
+              dart-code.flutter
+              alexisvt.flutter-snippets
+              vscjava.vscode-gradle
 
               ## ZIG
               # ziglang.vscode-zig

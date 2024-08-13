@@ -4,6 +4,6 @@ lib:
 //
 (import ./merge.nix lib)
 //
-(import ./modules.nix)
+(import ./modules.nix lib)
 //
 (import ./values.nix lib)

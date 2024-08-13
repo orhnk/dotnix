@@ -7,7 +7,7 @@
   ...
 }:
 with ulib;
-  merge
+  merge3
   (homeConfiguration {
     xdg.configFile."doom".source = pkgs.callPackage (import ./config.nix) {};
     # xdg.configFile."emacs".source = pkgs.callPackage (import ./doom.nix) {};
@@ -47,3 +47,7 @@ with ulib;
 #       # #(pkgs.emacs.override {withGTK3 = false; nativeComp = true;})
 #       # emacsPackages.adwaita-dark-theme
 #     ] )
+
+  (systemFonts (with pkgs; [
+    eb-garamond
+  ]))

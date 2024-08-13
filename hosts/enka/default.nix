@@ -9,7 +9,7 @@ with ulib;
       description = "orhnk";
       useDefaultShell = true;
       ignoreShellProgramCheck = true;
-      extraGroups = ["wheel" "wireshark" "storage"];
+      extraGroups = ["wheel" "wireshark" "kvm" "adbusers"];
     };
   })
   (homeConfiguration {
@@ -18,6 +18,7 @@ with ulib;
   (importModules [
     ./hardware.nix
 
+    "android-dev" # android development tools
     "bat" # `cat` with wings
     # "blueman"      # Bluetooth thing
     "boot" # systemd-boot
@@ -28,7 +29,7 @@ with ulib;
     "dunst" # Notification Daemon
     "dwm" # wm that sucks less
     "emacs" # BROKEN # So many features... IDK whether It's good or not.
-    # "embedded"     # Embedded Dev Tools
+    # "embedded-dev"     # Embedded Dev Tools
     # "eww"          # Widgetzzz. Just distracting you and the configuration is just taking forever. I use dmenu instead.
     "eza" # Colorful ls command
     "feh" # Image Viewer & Wallpaper Manager
@@ -42,7 +43,7 @@ with ulib;
     "gtk" # GNU ToolKit
     "helix" # NeoVi
     # "hyprland"     # Some animations... NOTE: enable with waybar + uncomment (Hyprland) in nushell/environment.nix.nu
-    "jetbrains" # Heavy but featureful IDE
+    # "jetbrains" # Heavy but featureful IDE
     "kitty" # Good Terminal Emulator. Doesn't support pixel fonts though.
     # "kmscon"       # TTY but GTK: WARNING: breaks hyprland
     "localisation" # Where are you living sir?
@@ -53,13 +54,15 @@ with ulib;
     # "neomutt"      # Email Client # Extreme minimalism which doesn't help. Maybe for future fantasy.
     # "networkmanager" # Using ETH on my desktop
     "nix" # The only package manager
-    # "nushell" # Data. Structured.
+    # [
+    #   "nushell" # Data. Structured.
+    #   "pueue" # Long running command notif. Used with nushell.
+    # ]
     "nvidia" # Laggy.
     # "orhanwm"      # Custom WM
     "packages" # Wide range of packages
     # "picom" # X Copmpositor for animations, blur, rounded corners etc.
     "pulseaudio" # Works Better
-    "pueue" # https://github.com/Nukesor/pueue
     "python" # The cool kid
     # "qt"           # Cute
     # "qutebrowser"  # Browser

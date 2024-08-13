@@ -1,7 +1,7 @@
 {
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.inlineSuggest.suppressSuggestions": false,
-  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontFamily": "Iosevka",
 
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 1000,
@@ -11,6 +11,10 @@
   "workbench.iconTheme": "gruvbox-material-icon-theme",
 
   "[markdown]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+
+  "[jsonc]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
   },
 

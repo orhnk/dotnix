@@ -22,7 +22,7 @@
 (doom-require 'org)
 (doom-require 'doom-lib)
 
-(load! "org-modern.el") ;; uncomment packages.el org-modern
+;; (load! "org-modern.el") ;; uncomment packages.el org-modern
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -64,7 +64,7 @@
 (with-eval-after-load 'org-faces
   (setq org-hidden-keywords '(title))
   ;; set basic title font
-  (set-face-attribute 'org-level-8 nil :weight 'bold :inherit 'default)
+  (set-face-attribute 'org-level-8 nil :weight 'bold :inherit 'default :font "EB Garamond")
   ;; Low levels are unimportant => no scaling
   (set-face-attribute 'org-level-7 nil :inherit 'org-level-8)
   (set-face-attribute 'org-level-6 nil :inherit 'org-level-8)
@@ -81,72 +81,73 @@
   (set-face-attribute 'org-document-title nil
                       :height 2.074
                       :foreground 'unspecified
-                      :inherit 'org-level-8)
+                      :inherit 'org-level-8
+                      :font "EB Garamond")
 
   ;;   ;;; Basic Setup
   ;;   ;; Auto-start Superstar with Org
-  ;;   )
+  )
 
-  (with-eval-after-load 'org-superstar
-    (set-face-attribute 'org-superstar-item nil :height 1.2)
-    (set-face-attribute 'org-superstar-header-bullet nil :height 1.2)
-    (set-face-attribute 'org-superstar-leading nil :height 1.3))
-  ;; Set different bullets, with one getting a terminal fallback.
-  (setq org-superstar-headline-bullets-list '("λ" "§" "Σ" "Ψ" "Ω" "▶" "β" "δ" "᠉" "⋑" "✸"))
-  ;; Stop cycling bullets to emphasize hierarchy of headlines.
-  ;; (setq org-superstar-cycle-headline-bullets nil)
-  ;; Hide away leading stars on terminal.
-  ;; (setq org-superstar-leading-fallback ?\s)
-
-
-  (add-hook 'org-mode-hook 'hl-todo-mode)
-
-  (after! org
-    (add-hook 'org-mode-hook (lambda () (org-superstar-mode t) (global-hl-todo-mode t)))
-    ;; TODO Create some kind of config that will do this:
-
-    (setq org-hide-leading-stars t) ;; Added for troubleshooting NOTE
-    (setq org-ellipsis "⤸") ;; :arrow_down: ⤸ :arrow_up: ▾ :arrow_down_small: ▴
-    )
-
-  (setq org-cycle-separator-lines -1) ;; Found on the internet it debugs ellipsis error (That I don't get cuz I can'T see anyhing)
-
-  (defun org-toggle-html-export-on-save ()
-    (interactive)
-    (if (memq 'org-html-export-to-html after-save-hook)
-        (progn
-          (remove-hook 'after-save-hook 'org-html-export-to-html t)
-          (message "Disabled org html export on save for current buffer..."))
-      (add-hook 'after-save-hook 'org-html-export-to-html nil t)
-      (message "Enabled org html export on save for current buffer...")))
-
-  (defun org-toggle-markdown-export-on-save ()
-    (interactive)
-    (if (memq 'org-md-export-to-markdown after-save-hook)
-        (progn
-          (remove-hook 'after-save-hook 'org-md-export-to-markdown t)
-          (message "Disabled org markdown export on save for current buffer..."))
-      (add-hook 'after-save-hook 'org-md-export-to-markdown nil t)
-      (message "Enabled org markdown export on save for current buffer...")))
-
-  (defun org-toggle-latex-export-on-save ()
-    (interactive)
-    (if (memq 'org-latex-export-to-latex after-save-hook)
-        (progn
-          (remove-hook 'after-save-hook 'org-pdftools-export t)
-          (message "Disabled org latex export on save for current buffer..."))
-      (add-hook 'after-save-hook 'org-pdftools-export nil t)
-      (message "Enabled org latex export on save for current buffer...")))
-
-  (defun org-toggle-pdf-export-on-save ()
-    (interactive)
-    (if (memq 'org-latex-export-to-pdf after-save-hook)
-        (progn
-          (remove-hook 'after-save-hook 'org-pdftools-export t)
-          (message "Disabled org pdf export on save for current buffer..."))
-      (add-hook 'after-save-hook 'org-pdftools-export nil t)
-      (message "Enabled org pdf export on save for current buffer...")))
+(with-eval-after-load 'org-superstar
+  (set-face-attribute 'org-superstar-item nil :height 1.2)
+  (set-face-attribute 'org-superstar-header-bullet nil :height 1.2)
+  (set-face-attribute 'org-superstar-leading nil :height 1.3))
+;; Set different bullets, with one getting a terminal fallback.
+(setq org-superstar-headline-bullets-list '("λ" "§" "Σ" "Ψ" "Ω" "▶" "β" "δ" "᠉" "⋑" "✸"))
+;; Stop cycling bullets to emphasize hierarchy of headlines.
+;; (setq org-superstar-cycle-headline-bullets nil)
+;; Hide away leading stars on terminal.
+;; (setq org-superstar-leading-fallback ?\s)
 
 
-  (provide 'org)
+(add-hook 'org-mode-hook 'hl-todo-mode)
+
+(after! org
+  (add-hook 'org-mode-hook (lambda () (org-superstar-mode t) (global-hl-todo-mode t)))
+  ;; TODO Create some kind of config that will do this:
+
+  (setq org-hide-leading-stars t) ;; Added for troubleshooting NOTE
+  (setq org-ellipsis "⤸") ;; :arrow_down: ⤸ :arrow_up: ▾ :arrow_down_small: ▴
+  )
+
+(setq org-cycle-separator-lines -1) ;; Found on the internet it debugs ellipsis error (That I don't get cuz I can'T see anyhing)
+
+(defun org-toggle-html-export-on-save ()
+  (interactive)
+  (if (memq 'org-html-export-to-html after-save-hook)
+      (progn
+        (remove-hook 'after-save-hook 'org-html-export-to-html t)
+        (message "Disabled org html export on save for current buffer..."))
+    (add-hook 'after-save-hook 'org-html-export-to-html nil t)
+    (message "Enabled org html export on save for current buffer...")))
+
+(defun org-toggle-markdown-export-on-save ()
+  (interactive)
+  (if (memq 'org-md-export-to-markdown after-save-hook)
+      (progn
+        (remove-hook 'after-save-hook 'org-md-export-to-markdown t)
+        (message "Disabled org markdown export on save for current buffer..."))
+    (add-hook 'after-save-hook 'org-md-export-to-markdown nil t)
+    (message "Enabled org markdown export on save for current buffer...")))
+
+(defun org-toggle-latex-export-on-save ()
+  (interactive)
+  (if (memq 'org-latex-export-to-latex after-save-hook)
+      (progn
+        (remove-hook 'after-save-hook 'org-pdftools-export t)
+        (message "Disabled org latex export on save for current buffer..."))
+    (add-hook 'after-save-hook 'org-pdftools-export nil t)
+    (message "Enabled org latex export on save for current buffer...")))
+
+(defun org-toggle-pdf-export-on-save ()
+  (interactive)
+  (if (memq 'org-latex-export-to-pdf after-save-hook)
+      (progn
+        (remove-hook 'after-save-hook 'org-pdftools-export t)
+        (message "Disabled org pdf export on save for current buffer..."))
+    (add-hook 'after-save-hook 'org-pdftools-export nil t)
+    (message "Enabled org pdf export on save for current buffer...")))
+
+
+(provide 'org)
 ;;; org.el ends here

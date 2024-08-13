@@ -39,7 +39,9 @@ with ulib;
   ]))
   (graphicalPackages (with pkgs; [
     # Graphical
-    pinta
+    # xournalpp # Note taking app too advanced with ugly UI
+    rnote # Minimal Note taking app
+    # pinta # Windows Paint
     gimp
 
     wpsoffice
@@ -53,9 +55,6 @@ with ulib;
     # kazam # use maim instead
     # rustdesk
     brave
-
-    # PROGRAMMING
-    android-studio
 
     mpv # Media Player
     # speedread # spead read the docs from the terminal, awesome!

@@ -15,7 +15,7 @@ with ulib;
     hardware.opengl = enabled;
 
     # Load nvidia driver for Xorg and Wayland
-    services.xserver.videoDrivers = ["nvidiaLegacy390"]; # nVidia GeForce GT630
+    # services.xserver.videoDrivers = ["nvidiaLegacy390"]; # nVidia GeForce GT630
     # services.xserver.videoDrivers = ["nvidia"];
 
     # boot.blacklistedKernelModules = ["nouveau"];

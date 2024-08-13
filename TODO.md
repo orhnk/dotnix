@@ -2,15 +2,14 @@
 
 - QT theme doesn't work.
 
-- Nushell custom prompt title does not work, as it gets
-  overriden by the shell integration in a split second.
+- Nushell custom prompt title does not work, as it gets overriden by the shell
+  integration in a split second.
 
-- Nix Super errors, saying it expected an attrset and got a
-  trunk when evaluating the non-outputs section. This should
-  work, as it is an advertised feature (And it does! Don't get
-  me wrong, it works if you don't use the builtins namespace)
-  but doesn't work completely. Max is working on a fix, so I've
-  put the soon-to-be attributes here, so I don't forget.
+- Nix Super errors, saying it expected an attrset and got a trunk when
+  evaluating the non-outputs section. This should work, as it is an advertised
+  feature (And it does! Don't get me wrong, it works if you don't use the
+  builtins namespace) but doesn't work completely. Max is working on a fix, so
+  I've put the soon-to-be attributes here, so I don't forget.
 
   ```nix
   nixConfig = with builtins; mapAttrs (name: concatStringsSep " ") {
@@ -46,12 +45,13 @@
 - Need to make Firefox cozzier
 - dyanmically change apps depending on `${host}/default.nix`
 
-  Beispiel:
-    commenting out rofi enabling dmenu will change the dwm keybinding `Mod+c` to execute dmenu (instead of rofi)
+  Beispiel: commenting out rofi enabling dmenu will change the dwm keybinding
+  `Mod+c` to execute dmenu (instead of rofi)
 
-- Find a way something like https://color.firefox.com/ to generate a theme for firefox
-- Use hugo
-    https://themes.gohugo.io/themes/hugo-texify3/
-    https://themes.gohugo.io/themes/hugo.386/
-    https://themes.gohugo.io/themes/risotto/
+- Find a way something like https://color.firefox.com/ to generate a theme for
+  firefox
+- Use hugo https://themes.gohugo.io/themes/hugo-texify3/
+  https://themes.gohugo.io/themes/hugo.386/
+  https://themes.gohugo.io/themes/risotto/
 
+- Implement ulib.users.this for the currently compiled user.

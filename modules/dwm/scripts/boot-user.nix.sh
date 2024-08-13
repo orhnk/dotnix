@@ -1,4 +1,4 @@
-{ xrandr-monitor-script, clipboard_daemon, wallpaper, config, pkgs }:''
+{ xrandr-monitor-script, clipboard_daemon, wallpaper, config, pkgs }: ''
 
 #!/bin/sh
 

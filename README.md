@@ -56,7 +56,27 @@ Parameters:
 > Check out [CONFIGURATION_STEPS.md](./CONFIGURATION_STEPS.md) for
 > non-declarative steps.
 
+## TIPS
+
+### Productivity
+
+Feeling unproductive and ricing your NixOS all day?
+I was one. Then I've found out that using a somewhat
+ugly was helping me. So you can use the "Productive"
+theme under the flake instead of the one that's aesthetic.
+
 ## NOTES
+
+### My System Is Running Out Of Space ...
+
+```sh
+nix-collect-garbage --delete-older-than 3d
+nix-store --gc --print-roots | grep ~ # If this has so many outputs, you need to delete older profiles manually and recollect garbage. (really helpful if your system is old)
+nix-store --verify --repair
+nix store optimise
+```
+
+you could also use `nix-tree` to judge which package is needed or not.
 
 ### Errors
 
