@@ -13,6 +13,9 @@ with ulib;
   (homeConfiguration {
     programs.starship = enabled {};
     programs.fish = enabled {
+      shellAliases = {
+        e = "$EDITOR";
+      };
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
 

@@ -62,10 +62,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zls = {
-      url = "github:zigtools/zls";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # zls = {
+    #   url = "github:zigtools/zls";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     tools = {
       url = "github:RGBCube/FlakeTools";
@@ -115,8 +115,8 @@
         # {inherit nuScripts;}
         # //
         lib.genAttrs
-        # "hyprland" "hyprpicker"
-        ["nixSuper" "ghostty" "zls"]
+        # "hyprland" "hyprpicker" "zls"
+        ["nixSuper" "ghostty"]
         (name: inputs.${name}.packages.${system}.default);
 
       colorscheme = "gruvbox-material-dark-medium";
@@ -128,7 +128,7 @@
             then "light"
             else "dark";
 
-          wallpaperPath = "${wallpapers}/${colorscheme}/favorites";
+          wallpaperPath = "${wallpapers}/${colorscheme}/favorites/pond_shed.png";
           # wallpaperPath = "${wallpapers}/${colorscheme}";
           wallpaper =
             if builtins.pathExists wallpaperPath

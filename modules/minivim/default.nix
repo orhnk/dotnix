@@ -104,10 +104,10 @@ with ulib;
     };
   }))
   (systemConfiguration {
-    environment.variables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-    };
+    # environment.variables = {
+    #   EDITOR = "nvim";
+    #   VISUAL = "nvim";
+    # };
   })
   (homePackages (with pkgs; [
     lazygit

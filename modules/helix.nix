@@ -38,13 +38,14 @@ with ulib;
 
       languages.language-server.nixd.command = "nixd";
 
-      settings.theme = "base16_transparent";
+      # settings.theme = "base16_transparent"; # Adaptive but ugly
+      settings.theme = "gruvbox";
 
       settings.editor = {
         color-modes = true;
         completion-replace = true;
         completion-trigger-len = 0;
-        cursor-shape.insert = "bar";
+        # cursor-shape.insert = "bar";
         cursorline = true;
         bufferline = "multiple";
         file-picker.hidden = false;
@@ -72,7 +73,10 @@ with ulib;
 
       settings.keys =
         lib.genAttrs ["normal" "select"] (name: {
+          # Case sensitive
           D = "extend_to_line_end";
+          # TAB = "buffer_next";
+          # S-tab = "buffer_previous";
         })
         // lib.genAttrs ["insert"] (name: {
           j = {
@@ -83,7 +87,10 @@ with ulib;
     };
   })
   (systemConfiguration {
-    # environment.variables.EDITOR = "hx";
+    environment.variables = {
+      EDITOR = "hx";
+      VISUAL = "hx";
+    };
   })
   (homePackages (with pkgs; [
     # CMAKE
@@ -117,6 +124,6 @@ with ulib;
     # RUST
     rust-analyzer
 
-    # ZIG
-    upkgs.zls
+    # # ZIG
+    # upkgs.zls
   ]))

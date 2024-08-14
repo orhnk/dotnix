@@ -75,7 +75,7 @@ generate_menu() {
 }
 
 # Prompt user to select an action
-action=$(generate_menu | rofi -i -dmenu -theme-str 'window {width: 8em;} listview {lines: 6;}')
+action=$(generate_menu | rofi -i -dmenu -theme-str 'window {width: 5em;} listview {lines: 4;}')
 
 # Execute the selected action
 if [[ -n "${OPTIONS[$action]}" ]]; then

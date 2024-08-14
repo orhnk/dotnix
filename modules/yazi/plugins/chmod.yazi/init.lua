@@ -14,6 +14,7 @@ return {
 		ya.manager_emit("escape", { visual = true })
 
 		local urls = selected_or_hovered()
+
 		if #urls == 0 then
 			return ya.notify({ title = "Chmod", content = "No file selected", level = "warn", timeout = 5 })
 		end

@@ -12,8 +12,10 @@ with ulib;
     btop
     # p7zip # zip and unzip stuff
     tree
-    ffmpeg_5-full # cli image manipulation, screen casting etc.
+    ffmpeg_4-full # cli image manipulation, screen casting etc.
     translate-shell # cli translator
+
+    clipboard-jh # The only clipboard manageer
 
     # Productivity
     porsmo # Cli Timer with libnotify + start-stop functionality

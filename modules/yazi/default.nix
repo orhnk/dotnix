@@ -51,23 +51,12 @@ with ulib;
               run = "plugin --sync smart-enter";
               desc = "Enter the child directory, or open the file";
             }
-            # {
-            #   on = ["<C-n>"];
-            #   run = ''shell 'dragon -x -i -T "$1"' --confirm'';
-            # }
 
             {
               on = ["f"];
               run = "plugin jump-to-char";
               desc = "Jump to char";
             }
-
-            # {
-            #   # FIXME
-            #   on = ["C"];
-            #   run = ["plugin chmod"];
-            #   # run = ["yank" "shell --confirm 'echo \"$@\" | xclip -i -selection clipboard'"];
-            # }
 
             {
               on = ["<C-x>"];
@@ -76,15 +65,15 @@ with ulib;
               '';
             }
 
-            # {
-            #   on = ["y"];
-            #   run = [
-            #     "yank"
-            #     ''
-            #       shell 'echo "$@" | xclip -i -selection clipboard -t text/uri-list' --confirm
-            #     ''
-            #   ];
-            # }
+            {
+              on = ["<C-y>"];
+              run = ["plugin system-clipboard"];
+            }
+
+            {
+              on = ["C"];
+              run = ["plugin chmod"];
+            }
 
             {
               on = ["T"];
@@ -112,8 +101,8 @@ with ulib;
             "smart-enter"
             "max-preview"
             "jump-to-char"
-            # "copy-file" # FIXME
-            # "chmod" # FIXME
+            "system-clipboard"
+            "chmod"
           ]
         );
 
@@ -134,14 +123,14 @@ with ulib;
             max_height = 2000;
           };
 
-          opener = {
-            edit = [
-              {
-                run = ''nvim "$@"'';
-                block = true;
-              }
-            ];
-          };
+          # opener = {
+          #   edit = [
+          #     {
+          #       run = ''nvim "$@"'';
+          #       block = true;
+          #     }
+          #   ];
+          # };
         };
 
         flavors = {
@@ -156,5 +145,6 @@ with ulib;
       };
     })
   (homePackages (with pkgs; [
-    xdragon # Drag & Drop functionality # Redundant when one can simple copy paste. # Couldn't get copying mechanism to work.
+    # xdragon # Drag & Drop functionality # Use system-clipboard instead.
+    clipboard-jh
   ]))
