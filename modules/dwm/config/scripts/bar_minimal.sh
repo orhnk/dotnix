@@ -12,7 +12,7 @@ interval=0
 . ~/.config/chadwm/scripts/bar_themes/dynamic # use dynamic for system-wide colors or anything under bar_themes folder for a specific one
 
 cpu() {
-	cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
+	cpu_val=$(vmstat 1 2 | tail -n 1 | awk '{print 100 - $15"%"}')
 	printf "^c$magenta^ ^b$black^ $cpu_val"
 }
 

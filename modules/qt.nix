@@ -6,8 +6,12 @@
 }:
 with ulib;
   graphicalConfiguration {
+    # FIXME
     qt = enabled {
-      platformTheme.name = "adwaita";
-      style.name = "adwaita";
+      platformTheme = "gtk";
+      style = {
+        name = "gtk2";
+        package = pkgs.libsForQt5.breeze-qt5;
+      };
     };
   }

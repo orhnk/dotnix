@@ -17,14 +17,14 @@ with theme;
       rofi-dmenu = "rofi -dmenu -i";
       rofi-app-launcher = "rofi -show drun";
       terminal-emulator = "ghostty";
-      selection-to-editor = "kitty sh -c 'xclip -o | nvim -'";
+      selection-to-editor = "kitty sh -c 'xclip -o | $EDITOR'";
       clipboard-dump = "greenclip print";
       web-browser = "vieb";
       clipboard_daemon = "greenclip daemon";
-      # automount-script = "${lib.getExe pkgs.udiskie}";
+      screenshot-region = "${lib.getExe pkgs.flameshot} gui";
+      screenshot-screen = "${lib.getExe pkgs.flameshot} screen";
+      screenshot-full = "${lib.getExe pkgs.flameshot} full"; # screenshot all screens
 
-      powermenu_script = builtins.readFile ../rofi/scripts/powermenu.sh;
-      screenshotter = builtins.readFile ../rofi/scripts/screenshot.sh;
       pulse-selector = builtins.readFile ../rofi/scripts/pulse-select.sh;
 
       system-theme = import ./themes/system/siduck {inherit theme;};
@@ -36,9 +36,10 @@ with theme;
         #define CLIPBOARD_MANAGER       "${clipboard-dump} | ${rofi-dmenu} | xclip -selection clipboard"
         #define SELECTION_TO_EDITOR     "${selection-to-editor}"
         #define WEB_BROWSER             "${web-browser}"
-        // #define POWERMENU               "${pkgs.writeScript "powermenu" powermenu_script}"
         #define POWERMENU               "${lib.getExe pkgs.rofi} -show p -modi p:'rofi-power-menu --symbols-font \"Symbols Nerd Font Mono\"' -theme-str 'window {width: 8em;} listview {lines: 6;}'"
-        #define SCREENSHOTTER           "${pkgs.writeScript "screenshot" screenshotter}"
+        #define SCREENSHOT_REGION       "${screenshot-region}"
+        #define SCREENSHOT_SCREEN       "${screenshot-screen}"
+        #define SCREENSHOT_FULL         "${screenshot-full}"
         #define PULSE_SELECTOR          "${pkgs.writeScript "pulse-selector" pulse-selector}"
         #define EMOJI_PICKER            "${lib.getExe pkgs.rofimoji}"
 
@@ -59,6 +60,7 @@ with theme;
       '';
     in
       systemConfiguration {
+        hardware.graphics = enabled;
         hardware.opengl = enabled {
           # On 64-bit systems, if you want OpenGL for 32-bit programs
           # such as in Wine, you should also set the following:
@@ -113,12 +115,33 @@ with theme;
         ./config
       ];
     };
+
+    services.flameshot = enabled {
+      settings = {
+        General = {
+          contrastOpacity = 63;
+          jpegQuality = 75;
+          predefinedColorPaletteLarge = false;
+          showHelp = false;
+          showMagnifier = true;
+          showStartupLaunchMessage = false;
+          squareMagnifier = true;
+          uiColor = "${theme.withHashtag.base02}";
+          uploadWithoutConfirmation = true;
+        };
+      };
+    };
   }))
   (homePackages
     (with pkgs; [
-      # chadwm: screenshot tool (used with xclip)
-      maim
-      xdotool # get curr win. SS'ing scripts.
+      # ksnip # Featureful
+      # flameshot # Featureful # Installed via services.flameshot
+
+      ## [ # chadwm: screenshot tool (used with xclip)
+      # maim
+      # xdotool # get curr win. SS'ing scripts.
+      ## ]
+
       xclip # also mentioned in nvim config
 
       # copyq                   # featureful clipboard manager
@@ -135,9 +158,4 @@ with theme;
 
       simplescreenrecorder
 
-      # TODO: move to orhanwm
-      xorg.xmodmap # needed for orhanwm
-      sx #
-      pkg-config # TODO: Move to cargo
-      fontconfig
     ]))

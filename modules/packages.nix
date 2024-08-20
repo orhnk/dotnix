@@ -41,8 +41,8 @@ with ulib;
   ]))
   (graphicalPackages (with pkgs; [
     # Graphical
-    # xournalpp # Note taking app too advanced with ugly UI
-    rnote # Minimal Note taking app
+    # xournalpp # Advanced note taking with ugly UI some features aren't really good.
+    rnote # Minimal Note taking app (rust + gtk) 
     # pinta # Windows Paint
     gimp
 

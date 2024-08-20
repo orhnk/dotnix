@@ -128,7 +128,7 @@
             then "light"
             else "dark";
 
-          wallpaperPath = "${wallpapers}/${colorscheme}/favorites/pond_shed.png";
+          wallpaperPath = "${wallpapers}/${colorscheme}/favorites";
           # wallpaperPath = "${wallpapers}/${colorscheme}";
           wallpaper =
             if builtins.pathExists wallpaperPath
@@ -139,22 +139,21 @@
 
           corner-radius = 0;
           border-width = 0;
-          app-contour = 3;
 
           font.size.normal = 10;
           font.size.big = 10;
 
-          # PRODUCTIVE #
+          # # PRODUCTIVE #
           font.sans.name = "Iosevka";
           font.sans.package = pkgs.nerdfonts.override {fonts = ["Iosevka"];};
-          margin = 0; # peak screen usage
-          padding = 0;
+          # margin = 0; # peak screen usage
+          # padding = 0;
 
-          # # AESTHETIC #
+          # AESTHETIC #
           # font.sans.name = "CozetteVector";
           # font.sans.package = pkgs.cozette;
-          # margin = 10;
-          # padding = 8;
+          margin = 10;
+          padding = 8;
 
           font.mono.name = font.sans.name;
           font.mono.package = font.sans.package;

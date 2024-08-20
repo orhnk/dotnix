@@ -20,20 +20,6 @@ with ulib;
 
           language-servers = ["nixd"];
         }
-        {
-          name = "cull";
-          injection-regex = "cull";
-          scope = "scope.cull";
-
-          comment-token = "#";
-          indent.unit = "\t";
-          indent.tab-width = 4;
-
-          file-types = ["cull"];
-          roots = ["build.cull"];
-
-          grammar = "python";
-        }
       ];
 
       languages.language-server.nixd.command = "nixd";
@@ -42,34 +28,34 @@ with ulib;
       settings.theme = "gruvbox";
 
       settings.editor = {
-        color-modes = true;
-        completion-replace = true;
-        completion-trigger-len = 0;
+        # color-modes = true;
+        # completion-replace = true;
+        # completion-trigger-len = 0;
         # cursor-shape.insert = "bar";
-        cursorline = true;
-        bufferline = "multiple";
-        file-picker.hidden = false;
-        idle-timeout = 300;
+        # cursorline = true;
+        # bufferline = "multiple";
+        # file-picker.hidden = false;
+        # idle-timeout = 300;
         line-number = "relative";
         shell = ["bash" "-c"];
-        text-width = 100;
+        # text-width = 100;
       };
 
-      settings.editor.indent-guides = {
-        character = "▏";
-        render = true;
-      };
+      # settings.editor.indent-guides = {
+      #   character = "▏";
+      #   render = true;
+      # };
 
-      settings.editor.statusline.mode = {
-        insert = "INSERT";
-        normal = "NORMAL";
-        select = "SELECT";
-      };
+      # settings.editor.statusline.mode = {
+      #   insert = "INSERT";
+      #   normal = "NORMAL";
+      #   select = "SELECT";
+      # };
 
-      settings.editor.whitespace = {
-        characters.tab = "→";
-        render.tab = "all";
-      };
+      # settings.editor.whitespace = {
+      #   characters.tab = "→";
+      #   render.tab = "all";
+      # };
 
       settings.keys =
         lib.genAttrs ["normal" "select"] (name: {
@@ -87,26 +73,26 @@ with ulib;
     };
   })
   (systemConfiguration {
-    environment.variables = {
-      EDITOR = "hx";
-      VISUAL = "hx";
-    };
+    # environment.variables = {
+    #   EDITOR = "hx";
+    #   VISUAL = "hx";
+    # };
   })
   (homePackages (with pkgs; [
     # CMAKE
     cmake-language-server
 
-    # GO
-    gopls
+    # # GO
+    # gopls
 
     # HTML
     vscode-langservers-extracted
 
-    # KOTLIN
-    kotlin-language-server
+    # # KOTLIN
+    # kotlin-language-server
 
-    # LATEX
-    texlab
+    # # LATEX
+    # texlab
 
     # LUA
     lua-language-server

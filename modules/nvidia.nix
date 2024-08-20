@@ -8,7 +8,9 @@
 with ulib;
   merge
   (systemConfiguration {
-    # nixpkgs.config.allowBroken = true;
+    boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_5_15; # conflicts with boot.nix. Lower version needed for legacy 390.
+
+    nixpkgs.config.allowBroken = true;
     nixpkgs.config.allowUnfree = true;
     nixpkgs.config.nvidia.acceptLicense = true;
     # Enable OpenGL
@@ -16,9 +18,9 @@ with ulib;
 
     # Load nvidia driver for Xorg and Wayland
     # services.xserver.videoDrivers = ["nvidiaLegacy390"]; # nVidia GeForce GT630
-    # services.xserver.videoDrivers = ["nvidia"];
+    services.xserver.videoDrivers = ["nvidia"];
 
-    # boot.blacklistedKernelModules = ["nouveau"];
+    boot.blacklistedKernelModules = ["nouveau"];
 
     hardware.nvidia = {
       # Modesetting is required.
@@ -44,8 +46,13 @@ with ulib;
       nvidiaSettings = true;
 
       # # Optionally, you may need to select the appropriate driver version for your specific GPU.
-      # package = config.boot.kernelPackages.nvidiaPackages.legacy_390; # BROKEN on nixpkgs
+      package = config.boot.kernelPackages.nvidiaPackages.legacy_390; # BROKEN on nixpkgs
     };
+
+    ## Fixes nvidia-smi but doesn't work globally (set it within a shell)
+    # environment.sessionVariables = {
+    #   LD_LIBRARY_PATH = "/run/opengl-driver/lib";
+    # };
   })
   (systemPackages [
     (pkgs.linuxPackages.nvidia_x11)

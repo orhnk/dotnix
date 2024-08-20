@@ -9,7 +9,7 @@ interval=0
 . ~/.config/chadwm/scripts/bar_themes/nordic
 
 cpu() {
-	cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
+	cpu_val=$(vmstat 1 2 | tail -n 1 | awk '{print 100 - $15"%"}')
 
 	printf "^c$black^ ^b$orange_bright^ 󰍛"
 	printf "^c$white^ ^b$grey^  $cpu_val"

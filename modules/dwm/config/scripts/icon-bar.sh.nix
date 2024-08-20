@@ -22,7 +22,7 @@ with theme.withHashtag; ''
     interval=0
 
     cpu() {
-    	cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
+    	cpu_val=$(vmstat 1 2 | tail -n 1 | awk '{print 100 - $15"%"}')
 
     	printf "^c${base00}^ ^b${base0A}^ $cpu_icon"
     	printf "^c${base07}^ ^b${base01}^  $cpu_val"

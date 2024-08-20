@@ -16,12 +16,12 @@ with ulib;
           dmenu = "rofi -dmenu -i";
 
           corner_radius = corner-radius;
-          gap_size = margin;
-          horizontal_padding = padding;
-          padding = padding;
+          gap_size = 10;
+          horizontal_padding = 8;
+          padding = 8;
 
           frame_color = base0A;
-          frame_width = app-contour;
+          frame_width = 3;
           separator_color = "frame";
           transparency = 10;
 

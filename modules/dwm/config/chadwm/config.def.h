@@ -65,22 +65,13 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static char *tags[] = {"0", "1", "2", "3", "4"};
+static char *tags[] = {"1", "2", "3", "4", "5"};
 
-static const char *eww[]                  = {"eww", "open", "eww", NULL                     };
-static const char *emacs[]                = {"emacs", NULL                                  };
-static const char *vim[]                  = {"neovide", NULL                                };
-static const char *firefox[]              = {"firefox", NULL                                };
 static const char *simplescreenrecorder[] = {"simplescreenrecorder", "--start-hidden", NULL };
 
 static const Launcher launchers[] = {
     /* command     name to display */
-    // {emacs,                ""},
-    // {vim,                  ""},
-    // {firefox,              ""},
-    /*{eww,                  "A"},*/
     {simplescreenrecorder, ""},
-    // { screen_save,   "" },
 };
 
 
@@ -156,17 +147,13 @@ static const Key keys[] = {
     {0,				XF86XK_MonBrightnessUp,		spawn,	{.v = light_up}},
     {0,				XF86XK_MonBrightnessDown,	spawn,	{.v = light_down}},
 
-    /*// screenshot fullscreen and cropped*/
-    /*{MODKEY|ControlMask,                XK_u,       spawn, SHCMD("maim | xclip -selection clipboard -t image/png")},*/
-    /*{MODKEY,                            XK_u,       spawn, SHCMD("maim --select | xclip -selection clipboard -t image/png")},*/
-    /*{MODKEY,                            XK_u,       spawn, SHCMD("maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png")},*/
-
     { MODKEY,                           XK_c,       spawn,          SHCMD(APP_LAUNCHER)        },
     { MODKEY,                           XK_g,       spawn,          SHCMD(EMOJI_PICKER)        },
     { MODKEY,                           XK_r,       spawn,          SHCMD(PULSE_SELECTOR)      },
     { MODKEY,                           XK_x,       spawn,          SHCMD(CLIPBOARD_MANAGER)   },
-    { MODKEY,                           XK_s,       spawn,          SHCMD("maim --select | xclip -selection clipboard -t image/png")},
-    { MODKEY,                           XK_u,       spawn,          SHCMD(SCREENSHOTTER)       },
+    { MODKEY,                           XK_s,       spawn,          SHCMD(SCREENSHOT_REGION)   },
+    { MODKEY|ControlMask,               XK_s,       spawn,          SHCMD(SCREENSHOT_SCREEN)   },
+    { MODKEY|ShiftMask,                 XK_s,       spawn,          SHCMD(SCREENSHOT_FULL)     },
     { MODKEY,                           XK_v,       spawn,          SHCMD(SELECTION_TO_EDITOR) },
     { MODKEY,                           XK_w,       spawn,          SHCMD(WEB_BROWSER)         },
     { MODKEY,                           XK_Return,  spawn,          SHCMD(TERMINAL_EMULATOR)   },
