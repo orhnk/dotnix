@@ -45,16 +45,7 @@ with ulib;
         warn-dirty = false;
       };
     };
-
-    # programs.nix-ld = enabled {
-    #   libraries = with pkgs; [
-    #     xorg.libX11
-    #     xorg.libXcursor
-    #     xorg.libxcb
-    #     xorg.libXi
-    #     libxkbcommon
-    #   ];
-    # };
+    programs.nix-ld = enabled {};
   })
   (systemPackages (with pkgs; [
     nix-output-monitor

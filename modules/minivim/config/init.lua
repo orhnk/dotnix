@@ -44,6 +44,7 @@ end)
 vim.o.cmdheight = 0
 vim.o.laststatus = 0
 vim.o.statusline = ""
+-- vim.cmd.syntax "off" -- High productivity
 
 -- Auto cd into buffer
 vim.cmd [[ set autochdir ]]

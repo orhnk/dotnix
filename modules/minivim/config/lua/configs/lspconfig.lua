@@ -17,7 +17,7 @@ return {
       "clangd",        -- C/C++
       "rust_analyzer", -- Rust
       "cmake",         -- CMake
-      "nil_ls",        -- Nix
+      "nixd",          -- Nix
       "taplo",         -- TOML
       "zls"            -- Zig
     }
@@ -37,6 +37,5 @@ return {
       on_init = on_init,
       capabilities = capabilities,
     }
-
   end,
 }

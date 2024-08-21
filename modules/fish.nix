@@ -2,6 +2,7 @@
   lib,
   pkgs,
   ulib,
+  config,
   ...
 }:
 with ulib;
@@ -16,8 +17,10 @@ with ulib;
       shellAliases = {
         e = "$EDITOR";
       };
+
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
+        set NIX_LD = ${config.environment.variables.NIX_LD} 
 
         # SET UP CARAPCE COMPLETIONS #
         set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense' # optional

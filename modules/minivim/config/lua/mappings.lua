@@ -34,6 +34,20 @@ local nvmappings_ns = {
   -- Git
   ["<leader>gc"] = { "<cmd> Telescope git_commits <cr>", "Git Commits" },
 
+  -- Terminal
+  ["<leader>hh"] = {
+    function()
+      require("nvchad.term").new { pos = "sp"  }
+    end,
+    "Horizontal Terminal";
+  },
+  ["<leader>vv"] = {
+    function()
+      require("nvchad.term").new { pos = "vsp" }
+    end,
+    "Vertical Terminal",
+  },
+
   -- Other
   ["<leader>ht"] = { "<cmd> Telescope themes <cr>", "Themes" },
   ["<leader>nn"] = { "<cmd> set nu! <cr>", "Toggle LNum"     },
@@ -54,7 +68,6 @@ local nvdelmap = {
   "<leader>fo",
   "<leader>ma",
   "<leader>cm",
-  -- "<leader>",
 
   "<C-n>",
 }

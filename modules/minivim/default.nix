@@ -110,8 +110,8 @@ with ulib;
     };
   })
   (homePackages (with pkgs; [
-    neovide
-    
+    # neovide
+
     lazygit
     # WakaTime Status Tracker
     wakatime
@@ -135,8 +135,7 @@ with ulib;
     # NIX
     alejandra
 
-    # nixd
-    nil
+    nixd
     deadnix
 
     # # PYTHON

@@ -119,7 +119,7 @@
         ["nixSuper" "ghostty"]
         (name: inputs.${name}.packages.${system}.default);
 
-      colorscheme = "gruvbox-material-dark-medium";
+      colorscheme = "monochrome";
 
       theme = themes.custom (themes.raw.${colorscheme}
         // rec {
@@ -128,13 +128,14 @@
             then "light"
             else "dark";
 
-          wallpaperPath = "${wallpapers}/${colorscheme}/favorites";
-          # wallpaperPath = "${wallpapers}/${colorscheme}";
+          wallpaperPath = "${wallpapers}/${colorscheme}";
           wallpaper =
             if builtins.pathExists wallpaperPath
             then wallpaperPath
             else if builtins.pathExists "${inputs.wallpapers}/default"
             then "${inputs.wallpapers}/default"
+            else if builtins.pathExists "${inputs.wallpapers}/${colorscheme}"
+            then "${inputs.wallpapers}/${colorscheme}"
             else ./wallpaper.jpg;
 
           corner-radius = 0;
@@ -144,16 +145,16 @@
           font.size.big = 10;
 
           # # PRODUCTIVE #
-          font.sans.name = "Iosevka";
-          font.sans.package = pkgs.nerdfonts.override {fonts = ["Iosevka"];};
-          # margin = 0; # peak screen usage
-          # padding = 0;
+          # font.sans.name = "Iosevka";
+          # font.sans.package = pkgs.nerdfonts.override {fonts = ["Iosevka"];};
+          margin = 0; # peak screen usage
+          padding = 0;
 
           # AESTHETIC #
-          # font.sans.name = "CozetteVector";
-          # font.sans.package = pkgs.cozette;
-          margin = 10;
-          padding = 8;
+          font.sans.name = "CozetteVector";
+          font.sans.package = pkgs.cozette;
+          # margin = 10;
+          # padding = 8;
 
           font.mono.name = font.sans.name;
           font.mono.package = font.sans.package;
