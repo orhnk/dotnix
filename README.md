@@ -1,6 +1,7 @@
 # `.NIX` > `*NIX`
 
-![screenshot](https://github.com/user-attachments/assets/c565493a-c8b8-4e5e-a31b-b5204a4e650e)
+![2024-08-21_15-29](https://github.com/user-attachments/assets/eb825294-f358-4b28-866e-b4b05a75d476)
+
 
 ## Bootstrapping
 
