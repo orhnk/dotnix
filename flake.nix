@@ -128,31 +128,32 @@
             then "light"
             else "dark";
 
-          wallpaperPath = "${wallpapers}/${colorscheme}";
+          wallpaperPath = ./wallpaper.jpeg;
           wallpaper =
             if builtins.pathExists wallpaperPath
             then wallpaperPath
-            else if builtins.pathExists "${inputs.wallpapers}/default"
-            then "${inputs.wallpapers}/default"
-            else if builtins.pathExists "${inputs.wallpapers}/${colorscheme}"
-            then "${inputs.wallpapers}/${colorscheme}"
-            else ./wallpaper.jpg;
+            else if builtins.pathExists "${wallpapers}/default"
+            then "${wallpapers}/default"
+            else if builtins.pathExists "${wallpapers}/${colorscheme}"
+            then "${wallpapers}/${colorscheme}"
+            else ./wallpaper.jpeg;
 
           corner-radius = 0;
           border-width = 0;
 
-          font.size.normal = 10;
-          font.size.big = 10;
-
           # # PRODUCTIVE #
-          # font.sans.name = "Iosevka";
-          # font.sans.package = pkgs.nerdfonts.override {fonts = ["Iosevka"];};
+          font.size.normal = 10;
+          font.size.big = 13;
+          font.sans.name = "JetBrainsMono";
+          font.sans.package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
           margin = 0; # peak screen usage
           padding = 0;
 
           # AESTHETIC #
-          font.sans.name = "CozetteVector";
-          font.sans.package = pkgs.cozette;
+          # font.size.normal = 10;
+          # font.size.big = 10;
+          # font.sans.name = "CozetteVector";
+          # font.sans.package = pkgs.cozette;
           # margin = 10;
           # padding = 8;
 

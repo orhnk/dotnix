@@ -73,7 +73,7 @@ with theme;
           #   # "HDMI-0" # TODO: uncomment this
           #   "VGA-1"
           # ];
-          layout = "tr";
+          xkb.layout = "tr";
           # videoDrivers = ["nvidiaLegacy390"]; # nvidia GT630 # DEFINED IN NVIDIA's OWN CONFIG
 
           # # Enables Desktop Manager
@@ -90,7 +90,7 @@ with theme;
           };
 
           displayManager = {
-            gdm = enabled {};
+            gdm = enabled;
             defaultSession = "none+chadwm"; # nodesktopenv + wm ("none+i3")
             session = [
               {
@@ -157,5 +157,4 @@ with theme;
       feh
 
       simplescreenrecorder
-
     ]))

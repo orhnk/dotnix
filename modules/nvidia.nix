@@ -14,7 +14,7 @@ with ulib;
     nixpkgs.config.allowUnfree = true;
     nixpkgs.config.nvidia.acceptLicense = true;
     # Enable OpenGL
-    hardware.opengl = enabled;
+    hardware.graphics = enabled;
 
     # Load nvidia driver for Xorg and Wayland
     # services.xserver.videoDrivers = ["nvidiaLegacy390"]; # nVidia GeForce GT630

@@ -509,11 +509,11 @@
     },
     "themes": {
       "locked": {
-        "lastModified": 1722801124,
-        "narHash": "sha256-iFlL3CYByvVtV7kLr8X/IdVJauTka1r1joqFLN9nMz0=",
+        "lastModified": 1724245840,
+        "narHash": "sha256-Tg+hkHGgqQgTRuA2Q8QqWj/UJucIDOpqc+3xFvLFhms=",
         "owner": "orhnk",
         "repo": "PhoeNix",
-        "rev": "f35ede5772605e41288776fbbbf652c3074fbc77",
+        "rev": "82d5e6f69247724b9ccc2ed544ce9b5da948cc89",
         "type": "github"
       },
       "original": {
@@ -545,11 +545,11 @@
     "wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1722851503,
-        "narHash": "sha256-Ca6CS4P01L/75BtmioO6gOK7NI8wxLnq7GXv4i4B1eI=",
+        "lastModified": 1724340569,
+        "narHash": "sha256-kM8xwPAL4Q59zLBRtO3JtZFm+fd0vIZ+Zc6Kwul49sc=",
         "owner": "orhnk",
         "repo": "Wallpapers",
-        "rev": "7fef2bcb8583a95d45cbd73bac97e84fc2242665",
+        "rev": "debcb984b23be150f4ae61944b872d75f100a00e",
         "type": "github"
       },
       "original": {

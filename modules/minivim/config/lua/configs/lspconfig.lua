@@ -19,7 +19,10 @@ return {
       "cmake",         -- CMake
       "nixd",          -- Nix
       "taplo",         -- TOML
-      "zls"            -- Zig
+      "zls",           -- Zig
+
+      "ruff",          -- Python  Linter
+      "pyright",       -- Python  LSP
     }
 
     -- lsps with default config

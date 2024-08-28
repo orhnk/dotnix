@@ -18,7 +18,16 @@ with ulib;
     clipboard-jh # The only clipboard manageer
 
     # Productivity
-    porsmo # Cli Timer with libnotify + start-stop functionality
+    porsmo
+    # <my fork> Cli Timer with libnotify + start-stop functionality
+    # (porsmo.overrideAttrs (oldAttrs: {
+    #   src = fetchFromGitHub {
+    #     owner = "orhnk";
+    #     repo = "porsmo";
+    #     rev = "e38195400ba32fd8ae2c2426f5a4bc428a57f953";
+    #     sha256 = "";
+    #   };
+    # }))
 
     # Programming Language Dependencies
     cmake
@@ -38,13 +47,17 @@ with ulib;
     #       sha256 = "sha256-hAPySZprwRnfznUdF4WpJb3JfhuRLn47FY9DJkfypYk=";
     #     };
     #   }))
+
+    mtpfs
+    libmtp
+    simple-mtpfs
   ]))
   (graphicalPackages (with pkgs; [
     # Graphical
     # xournalpp # Advanced note taking with ugly UI some features aren't really good.
-    rnote # Minimal Note taking app (rust + gtk) 
+    # rnote # Minimal Note taking app (rust + gtk) # using fireshot's screenshot painting
     # pinta # Windows Paint
-    gimp
+    # gimp
 
     wpsoffice
 
@@ -63,8 +76,11 @@ with ulib;
     yewtube # Super productive youtube cli
 
     # Productivity
+    # todoist-electron # use google tasks
     obsidian
     anki-bin # Remembering stuff app - flashcards also anki-bin is newer compared to anki. https://nixos.wiki/wiki/Anki
+    # notion-app-enhanced # Broken?
+    # anytype # Notion alternative
     # polar-bookshelf # NOT WORKING
     calibre # Ebook Manager
 

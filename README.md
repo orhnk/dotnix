@@ -2,7 +2,6 @@
 
 ![2024-08-21_15-29](https://github.com/user-attachments/assets/eb825294-f358-4b28-866e-b4b05a75d476)
 
-
 ## Bootstrapping
 
 Here is the script you need to run to get this working:
@@ -61,9 +60,8 @@ Parameters:
 
 ### Productivity
 
-Feeling unproductive and ricing your NixOS all day?
-I was one. Then I've found out that using a somewhat
-ugly was helping me. So you can use the "Productive"
+Feeling unproductive and ricing your NixOS all day? I was one. Then I've found
+out that using a somewhat ugly was helping me. So you can use the "Productive"
 theme under the flake instead of the one that's aesthetic.
 
 ## NOTES
@@ -71,13 +69,17 @@ theme under the flake instead of the one that's aesthetic.
 ### My System Is Running Out Of Space ...
 
 ```sh
-nix-collect-garbage --delete-older-than 3d
+nix-collect-garbage --delete-older-than 3d # delete older than 3 days
+nix-store --gc
 nix-store --gc --print-roots | grep ~ # If this has so many outputs, you need to delete older profiles manually and recollect garbage. (really helpful if your system is old)
 nix-store --verify --repair
 nix store optimise
 ```
 
 you could also use `nix-tree` to judge which package is needed or not.
+
+I also suggest using the package `dua`. call `dua interactive` on `/` and
+navigate through your volumed directories.
 
 ### Errors
 

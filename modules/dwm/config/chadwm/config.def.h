@@ -107,9 +107,9 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
-    { "[]=",      tile                   },    /* first entry is default */
+    { "[@]",      spiral                 },    /* first entry is default */
     { "[M]",      monocle                },
-    { "[@]",      spiral                 },
+    { "[]=",      tile                   },
     { "[\\]",     dwindle                },
     { "H[]",      deck                   },
     { "TTT",      bstack                 },
@@ -141,11 +141,11 @@ static const Key keys[] = {
     /* modifier                         key         function        argument */
 
     // brightness and audio 
-    {0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol}},
-    {0,                       XF86XK_AudioMute, spawn, {.v = mutevol }},
-    {0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol}},
-    {0,				XF86XK_MonBrightnessUp,		spawn,	{.v = light_up}},
-    {0,				XF86XK_MonBrightnessDown,	spawn,	{.v = light_down}},
+    {0, XF86XK_AudioLowerVolume,  spawn, {.v = downvol    } },
+    {0, XF86XK_AudioMute,         spawn, {.v = mutevol    } },
+    {0, XF86XK_AudioRaiseVolume,  spawn, {.v = upvol      } },
+    {0, XF86XK_MonBrightnessUp,   spawn, {.v = light_up   } },
+    {0, XF86XK_MonBrightnessDown, spawn, {.v = light_down } },
 
     { MODKEY,                           XK_c,       spawn,          SHCMD(APP_LAUNCHER)        },
     { MODKEY,                           XK_g,       spawn,          SHCMD(EMOJI_PICKER)        },
@@ -219,8 +219,8 @@ static const Key keys[] = {
     { MODKEY|ControlMask,               XK_g,       setlayout,      {.v = &layouts[10] } },
     { MODKEY|ControlMask|ShiftMask,     XK_t,       setlayout,      {.v = &layouts[13] } },
     { MODKEY,                           XK_space,   setlayout,      {0                 } },
-    { MODKEY|ControlMask,               XK_comma,   cyclelayout,    {.i = -1           } },
-    { MODKEY|ControlMask,               XK_period,  cyclelayout,    {.i = +1           } },
+    { MODKEY|ControlMask,               XK_Left,    cyclelayout,    {.i = -1           } },
+    { MODKEY|ControlMask,               XK_Right,   cyclelayout,    {.i = +1           } },
     { MODKEY,                           XK_0,       view,           {.ui = ~0          } },
     { MODKEY|ShiftMask,                 XK_0,       tag,            {.ui = ~0          } },
     { MODKEY,                           XK_comma,   focusmon,       {.i = -1           } },

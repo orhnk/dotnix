@@ -20,7 +20,7 @@ with ulib;
 
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
-        set NIX_LD = ${config.environment.variables.NIX_LD} 
+        set NIX_LD = ${config.environment.variables.NIX_LD}
 
         # SET UP CARAPCE COMPLETIONS #
         set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense' # optional

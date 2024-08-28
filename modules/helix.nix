@@ -24,8 +24,8 @@ with ulib;
 
       languages.language-server.nixd.command = "nixd";
 
-      # settings.theme = "base16_transparent"; # Adaptive but ugly
-      settings.theme = "gruvbox";
+      settings.theme = "base16_transparent"; # Adaptive but ugly
+      # settings.theme = "gruvbox";
 
       settings.editor = {
         # color-modes = true;
