@@ -509,11 +509,11 @@
     },
     "themes": {
       "locked": {
-        "lastModified": 1724245840,
-        "narHash": "sha256-Tg+hkHGgqQgTRuA2Q8QqWj/UJucIDOpqc+3xFvLFhms=",
+        "lastModified": 1728847051,
+        "narHash": "sha256-SAW6+7/bpcNlv3vbEn9ZyU6OYL2YnwvENrTXVarh8Rk=",
         "owner": "orhnk",
         "repo": "PhoeNix",
-        "rev": "82d5e6f69247724b9ccc2ed544ce9b5da948cc89",
+        "rev": "b34e08f128b859c68a0e1ed202465e9d4f773c20",
         "type": "github"
       },
       "original": {

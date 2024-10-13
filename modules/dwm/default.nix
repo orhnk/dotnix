@@ -76,11 +76,11 @@ with theme;
           xkb.layout = "tr";
           # videoDrivers = ["nvidiaLegacy390"]; # nvidia GT630 # DEFINED IN NVIDIA's OWN CONFIG
 
-          # # Enables Desktop Manager
-          # # Don't forget to set displayManager.defaultSession = "xfce";
-          # desktopManager = {
-          #   xfce = enabled {};
-          # };
+          # Enables Desktop Manager
+          # Don't forget to set displayManager.defaultSession = "xfce";
+          desktopManager = {
+            gnome = enabled;
+          };
 
           windowManager.dwm = enabled {
             package = pkgs.callPackage (import ./recompile.nix) {
@@ -91,12 +91,17 @@ with theme;
 
           displayManager = {
             gdm = enabled;
-            defaultSession = "none+chadwm"; # nodesktopenv + wm ("none+i3")
+            defaultSession = "gnome"; # nodesktopenv + wm ("none+i3")
             session = [
               {
                 manage = "window"; # window manager
                 name = "chadwm";
                 start = import ./scripts/boot-user.nix.sh {inherit xrandr-monitor-script config pkgs clipboard_daemon wallpaper;};
+              }
+              {
+                manage = "desktop";
+                name = "xfce";
+                start = "exec startxfce4";
               }
             ];
             # autoLogin = enabled { user = "nixos"; }; # Resulting a halt after boot on my machine

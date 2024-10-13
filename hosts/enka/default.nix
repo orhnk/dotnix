@@ -18,30 +18,30 @@ with ulib;
   (importModules [
     ./hardware.nix
 
-    "android-dev" # android development tools
+    # "android-dev" # android development tools
     "bat" # `cat` with wings
     # "blueman"      # Bluetooth thing
     "boot" # systemd-boot
     # "btop"         # System Monitor
-    "dconf" # System Theme Settings here.
+    # "dconf" # System Theme Settings here.
     # "discord"      # Let me sell my personal data
     # "dmenu"      # nushell issue #9497 Use rofi. Literally better.
-    "dunst" # Notification Daemon
+    # "dunst" # Notification Daemon
     "dwm" # wm that sucks less
-    "emacs" # BROKEN # So many features... IDK whether It's good or not.
+    # "emacs" # BROKEN # So many features... IDK whether It's good or not.
     # "embedded-dev"     # Embedded Dev Tools
     # "eww"          # Widgetzzz. Just distracting you and the configuration is just taking forever. I use dmenu instead.
     "eza" # Colorful ls command
     "feh" # Image Viewer & Wallpaper Manager
     "firefox" # Mozilla - pretends safe.
     "fish" # source of `fish-like` zsh extensions
-    "fonts" # System Fonts
+    # "fonts" # System Fonts
     # "fuzzel"       # Wayland App Launcher
     "ghostty" # New Zig terminal emulator
     "github" # Microsoft... + "howto"-like commands using AI
     "git" # Version Control System
-    "gtk" # GNU ToolKit
-    "helix" # NeoVi
+    # "gtk" # GNU ToolKit
+    # "helix" # NeoVi
     # "hyprland"     # Some animations... NOTE: enable with waybar + uncomment (Hyprland) in nushell/environment.nix.nu
     # "jetbrains" # Heavy but featureful IDE
     "kitty" # Good Terminal Emulator. Doesn't support pixel fonts though.
@@ -62,7 +62,7 @@ with ulib;
     # "orhanwm"      # Custom WM
     "packages" # Wide range of packages
     # "picom" # X Copmpositor for animations, blur, rounded corners etc.
-    "pulseaudio" # Works Better
+    # "pulseaudio" # Works Better
     "python" # The cool kid
     # "qt"           # Cute
     # "qutebrowser"  # Browser
@@ -74,13 +74,12 @@ with ulib;
     "st" # SUCKless Terminal (no one knows the real name)
     # "steck"        # pastebin client
     "sudo" # Just suDO It!
-    "thunderbird" # Email Client
     "tor" # Have nothing to hide bro.
     # "ved"          # Text Editor written in V Programming Language
     # "vimacs"       # feature-FULL NeoVim inspired by JetBrains ~ github: orhnk/vimacs
-    "minivim" # Minimalistic NeoVim
+    "minivim" # Minimalist NeoVim
     "vscode" # Microsoft. Again...
-    # "weechat"      # Weeee... # Just using GUI. Currently.
+    "weechat" # Weeee...
     # "waybar"       # wayland bar
     "mount" # Mounting Devices Automatically
     "yazi" # The supperior file manager

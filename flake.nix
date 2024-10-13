@@ -119,7 +119,7 @@
         ["nixSuper" "ghostty"]
         (name: inputs.${name}.packages.${system}.default);
 
-      colorscheme = "monochrome";
+      colorscheme = "ayu-light";
 
       theme = themes.custom (themes.raw.${colorscheme}
         // rec {

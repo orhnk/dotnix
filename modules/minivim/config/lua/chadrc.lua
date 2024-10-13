@@ -10,6 +10,11 @@ M.ui = {
   hl_override = {
     NvDashAscii = { bg = "none", fg = "orange" },
     NvDashButtons = { fg = "grey", bg = "none" },
+    Comment = { fg = "light_grey" },
+  },
+
+  hl_add = {
+    ["@comment"] = { link = "Comment" },
   },
 
   nvdash = {
