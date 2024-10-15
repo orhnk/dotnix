@@ -55,14 +55,14 @@ with ulib;
   (graphicalPackages (with pkgs; [
     # Graphical
     # xournalpp # Advanced note taking with ugly UI some features aren't really good.
-    # rnote # Minimal Note taking app (rust + gtk) # using fireshot's screenshot painting
+    rnote # Minimal Note taking app (rust + gtk) # using fireshot's screenshot painting
     # pinta # Windows Paint
     # gimp
 
     wpsoffice
 
     libnotify # notify-send
-    # qbittorrent
+    qbittorrent
     # thunderbird
     # whatsapp-for-linux
     xfce.thunar # File Manager
@@ -70,6 +70,7 @@ with ulib;
     # kazam # use maim instead
     # rustdesk
     brave
+    telegram-desktop
 
     mpv # Media Player
     # speedread # spead read the docs from the terminal, awesome!
