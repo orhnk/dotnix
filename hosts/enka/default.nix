@@ -74,7 +74,7 @@ with ulib;
     "st" # SUCKless Terminal (no one knows the real name)
     # "steck"        # pastebin client
     "sudo" # Just suDO It!
-    "thunderbird" # Email Client
+    # "thunderbird" # Email Client
     "tor" # Have nothing to hide bro.
     # "ved"          # Text Editor written in V Programming Language
     # "vimacs"       # feature-FULL NeoVim inspired by JetBrains ~ github: orhnk/vimacs
