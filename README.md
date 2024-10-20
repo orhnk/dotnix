@@ -64,6 +64,14 @@ Feeling unproductive and ricing your NixOS all day? I was one. Then I've found
 out that using a somewhat ugly was helping me. So you can use the "Productive"
 theme under the flake instead of the one that's aesthetic.
 
+#### Monochrome
+
+Monochrome display is probably one of the most productive thing ever. Use your
+GPU's official settings (nvidia-settings for my setup). Or you can adjust your
+colors using third party apps like xcalib, xgamma, redshift etc. (if you can't
+achieve monochrome, use green-only or similar settings using your monitor's
+local hardware settings)
+
 ## NOTES
 
 ### My System Is Running Out Of Space ...
