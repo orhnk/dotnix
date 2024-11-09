@@ -57,9 +57,7 @@ with ulib;
     # xournalpp # Advanced note taking with ugly UI some features aren't really good.
     rnote # Minimal Note taking app (rust + gtk) # using fireshot's screenshot painting
     # pinta # Windows Paint
-    # gimp
-
-    wpsoffice
+    gimp
 
     libnotify # notify-send
     qbittorrent
@@ -74,7 +72,8 @@ with ulib;
 
     mpv # Media Player
     # speedread # spead read the docs from the terminal, awesome!
-    yewtube # Super productive youtube cli
+    # yewtube # Super productive youtube cli # broken
+    pipe-viewer
 
     # Productivity
     # todoist-electron # use google tasks
@@ -83,14 +82,15 @@ with ulib;
     # notion-app-enhanced # Broken?
     # anytype # Notion alternative
     # polar-bookshelf # NOT WORKING
-    calibre # Ebook Manager
 
-    # libreoffice
+    libreoffice
+    # wpsoffice
     hunspellDicts.en_US
     # hunspellDicts.en_GB-ize
   ]))
   (homeConfiguration {
     programs.fish.shellAliases = {
+      yt = "pipe-viewer --novideo";
       ttr = "trans -t tr";
       lynx = "lynx duckduckgo.com";
       links = "links duckduckgo.com";

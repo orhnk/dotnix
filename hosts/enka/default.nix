@@ -9,7 +9,7 @@ with ulib;
       description = "orhnk";
       useDefaultShell = true;
       ignoreShellProgramCheck = true;
-      extraGroups = ["wheel" "wireshark" "kvm" "adbusers"];
+      extraGroups = ["wheel" "wireshark" "kvm" "adbusers" "calibre-server" "calibre-web"];
     };
   })
   (homeConfiguration {
@@ -23,6 +23,7 @@ with ulib;
     # "blueman"      # Bluetooth thing
     "boot" # systemd-boot
     # "btop"         # System Monitor
+    "calibre"
     "dconf" # System Theme Settings here.
     # "discord"      # Let me sell my personal data
     # "dmenu"      # nushell issue #9497 Use rofi. Literally better.

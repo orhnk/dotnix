@@ -15,5 +15,7 @@ if [ ! -f $XDG_CONFIG_HOME/sxmo/xinit ]; then
   DISPLAY=:0 ${pkgs.feh}/bin/feh --bg-fill -z ${wallpaper}
 fi
 
+nvidia-settings --load-config-only
+
 while type dwm ; do ${config.services.xserver.windowManager.dwm.package}/bin/dwm && continue || break; done
 ''
