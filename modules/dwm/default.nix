@@ -26,6 +26,7 @@ with theme;
       screenshot-full = "${lib.getExe pkgs.flameshot} full"; # screenshot all screens
 
       pulse-selector = builtins.readFile ../rofi/scripts/pulse-select.sh;
+      layout-picker = builtins.readFile ../rofi/scripts/layout-picker.sh;
 
       system-theme = import ./themes/system/siduck {inherit theme;};
       xrandr-monitor-script = builtins.readFile ./scripts/monitor.sh;
@@ -42,10 +43,12 @@ with theme;
         #define SCREENSHOT_FULL         "${screenshot-full}"
         #define PULSE_SELECTOR          "${pkgs.writeScript "pulse-selector" pulse-selector}"
         #define EMOJI_PICKER            "${lib.getExe pkgs.rofimoji}"
+        #define LAYOUT_PICKER           "${pkgs.writeScript "layout-picker" layout-picker}"
 
         static const char *fonts[]          = {
           "${theme.font.sans.name}:size=${builtins.toString theme.font.size.normal}",
           "${theme.font.mono.name}:size=${builtins.toString theme.font.size.normal}",
+          "${theme.font.extra.name}:size=${builtins.toString theme.font.size.normal}",
           "Siji:size=20", // Bitmap gyliphs
           // "Iosevka:style:medium:size=12",
         }; //:size=10
@@ -68,12 +71,12 @@ with theme;
         };
 
         services.xserver = enabled {
+          xkb.layout = "tr";
           # xrandrHeads = [ # NOTE: No effect
           #   # do `xrandr --query` to get the names of your screens
           #   # "HDMI-0" # TODO: uncomment this
           #   "VGA-1"
           # ];
-          xkb.layout = "tr";
           # videoDrivers = ["nvidiaLegacy390"]; # nvidia GT630 # DEFINED IN NVIDIA's OWN CONFIG
 
           # # Enables Desktop Manager

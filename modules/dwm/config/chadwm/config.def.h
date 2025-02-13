@@ -147,6 +147,7 @@ static const Key keys[] = {
     {0, XF86XK_MonBrightnessUp,   spawn, {.v = light_up   } },
     {0, XF86XK_MonBrightnessDown, spawn, {.v = light_down } },
 
+    { MODKEY|ControlMask,               XK_space,   spawn,          SHCMD(LAYOUT_PICKER)       },
     { MODKEY,                           XK_c,       spawn,          SHCMD(APP_LAUNCHER)        },
     { MODKEY,                           XK_g,       spawn,          SHCMD(EMOJI_PICKER)        },
     { MODKEY,                           XK_r,       spawn,          SHCMD(PULSE_SELECTOR)      },

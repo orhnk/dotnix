@@ -7,17 +7,7 @@
 }:
 with ulib;
   merge
-  (let
-    no-statusline = ''
-      function Status:render() return {} end
-
-      local old_manager_render = Manager.render
-      function Manager:render(area)
-        return old_manager_render(self, ui.Rect { x = area.x, y = area.y, w = area.w, h = area.h + 1 })
-      end
-    '';
-  in
-    # KEYBINDINGS: https://yazi-rs.github.io/docs/quick-start
+  ( # KEYBINDINGS: https://yazi-rs.github.io/docs/quick-start
     # MORE ON NIX OPTIONS: https://mynixos.com/search?q=yazi
     # https://sourcegraph.com/github.com/nix-community/home-manager/-/blob/tests/modules/programs/yazi/settings.nix
     homeConfiguration {
@@ -25,22 +15,22 @@ with ulib;
       # xdg.configFile."yazi/plugins".source = ./config/plugins;
 
       programs.yazi = enabled {
-        # Bleeding edge
-        package = pkgs.yazi.overrideAttrs (oldAttr: {
-          src = pkgs.fetchFromGitHub {
-            owner = "sxyazi";
-            repo = "yazi";
-            rev = "a9eb218a5be4059633b9978c183537f28bd1203b";
-            sha256 = "sha256-nvcFDWZx/g65fT/+eaya0/MIATNvoCLQ0JXuUCgdE/I=";
-          };
-        });
+        # # Bleeding edge
+        # package = pkgs.yazi.overrideAttrs (oldAttr: {
+        #   src = pkgs.fetchFromGitHub {
+        #     owner = "sxyazi";
+        #     repo = "yazi";
+        #     rev = "a9eb218a5be4059633b9978c183537f28bd1203b";
+        #     sha256 = "sha256-nvcFDWZx/g65fT/+eaya0/MIATNvoCLQ0JXuUCgdE/I=";
+        #   };
+        # });
         enableFishIntegration = true;
         shellWrapperName = "fm"; # Alias with shell integration (auto cd etc.)
 
         initLua =
           # write configuration parts to file by concating in nix e.g no-statusline
           lib.concatStringsSep "\n" [
-            no-statusline
+            ''require("no-status"):setup()''
           ];
 
         keymap = {
@@ -103,6 +93,7 @@ with ulib;
             "jump-to-char"
             "system-clipboard"
             "chmod"
+            "no-status"
           ]
         );
 
@@ -143,7 +134,8 @@ with ulib;
           };
         };
       };
-    })
+    }
+  )
   (homePackages (with pkgs; [
     # xdragon # Drag & Drop functionality # Use system-clipboard instead.
     clipboard-jh

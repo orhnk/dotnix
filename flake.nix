@@ -160,6 +160,19 @@
           font.mono.name = font.sans.name;
           font.mono.package = font.sans.package;
 
+          font.extra = {
+            name = "IranNastaliq:size=14";
+            package = pkgs.stdenv.mkDerivation {
+              name = "iran-nastaliq-font";
+              src = ./modules/fonts/custom/IranNastaliq.ttf;
+              phases = ["installPhase"]; # Skip unpack and build phases
+              installPhase = ''
+                mkdir -p $out/share/fonts/truetype
+                cp $src $out/share/fonts/truetype/
+              '';
+            };
+          };
+
           icons.name = "Gruvbox-Plus-Dark";
           icons.package = pkgs.callPackage (import ./derivations/gruvbox-icons.nix) {};
         });

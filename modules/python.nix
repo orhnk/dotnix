@@ -16,7 +16,7 @@ with ulib;
         # pyserial # for arduino
       ]))
     virtualenv
-    # poetry
+    poetry
   ]))
   (homeConfiguration {
     programs.fish.shellAliases = {

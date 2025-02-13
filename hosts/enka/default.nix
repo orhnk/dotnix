@@ -24,6 +24,7 @@ with ulib;
     "boot" # systemd-boot
     # "btop"         # System Monitor
     "calibre"
+    # "cron" # Discipline your digital life / Scheduler
     "dconf" # System Theme Settings here.
     # "discord"      # Let me sell my personal data
     # "dmenu"      # nushell issue #9497 Use rofi. Literally better.

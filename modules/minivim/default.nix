@@ -119,8 +119,8 @@ with ulib;
     # Languages
     # codespell
 
-    # # C/C++
-    # cppcheck
+    # C/C++
+    cppcheck
     # clangd
     # # CMAKE
     # cmake-language-server
@@ -138,8 +138,9 @@ with ulib;
     nixd
     deadnix
 
-    # # PYTHON
-    # python311Packages.python-lsp-server
+    # PYTHON
+    python311Packages.python-lsp-server
+    ruff
 
     # RUST
     rust-analyzer

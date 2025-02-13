@@ -1,0 +1,111 @@
+{
+  "blocked": [
+    "chatgpt.com",
+    "chat.deepseek.com",
+    "wikipedia.com",
+    "libgen.is",
+    "z-lib.gs",
+    "R:^https?://([a-zA-Z0-9-]+\\.)+google\\.com",
+    "http://www.britannica.com/",
+    "http://www.researchgate.net/",
+    "http://www.loc.gov/",
+    "http://www.wiley.com/",
+    "*.org",
+    "*.gov",
+    "*.k12"
+  ],
+  "close": 0,
+  "contextmenu-frame": true,
+  "contextmenu-pause": true,
+  "contextmenu-resume": false,
+  "contextmenu-top": true,
+  "crate": 5,
+  "css": "",
+  "disable-actions-options": true,
+  "disable-actions-page": true,
+  "initialBlock": true,
+  "initialBlockCurrent": true,
+  "last-update": 1728851462512,
+  "map": {},
+  "message": "",
+  "no-password-on-add": false,
+  "notes": {
+    "*.gov": {
+      "date": 1739452620531,
+      "origin": "options"
+    },
+    "*.k12": {
+      "date": 1739452630789,
+      "origin": "options"
+    },
+    "*.org": {
+      "date": 1739452614858,
+      "origin": "options"
+    },
+    "R:^https?://([a-zA-Z0-9-]+\\.)+google\\.com": {
+      "date": 1739451826526,
+      "origin": "options"
+    },
+    "chat.deepseek.com": {
+      "date": 1739450167105,
+      "origin": "options"
+    },
+    "chatgpt.com": {
+      "date": 1739450157489,
+      "origin": "options"
+    },
+    "http://www.britannica.com/": {
+      "date": 1739452259099,
+      "origin": "options"
+    },
+    "http://www.loc.gov/": {
+      "date": 1739452329561,
+      "origin": "options"
+    },
+    "http://www.researchgate.net/": {
+      "date": 1739452319384,
+      "origin": "options"
+    },
+    "http://www.wiley.com/": {
+      "date": 1739452342138,
+      "origin": "options"
+    },
+    "libgen.is": {
+      "date": 1739450194541,
+      "origin": "options"
+    },
+    "wikipedia.com": {
+      "date": 1739450172050,
+      "origin": "options"
+    },
+    "z-lib.gs": {
+      "date": 1739451046530,
+      "origin": "options"
+    }
+  },
+  "notification": true,
+  "pause-periods": [
+    5,
+    10,
+    15,
+    30,
+    60,
+    360,
+    1440,
+    -1
+  ],
+  "redirect": "",
+  "reverse": true,
+  "schedule": {
+    "times": {}
+  },
+  "schedule-offset": 0,
+  "schedules": {},
+  "sha256": "",
+  "timeout": 60,
+  "title": true,
+  "wrong": 1,
+  "managed.storage.overwrite.on.start": false,
+  "guid": "6c190cc2-403b-4e23-96af-82c43816ee31"
+}
+

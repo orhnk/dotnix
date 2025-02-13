@@ -22,7 +22,7 @@ return {
       "zls",           -- Zig
 
       "ruff",          -- Python  Linter
-      "pyright",       -- Python  LSP
+      "pylsp",         -- Python  LSP
     }
 
     -- lsps with default config

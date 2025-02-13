@@ -51,13 +51,18 @@ with ulib;
     mtpfs
     libmtp
     simple-mtpfs
+    unzip
+
+    vt-cli # VirusTotal CLI (Virus Scanner)
+    yt-dlp
   ]))
   (graphicalPackages (with pkgs; [
     # Graphical
-    # xournalpp # Advanced note taking with ugly UI some features aren't really good.
+    xournalpp # Advanced note taking with ugly UI some features aren't really good.
     rnote # Minimal Note taking app (rust + gtk) # using fireshot's screenshot painting
     # pinta # Windows Paint
-    gimp
+    krita # Professionaller than gimp as far as I can tell.
+    # gimp
 
     libnotify # notify-send
     qbittorrent
@@ -79,9 +84,14 @@ with ulib;
     # todoist-electron # use google tasks
     obsidian
     anki-bin # Remembering stuff app - flashcards also anki-bin is newer compared to anki. https://nixos.wiki/wiki/Anki
+    foliate # Ebook reader - Using to store my annotations from kobo. The only one which supports importing annotations afaik.
+    p3x-onenote
     # notion-app-enhanced # Broken?
     # anytype # Notion alternative
     # polar-bookshelf # NOT WORKING
+    activitywatch # Screen time tracking app
+
+    sqlitestudio
 
     libreoffice
     # wpsoffice
@@ -89,6 +99,8 @@ with ulib;
     # hunspellDicts.en_GB-ize
   ]))
   (homeConfiguration {
+    services.activitywatch = enabled;
+
     programs.fish.shellAliases = {
       yt = "pipe-viewer --novideo";
       ttr = "trans -t tr";

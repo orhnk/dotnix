@@ -56,18 +56,19 @@ with ulib; (let
 in
   homeConfiguration {
     services.picom = enabled {
-      package = pkgs.picom.overrideAttrs (oldAttr: {
-        src = pkgs.fetchFromGitHub {
-          repo = "picom";
-          owner = "pijulius";
-          rev = "b8fe9323e7606709d692976a7fe7d2455b328bc6";
-          sha256 = "YiuLScDV9UfgI1MiYRtjgRkJ0VuA1TExATA2nJSJMhM=";
-        };
-        buildInputs = oldAttr.buildInputs ++ (with pkgs; [pcre]);
-        # nativeBuildInputs = oldAttr.nativeBuildInputs ++ (with pkgs; [pcre asciidoctor]);
-      });
+      # package = pkgs.picom.overrideAttrs (oldAttr: {
+      #   src = pkgs.fetchFromGitHub {
+      #     repo = "picom";
+      #     owner = "pijulius";
+      #     rev = "b8fe9323e7606709d692976a7fe7d2455b328bc6";
+      #     sha256 = "YiuLScDV9UfgI1MiYRtjgRkJ0VuA1TExATA2nJSJMhM=";
+      #   };
+      #   buildInputs = oldAttr.buildInputs ++ (with pkgs; [pcre]);
+      #   # nativeBuildInputs = oldAttr.nativeBuildInputs ++ (with pkgs; [pcre asciidoctor]);
+      # });
       # settings = config.bare // config.fancy-animations;
-      settings = config.cococry // config.bare;
+      # settings = config.cococry // config.bare;
+      settings = config.bare;
 
       # extraArgs = ["--xrender-sync-fence"];
     };
